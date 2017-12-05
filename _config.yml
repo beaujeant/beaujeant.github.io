@@ -1,0 +1,13 @@
+title:  Beaujeant
+
+description: >
+  IT Security | Pentester | Researcher<br>
+  twitter: <a href="https://twitter.com/beaujeant">@beaujeant</a><br>
+  <img src="https://beaujeant.github.io/resources/images/profile.jpg" alt="profile">
+baseurl: ""
+show_downloads: false
+
+twitter_username: beaujeant
+github_username:  beaujeant
+
+theme:  jekyll-theme-minimal
