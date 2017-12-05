@@ -1,3 +1,11 @@
+---
+layout: default
+permalink: /WAPT101/http/
+title: HTTP protocol
+---
+
+[<<](https://beaujeant.github.io/WAS101/components/) | [Table of content](https://beaujeant.github.io/WAS101/)
+
 HTTP protocol
 -------------
 
@@ -582,3 +590,5 @@ Nowadays browser embed by default useful tool to analyse the debug web applicati
 __LAB: Delete a div to read a document__
 
 __LAB: Find password by executing a specific function__
+
+[<<](https://beaujeant.github.io/WAS101/components/) | [Table of content](https://beaujeant.github.io/WAS101/)

@@ -1,7 +1,7 @@
 Workshops
 ---------
 
-* [Web Application Security 101](https://beaujeant.github.io/WAS101/)
+* [Web Application Penetration Testing 101](https://beaujeant.github.io/WAPT101/)
 * [Reverse Engineering a (M)MORPG](#)
 
 

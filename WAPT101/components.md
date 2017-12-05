@@ -1,3 +1,12 @@
+---
+layout: default
+permalink: /WAPT101/components/
+title: Components for a web application
+---
+
+
+[<<](https://beaujeant.github.io/WAS101/introduction/) | [Table of content](https://beaujeant.github.io/WAS101/) | [>>](https://beaujeant.github.io/WAS101/http/)
+
 Components for a web application
 --------------------------------
 
@@ -37,3 +46,5 @@ Most of the time, the user go on web server to view web pages. Those pages are w
  * __JavaScript__ allows you to add some logic on the browser side to improve the user experience*, e.g. creating a cascading menu when the pointer is on top of a text.
 
 > * it is important to note that JavaScript is only meant to improve the user experience, never for security reason.
+
+[<<](https://beaujeant.github.io/WAS101/introduction/) | [Table of content](https://beaujeant.github.io/WAS101/) | [>>](https://beaujeant.github.io/WAS101/http/)
