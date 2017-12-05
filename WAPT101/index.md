@@ -7,15 +7,15 @@ title: Web Application Penetration Testing 101
 [Home](https://beaujeant.github.io/)
 
 Web Application Penetration Testing 101
-----------------------------
+---------------------------------------
 
-* [Introduction](https://beaujeant.github.io/WAS101/introduction/)
+* [Introduction](https://beaujeant.github.io/WAPT101/introduction/)
 * [Lab setup](#)
   * Install
   * Structure
   * Troubleshooting
-* [Components for a web application](https://beaujeant.github.io/WAS101/components/)
-* [HTTP protocol](https://beaujeant.github.io/WAS101/http/)
+* [Components for a web application](https://beaujeant.github.io/WAPT101/components/)
+* [HTTP protocol](https://beaujeant.github.io/WAPT101/http/)
   * Communication client - server
   * HTTP request
   * HTTP response
