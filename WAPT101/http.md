@@ -9,7 +9,7 @@ title: HTTP protocol
 HTTP protocol
 -------------
 
-Before diving into web application, we need to first understand the protocol – or language – used between the client and the server to communicate, i.e. the __Hypertext Transfer Protocol __, also known as __HTTP__.
+Before diving into web application, we need to first understand the protocol – or language – used between the client and the server to communicate, i.e. the __Hypertext Transfer Protocol__, also known as __HTTP__.
 
 In this course, I will only cover the basis of the HTTP protocol, just enough to understand the rest of the course. However, I would highly recommend you to spend some time on the [HTTP/1.1 RFC](https://www.ietf.org/rfc/rfc2616.txt) document to have a better understanding of the protocol.
 

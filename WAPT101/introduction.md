@@ -24,7 +24,7 @@ Before starting the course, we will need to clarify what is a web application an
 
 A __web application__, also known as __web app__, is a client–server software application in which the client (or user interface) runs in a web browser. Common web applications include webmail, online retail sales, boards, blogs, wikis, instant messaging services and many other functions [[source](https://en.wikipedia.org/wiki/Web_application)].
 
-A __security vulnerability__ is a weakness which allows an attacker to reduce a system's information assurance [[source](https://en.wikipedia.org/wiki/Vulnerability_%28computing%29)]. Typically, a vulnerability will allow an attacker to compromise the __C__onfidentiality and/or the __I__ntegrity and/or the __A__vailability of a system, hence the [CIA](https://en.wikipedia.org/wiki/Information_security#Key_concepts) concept in IT security.
+A __security vulnerability__ is a weakness which allows an attacker to reduce a system's information assurance [[source](https://en.wikipedia.org/wiki/Vulnerability_%28computing%29)]. Typically, a vulnerability will allow an attacker to compromise the __C__​onfidentiality and/or the __I__​ntegrity and/or the __A__​vailability of a system, hence the [CIA](https://en.wikipedia.org/wiki/Information_security#Key_concepts) concept in IT security.
 
 
 [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/components/)
