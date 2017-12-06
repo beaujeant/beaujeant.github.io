@@ -4,9 +4,7 @@ permalink: /WAPT101/components/
 title: Components for a web application
 ---
 
----
-[<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/)
----
+| [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |
 
 Components for a web application
 --------------------------------
@@ -48,6 +46,4 @@ Most of the time, the user go on web server to view web pages. Those pages are w
 
 > Note: JavaScript is only meant to improve the user experience, never for security reason.
 
----
-[<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/)
----
+| [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |
