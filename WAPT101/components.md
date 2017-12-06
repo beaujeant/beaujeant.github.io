@@ -4,8 +4,9 @@ permalink: /WAPT101/components/
 title: Components for a web application
 ---
 
-
+---
 [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/)
+---
 
 Components for a web application
 --------------------------------
@@ -43,8 +44,10 @@ Each components use a different language, e.g. apache uses HTTP, JavaServer Page
 Most of the time, the user go on web server to view web pages. Those pages are written in _HTML_, _CSS_ and _JavaScript_ and can embed resources such as pictures, videos, Flash, etc. Here is a short description for each elements:
  * __HTML__ is used to define the elements (blocks, text, images, etc) and give the structure of the web page.
  * __CSS__ is meant for the design of the page, with the colors, margins, positions, etc.
- * __JavaScript__ allows you to add some logic on the browser side to improve the user experience*, e.g. creating a cascading menu when the pointer is on top of a text.
+ * __JavaScript__ allows you to add some logic on the browser side to improve the user experience, e.g. creating a cascading menu when the pointer is on top of a text.
 
-> * it is important to note that JavaScript is only meant to improve the user experience, never for security reason.
+> Note: JavaScript is only meant to improve the user experience, never for security reason.
 
+---
 [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/)
+---

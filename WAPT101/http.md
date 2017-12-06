@@ -4,7 +4,9 @@ permalink: /WAPT101/http/
 title: HTTP protocol
 ---
 
-[<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/)
+---
+[<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >>
+---
 
 HTTP protocol
 -------------
@@ -591,4 +593,6 @@ __LAB: Delete a div to read a document__
 
 __LAB: Find password by executing a specific function__
 
-[<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/)
+---
+[<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >>
+---
