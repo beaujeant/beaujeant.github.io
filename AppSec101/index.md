@@ -9,7 +9,7 @@ title: Application Security 101
 Application Security 101
 ------------------------
 
-* [Introduction](https://beaujeant.github.io/AppSec101/intruduction/)
+* [Introduction](https://beaujeant.github.io/AppSec101/introduction/)
 * [Lab environment](https://beaujeant.github.io/AppSec101/lab/)
   * Operating system
   * Tools
@@ -19,20 +19,20 @@ Application Security 101
   * Logic operation
   * Architecture
   * Memory
-* [Assembly](#)
+* Assembly
   * Instruction
   * Registers
   * Memory
   * Stack
   * Calling function
   * Calling convention
-* [Programming](#)
+* Programming
   * Arguments and variables
   * Dynamic memory allocation
   * Compiler optimization
-* [Buffer overflow](#)
-* [Use-after-free](#)
-* [Format string](#)
-* [Integer over/underflow](#)
+* Buffer overflow
+* Use-after-free
+* Format string
+* Integer over/underflow
 
 [Home](https://beaujeant.github.io/)

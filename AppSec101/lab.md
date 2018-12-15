@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /AppSec101/introduction/
+permalink: /AppSec101/lab/
 title: Lab environment
 ---
 
