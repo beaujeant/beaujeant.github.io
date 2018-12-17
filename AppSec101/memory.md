@@ -2,6 +2,7 @@
 layout: default
 permalink: /AppSec101/memory/
 title: Memory
+nav_exclude: true
 ---
 
 | [<<](https://beaujeant.github.io/AppSec101/cpu/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/lab/) |

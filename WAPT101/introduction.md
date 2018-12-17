@@ -2,6 +2,7 @@
 layout: default
 permalink: /WAPT101/introduction/
 title: Introduction
+nav_exclude: true
 ---
 
 | << | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/components/) |

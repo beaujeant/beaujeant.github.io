@@ -2,6 +2,7 @@
 layout: default
 permalink: /AppSec101/lab/
 title: Lab environment
+nav_exclude: true
 ---
 
 | [<<](https://beaujeant.github.io/AppSec101/memory/) | [Table of content](https://beaujeant.github.io/AppSec101/) | >> |
@@ -22,7 +23,7 @@ __Compiling__ is the process of transforming computer code written in one progra
 
 For this course, we decided to use the standard __Ubuntu 32-bit Desktop__ distribution. We could have found a much lighter Operating System (OS) which would have been sufficient for what we need, however, we thought this would be easier to install configure and maintain. Furthermore, Ubuntu is free and widely used, so there is a high chance you already encountered and used it, so you should feel already comfortable with it.
 
- As mentioned in the [introduction](https://beaujeant.github.io/AppSec101/introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 application on 64-bit operating systems, using a 32-bit OS will reduce the dependency and environment complexity.
+As mentioned in the [introduction](https://beaujeant.github.io/AppSec101/introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 application on 64-bit operating systems, using a 32-bit OS will reduce the dependency and environment complexity.
 
 #### Download
 

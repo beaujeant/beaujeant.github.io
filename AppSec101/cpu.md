@@ -2,6 +2,7 @@
 layout: default
 permalink: /AppSec101/cpu/
 title: Central Processor Unit
+nav_exclude: true
 ---
 
 | [<<](https://beaujeant.github.io/AppSec101/introduction/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/memory/) |
@@ -20,13 +21,13 @@ Operations have one or two parameters (e.g. `5 + 2` has two parameters: `5` and 
 
 Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensors). Once the operation done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
 
-<image CPU + memory + I/O>
+__*image CPU + memory + I/O*__
 
 As you can see, the __control unit__ is doing a lot in the CPU. It orchestrates the four elements (i.e. memory, arithmetic unit, input and output) and route the data across them. The control unit doesn't magically work on its own. It needs instructions to follow. Instruction such as "take the value located here in memory and send it to the arithmetic unit to execute the following operation". Those sequences of instruction is the program itself. Whenever a programmers compiles code, they actually create a binary application that contains a list of CPU instructions that the control unit will execute. When the program is running, instructions are loaded in memory and read by the control unit. Once executed, the control unit will look at the instruction located right after in memory – unless the instruction executed redirected the execution flow somewhere else (with a jump for instance).
 
 Now, lets focus on the __arithmetic unit__ and its principal component: the __A__​rithmentic __L__​ogic __U__​nit (ALU). ALU can be represented as follow:
 
-<image of ALU>
+__* image of ALU*__
 
 It has three inputs (_input A_, _input B_ and the _command_) and two outputs (_output_ and _status output_):
 
@@ -186,7 +187,7 @@ So, why using base 16 and not 10 you may ask. Their are multiple reasons but the
 * It is easier to convert binary number in hexadecimal and the other way around. Four binary values can always be represented with one hexadecimal value. So this means if you want to convert from hexadecimal to binary, you first need to chunk the number character by character and convert them in their respective 4 binary values.
 * This is related to the first reason, but hexadecimal value aligns with its binary equivalent. For instance, the number 9 (decimal) is 1001 in binary. One symbol in decimal for four symbols in binary. Now the number 12 (decimal) is 1100 in binary. Two symbols in decimal but still four symbols in binary. Now 18 (decimal) is 10010 in binary. Two symbols in decimal and 5 in binary. All this long example to explain that there is not a direct correlation with the amount a symbol in decimal and binary. However, since both hexadecimal and binary are bases that are powers of 2, it all aligns. 1-4 symbols in binary will always be 1 symbol in hexadecimal. 5-8 symbols in binary will always be 2 symbols in hexadecimal, etc.
 
-<image of an number in bits chunk in block of 4 bits corresponding to hexdecimal printed below>
+__*image of an number in bits chunk in block of 4 bits corresponding to hexdecimal printed below*__
 
 This might not seems interesting at first sight, but with experience, you will notice hexadecimal comes handy.
 
@@ -197,7 +198,7 @@ This might not seems interesting at first sight, but with experience, you will n
 
 Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](https://beaujeant.github.io/AppSec101/memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
 
-<image comparison data type>
+__*image comparison data type*__
 
 > Note: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [source](https://en.wikipedia.org/wiki/Bit_numbering)
 
@@ -219,7 +220,7 @@ Here is the explanation for the conversion of [single precision](https://en.wiki
 
 A character (`char` in C) is typically one byte long. It (usually) contains one printable character using the ASCII encoding standard.
 
-<image of ASCII from terminal>
+__*image of ASCII from terminal*__
 
 So for instance, the character `A` (uppercase) is `0x41` in hexadecimal and the ASCII character `1` is not `0x01` but `0x31` in hexadecimal.
 

@@ -1,3 +1,9 @@
+---
+layout: default
+permalink: /
+title: Resources
+---
+
 Workshops
 ---------
 

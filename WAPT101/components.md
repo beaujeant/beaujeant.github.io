@@ -2,6 +2,7 @@
 layout: default
 permalink: /WAPT101/components/
 title: Components for a web application
+nav_exclude: true
 ---
 
 | [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |

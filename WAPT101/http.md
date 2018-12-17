@@ -2,6 +2,7 @@
 layout: default
 permalink: /WAPT101/http/
 title: HTTP protocol
+nav_exclude: true
 ---
 
 | [<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >> |
