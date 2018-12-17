@@ -10,4 +10,4 @@ show_downloads: false
 twitter_username: beaujeant
 github_username:  beaujeant
 
-theme:  jekyll-theme-minimal
+remote_theme: pmarsceill/just-the-docs
