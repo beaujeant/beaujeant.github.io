@@ -4,7 +4,7 @@ permalink: /AppSec101/lab/
 title: Lab environment
 ---
 
-| [<<](https://beaujeant.github.io/AppSec101/introduction/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/cpu/) |
+| [<<](https://beaujeant.github.io/AppSec101/memory/) | [Table of content](https://beaujeant.github.io/AppSec101/) | >> |
 
 Lab environment
 ---------------
@@ -89,7 +89,7 @@ int mul(int x, int y)
 }
 ```
 
-Learning C is beyond the purpose of this course, so we assume you understand what this code does (i.e. mutliply 42 by 2 and print the result).
+Learning C is beyond the purpose of this course, so we assume you understand what this code does (i.e. it multiplies 42 by 2 and print the result).
 
 Now, in order to compile this code, you simply need to execute the following command:
 
@@ -97,7 +97,7 @@ Now, in order to compile this code, you simply need to execute the following com
 gcc mul.c -a mul
 ```
 
-This will compile `mul.c` and create the binary application `mul`. Now to run application, you simple need to execute the following command:
+This will compile `mul.c` and create the binary application `mul`. Now, in order to run application, you simply need to execute the following command:
 
 ```
 ./mul
@@ -113,7 +113,7 @@ gdb mul -q
 
 > Note: The option `-q` is avoid printing introducery and copyright message
 
-Now, we want to disassemble the `main()` so we know where to set a breakpoint.
+Now, we want to disassemble the `main()` function so we know where to set a breakpoint.
 
 ```
 (gdb) disassemble main
@@ -206,7 +206,7 @@ Starting program: /home/lab/mul
 Breakpoint 1, 0x08048454 in main ()
 ```
 
-As you can see, at this stage, the application already did the mutliplication and printed the result. Once the breakpoint reached, the application pauses. At this point, you can read (and write) memory, instructions and registers. To view the registers, you can run the command:
+As you can see, at this stage, the application already did the multiplication and printed the result. Once the breakpoint reached, the application pauses. At this point, you can read (and write) memory, instructions and registers. To view the registers, you can run the command:
 
 ```
 (gdb) info registers
@@ -261,7 +261,7 @@ Now, if we want to see the opcode instead of the instruction, we have to change 
 0x8048454 <main+73>:	0xb8	0x00	0x00	0x00	0x00
 ```
 
-> Note: Unlike ARM, x386 instruction length is variable, so we first need to read the first byte to know how long will be the instruction in opcode. For instance, 0xb8 means move the next 4 bytes (word) in EAX. So the entire instruction is 1 byte (`0xb8`) + 4 bytes (value to copy in EAX) = 5 bytes. While `0x89` means moving the value of a register into another register. The following byte will indicate which is the source register and the destination register. For instance `0xc8` would means source = ECX and destination = EAX, which means `89 c8` means `mov eax, ecx`. So the entire instruction is 1 byte (`0x89`) + 1 byte (source/destination register) = 2 bytes.
+> Note: Unlike ARM, x386 instruction length is variable, so we first need to read the first byte to know how long will be the instruction in opcode. For instance, `0xb8` means move the next 4 bytes (word) in EAX. So the entire instruction is 1 byte (`0xb8`) + 4 bytes (value to copy in EAX) = 5 bytes. Whilst `0x89` means moving the value of a register into another register. The following byte will indicate which is the source register and the destination register. For instance `0xc8` would means source is ECX and destination is EAX, which means `89 c8` means `mov eax, ecx`. So the entire instruction is 1 byte (`0x89`) + 1 byte (source/destination register) = 2 bytes.
 
 Now that we know how to read memory, let's navigate through the instructions. The four main commands to remember are `run`, `continue`, `nexti` and `stepi`:
 
@@ -410,4 +410,4 @@ Num     Type           Disp Enb Address    What
 
 That's it for now. In the next exercises, we will go a bit deeper with the usage of gdb.
 
-| [<<](https://beaujeant.github.io/AppSec101/introduction/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/cpu/) |
+| [<<](https://beaujeant.github.io/AppSec101/memory/) | [Table of content](https://beaujeant.github.io/AppSec101/) | >> |

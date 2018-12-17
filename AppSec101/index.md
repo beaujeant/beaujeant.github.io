@@ -10,15 +10,28 @@ Application Security 101
 ------------------------
 
 * [Introduction](https://beaujeant.github.io/AppSec101/introduction/)
+* [CPU](https://beaujeant.github.io/AppSec101/cpu/)
+  * CPU structure
+  * Data/information
+  * Binary numeral system
+  * Logic operation
+* [Memory](https://beaujeant.github.io/AppSec101/cpu/)
+  * Registers
+  * Stack
+  * Static/hard coded data
+  * Heap
+  * Instruction
+  * Imported libraries
+  * Kernel and userland
 * [Lab environment](https://beaujeant.github.io/AppSec101/lab/)
   * Operating system
   * Tools
-* [CPU](https://beaujeant.github.io/AppSec101/cpu/)
-  * Purpose
-  * Binary numeral system
-  * Logic operation
-  * Architecture
-  * Memory
+* Programming
+  * Arguments and variables
+  * Dynamic memory allocation
+  * Import table
+  * Common functions
+  * Compiler optimization
 * Assembly
   * Instruction
   * Registers
@@ -26,10 +39,6 @@ Application Security 101
   * Stack
   * Calling function
   * Calling convention
-* Programming
-  * Arguments and variables
-  * Dynamic memory allocation
-  * Compiler optimization
 * Buffer overflow
 * Use-after-free
 * Format string
