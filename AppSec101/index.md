@@ -14,7 +14,7 @@ Application Security 101
   * Data/information
   * Binary numeral system
   * Logic operation
-* [Memory](https://beaujeant.github.io/appsec101/cpu/)
+* [Memory](https://beaujeant.github.io/appsec101/memory/)
   * Registers
   * Stack
   * Static/hard coded data
