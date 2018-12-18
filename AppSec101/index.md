@@ -8,13 +8,13 @@ has_children: true
 Application Security 101
 ------------------------
 
-1. [Introduction](https://beaujeant.github.io/AppSec101/introduction/)
-1. [CPU](https://beaujeant.github.io/AppSec101/cpu/)
+1. [Introduction](https://beaujeant.github.io/appsec101/introduction/)
+1. [CPU](https://beaujeant.github.io/appsec101/cpu/)
    * CPU structure
    * Data/information
    * Binary numeral system
    * Logic operation
-1. [Memory](https://beaujeant.github.io/AppSec101/cpu/)
+1. [Memory](https://beaujeant.github.io/appsec101/cpu/)
    * Registers
    * Stack
    * Static/hard coded data
@@ -22,10 +22,10 @@ Application Security 101
    * Instruction
    * Imported libraries
    * Kernel and userland
-1. [Lab environment](https://beaujeant.github.io/AppSec101/lab/)
+1. [Lab environment](https://beaujeant.github.io/appsec101/lab/)
    * Operating system
    * Tools
-1. Programming
+1. [Programming](https://beaujeant.github.io/appsec101/programming/)
    * Arguments and variables
    * Dynamic memory allocation
    * Import table
