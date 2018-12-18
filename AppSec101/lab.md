@@ -5,7 +5,8 @@ parent: Application Security 101
 nav_order: 4
 ---
 
-| [<<](https://beaujeant.github.io/AppSec101/memory/) | [Table of content](https://beaujeant.github.io/AppSec101/) | >> |
+[<< Memory](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
+[Programming >>](https://beaujeant.github.io/appsec101/programming/){: .btn .btn-outline }
 
 Lab environment
 ---------------
@@ -411,4 +412,5 @@ Num     Type           Disp Enb Address    What
 
 That's it for now. In the next exercises, we will go a bit deeper with the usage of gdb.
 
-| [<<](https://beaujeant.github.io/AppSec101/memory/) | [Table of content](https://beaujeant.github.io/AppSec101/) | >> |
+[<< Memory](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
+[Programming >>](https://beaujeant.github.io/appsec101/programming/){: .btn .btn-outline }

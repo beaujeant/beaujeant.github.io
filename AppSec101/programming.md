@@ -5,7 +5,8 @@ parent: Application Security 101
 nav_order: 5
 ---
 
-| [<<](https://beaujeant.github.io/AppSec101/assembly/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/bof/) |
+[<< Lab setup](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
+[Buffer overflow >>](https://beaujeant.github.io/appsec101/bof/){: .btn .btn-outline }
 
 Programming
 -----------
@@ -36,4 +37,5 @@ translation of C sending argument to asm. See call with ESP and EBP. Push with a
 
 
 
-| [<<](https://beaujeant.github.io/AppSec101/assembly/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/bof/) |
+[<< Lab setup](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
+[Buffer overflow >>](https://beaujeant.github.io/appsec101/bog/){: .btn .btn-outline }

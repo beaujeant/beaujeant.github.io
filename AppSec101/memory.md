@@ -5,7 +5,8 @@ parent: Application Security 101
 nav_order: 3
 ---
 
-| [<<](https://beaujeant.github.io/AppSec101/cpu/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/lab/) |
+[<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
+[Lab setup >>](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
 
 Memory
 ----------------------
@@ -31,4 +32,5 @@ Endian and little endian.
 ### Kernel and userland
 
 
-| [<<](https://beaujeant.github.io/AppSec101/cpu/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/lab/) |
+[<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
+[Lab setup >>](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }

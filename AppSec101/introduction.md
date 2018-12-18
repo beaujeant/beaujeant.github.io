@@ -5,7 +5,7 @@ parent: Application Security 101
 nav_order: 1
 ---
 
-| << | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/cpu/) |
+[Central Processing Unit >>](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
 
 Introduction
 ------------
@@ -38,4 +38,4 @@ A __security vulnerability__ is a weakness which allows an attacker to reduce a 
 
 For the sake of simplicity, this course will only cover application running on [i386](https://en.wikipedia.org/wiki/Intel_80386) (32-bit architecture). The high-level language used for demonstrations will be __C__ since it is a widely known language that produces binary application relatively easy to understand. As for the [lab](https://beaujeant.github.io/AppSec101/lab/), we will exercise in Linux (Ubuntu) environment.
 
-| << | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/cpu/) |
+[Central Processing Unit >>](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }

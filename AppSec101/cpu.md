@@ -1,15 +1,15 @@
 ---
 permalink: /appsec101/cpu/
-title: Central Processor Unit
+title: Central Processing Unit
 parent: Application Security 101
 nav_order: 2
 ---
 
-[<< Introduction](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
-[Memory >>](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
+[<< Introduction](https://beaujeant.github.io/appsec101/introduction/){: .btn .btn-outline }
+[Memory >>](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
 
-Central Processor Unit
-----------------------
+Central Processing Unit
+-----------------------
 
 Computer technology is everywhere: whenever you browse the internet, read your mail, watch a movie, give a call to you family, drive your car, everywhere. Computer, and digital technology in general, are meant to process data in a very fast manner. The brain of this technology is the __C__​entral __P__​rocessing __U__​nit (CPU).
 
@@ -398,5 +398,5 @@ Basically, the _XOR_ gate returns `true` only when a and b are different.
 
 This was the last logic operation for this course and this was the last section for this chapter. I hope you now have a better understand how what a CPU is. In the next chapter, we will see how the memory is structured.
 
-[<< Introduction](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
-[Memory >>](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
+[<< Introduction](https://beaujeant.github.io/appsec101/introduction/){: .btn .btn-outline }
+[Memory >>](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
