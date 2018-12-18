@@ -8,8 +8,7 @@ nav_order: 4
 [<< Memory](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
 [Programming >>](https://beaujeant.github.io/appsec101/programming/){: .btn .btn-outline }
 
-Lab environment
----------------
+# Lab environment
 
 In this course, we will do a little bit of _reversing_, _debugging_ and _compiling_.
 
@@ -20,19 +19,19 @@ In the context of this course, __Debugging__ means analyzing the binary applicat
 __Compiling__ is the process of transforming computer code written in one programming language (the source language) into another programming language (the target language). In the context of this course, this means transforming C code in binary application using machine language instructions. The compiler used in this course is __GCC__.
 
 
-### Operating System
+## Operating System
 
 For this course, we decided to use the standard __Ubuntu 32-bit Desktop__ distribution. We could have found a much lighter Operating System (OS) which would have been sufficient for what we need, however, we thought this would be easier to install configure and maintain. Furthermore, Ubuntu is free and widely used, so there is a high chance you already encountered and used it, so you should feel already comfortable with it.
 
 As mentioned in the [introduction](https://beaujeant.github.io/AppSec101/introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 application on 64-bit operating systems, using a 32-bit OS will reduce the dependency and environment complexity.
 
-#### Download
+### Download
 
 Ubuntu is not anymore available in 32-bit version since 18.04, so we need to use the version [16.04](http://releases.ubuntu.com/16.04/).
 
 Download [Ubuntu 16.04.5 Desktop 32-bit](http://releases.ubuntu.com/16.04/ubuntu-16.04.5-desktop-i386.iso) (ISO)
 
-#### VM deployment
+### VM deployment
 
  You can either run Linux natively on you hardware or in a virtual environment. If you have Linux already installed on your computer, you can skip this part.
 
@@ -51,11 +50,11 @@ sudo apt-get upgrade
 sudo apt-get install virtualbox-guest-additions-iso
 ```
 
-### Tools
+## Tools
 
 For this course, we only need 2 tools: __GDB__ and __GCC__. Both tools are already pre-installed in Ubuntu Desktop.
 
-#### GCC
+### GCC
 
 Let's compile our first C code for this course. Use you favorite text editor and create the following `mul.c` file:
 
@@ -105,7 +104,7 @@ This will compile `mul.c` and create the binary application `mul`. Now, in order
 ./mul
 ```
 
-#### GDB
+### GDB
 
 As mentioned earlier, GDB is a debugger. The main feature of a debugger is to set breakpoint and read memory and registers. Let's debug our first application:
 

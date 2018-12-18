@@ -8,28 +8,27 @@ nav_order: 3
 [<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
 [Lab setup >>](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
 
-Memory
-----------------------
+# Memory
 
-### General structure
+## General structure
 
 Growing memory. When run, it map the 2Go.
 Endian and little endian.
 
 
-### Registers
+## Registers
 
-### Stack
+## Stack
 
-### Static/hard coded data
+## Static/hard coded data
 
-### Heap
+## Heap
 
-### Instruction
+## Instruction
 
-### Imported libraries
+## Imported libraries
 
-### Kernel and userland
+## Kernel and userland
 
 
 [<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }

@@ -7,8 +7,7 @@ nav_order: 1
 
 [Central Processing Unit >>](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
 
-Introduction
-------------
+# Introduction
 
 This course will try to teach you about the most common vulnerabilities identified in binary application, i.e. buffer overflow, use-after-free, format string and integer under/overflow.
 
