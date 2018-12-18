@@ -2,7 +2,8 @@
 layout: default
 permalink: /AppSec101/programming/
 title: Programming
-nav_exclude: true
+parent: Application Security 101
+nav_order: 5
 ---
 
 | [<<](https://beaujeant.github.io/AppSec101/assembly/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/bof/) |

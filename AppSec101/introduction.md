@@ -2,7 +2,8 @@
 layout: default
 permalink: /AppSec101/introduction/
 title: Introduction
-nav_exclude: true
+parent: Application Security 101
+nav_order: 1
 ---
 
 | << | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/cpu/) |

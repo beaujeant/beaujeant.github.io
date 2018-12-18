@@ -2,7 +2,8 @@
 layout: default
 permalink: /AppSec101/lab/
 title: Lab environment
-nav_exclude: true
+parent: Application Security 101
+nav_order: 4
 ---
 
 | [<<](https://beaujeant.github.io/AppSec101/memory/) | [Table of content](https://beaujeant.github.io/AppSec101/) | >> |

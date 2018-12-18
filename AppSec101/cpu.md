@@ -2,7 +2,8 @@
 layout: default
 permalink: /AppSec101/cpu/
 title: Central Processor Unit
-nav_exclude: true
+parent: Application Security 101
+nav_order: 2
 ---
 
 | [<<](https://beaujeant.github.io/AppSec101/introduction/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/memory/) |

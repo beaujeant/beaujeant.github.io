@@ -1,9 +1,3 @@
 title:  Beaujeant
 
-baseurl: ""
-show_downloads: false
-
-twitter_username: beaujeant
-github_username:  beaujeant
-
 remote_theme: pmarsceill/just-the-docs
