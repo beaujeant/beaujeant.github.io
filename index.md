@@ -4,12 +4,9 @@ title: Home
 nav_order: 1
 ---
 
-Profile
------
-
-[Github](https://github.com/beaujeant){: .btn .btn-purple }
+[Twitter](https://twitter.com/beaujeant){: .btn .btn-green }
 [LinkedIn](https://www.linkedin.com/in/beaujeant){: .btn .btn-blue }
-[Twitter](http://twitter.com/beaujeant){: .btn .btn-green }
+[Github](https://github.com/beaujeant){: .btn .btn-purple }
 
 
 Workshops
@@ -23,6 +20,8 @@ Workshops
 Publications
 ------------
 
+* [slides] [NULL911 meetup #3 - BLE protocol](https://beaujeant.github.io/resources/publications/ble.pdf) (2018)
+* [slides] [NULL911 meetup #1 - ePassport Security](https://beaujeant.github.io/resources/publications/epassport-security.pdf) (2018)
 * [slides] [NUIT DU HACK 16 - Reverse Engineering a (M)MORPG](https://github.com/beaujeant/PwnAdventure3/blob/master/Workshop/re-mmorpg-nuitduhack16-2018.pdf) (2018)
 * [slides] [TROOPERS18 - Reverse Engineering a (M)MORPG](https://github.com/beaujeant/PwnAdventure3/blob/master/Workshop/re-mmorpg-troopers18.pdf) (2018)
 * [slides] [Hack.lu 2017 - Reverse Engineering a (M)MORPG](https://github.com/beaujeant/PwnAdventure3/blob/master/Workshop/re-mmorpg-hacklu17.pdf) (2017)

@@ -8,12 +8,14 @@ nav_order: 2
 [<< Introduction](https://beaujeant.github.io/appsec101/introduction/){: .btn .btn-outline }
 [Memory >>](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
 
-# Central Processing Unit
+Central Processing Unit
+=======================
 
 Computer technology is everywhere: whenever you browse the internet, read your mail, watch a movie, give a call to you family, drive your car, everywhere. Computer, and digital technology in general, are meant to process data in a very fast manner. The brain of this technology is the __C__​entral __P__​rocessing __U__​nit (CPU).
 
 
-## CPU structure
+CPU structure
+-------------
 
  The CPU is the elements responsible for the computer's operations. Operations can be arithmetic calculation (such as _additions_ or _division_) or logic operations (such as _AND_ or _OR_). Operations are executed by the __arithmetic unit__.
 
@@ -41,7 +43,8 @@ We've seen earlier, the  control unit read instructions and coordinate the memor
 So in summary, the CPU is the brain of the computer. It reads and executes instructions from a program. The instruction tells the __control unit__ how to coordinate with the different connected elements, i.e. __arithmetic unit__, __memory__, __input__ and __output__. It fetches data from memory, execute operation with the __ALU__, saves data in the memory and interact with the input/output. Based on the operation executed, the __control unit__ can take decision that will alter the execution flow of the program.
 
 
-## Data/information
+Data/information
+----------------
 
 CPU are executing operation on data. As mentioned earlier, this data – which could also be called _information_ – could be anything, such as:
 
@@ -67,14 +70,13 @@ Digitalizing data often (but not necessary) involved loss of information. For in
 Not all digitalization processes induce loss of information. It depends on the nature of the collected information. For instance a text that is digitalized, if properly done, will not loose any information. For sure we won't have the color of the page, the grain of the paper, the smell of the book, the exact font used; but the text itself can be digitalized with 0% loss of information.
 
 
-## Binary numeral system
+Binary numeral system
+---------------------
 
-Computer use electricity to store, transfer and process data. Data is basically electricity or magnetic charge. Some engineers tried initially to use voltage-levels to transmit different information, i.e. 0-1V = `0`, 1-3V = `1`, 3-5V = `2`, etc. However, they noticed it was complicate to use such implementation. The two main reasons being:
+Computer use electricity to store, transfer and process data. Data is basically electricity or magnetic charge. Some engineers tried initially to use voltage-levels to transmit different information, i.e. 0-1V = `0`, 1-3V = `1`, 3-5V = `2`, etc. [[1](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)] However, they noticed it was complicate to use such implementation. The two main reasons being:
 
 * The design of ALU and logic operation are more complex
 * The technical complexity of generating a stable voltage
-
-[source](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)
 
 Engineers decided to use a simpler binary implementation, i.e. ~0V = `0` and ~5V = `1`. When stored, for instance in a hard drive, data is represented in a form of magnetic polarity. One polarity = `0` and opposite = `1`. This is why, in the computer realm, everything is only `1`s and `0`s. So for instance if you want to execute the operation `5 + 2`, the ALU will receives `00000000000000000000000000000101` as the first input and `00000000000000000000000000000010` as the second input.
 
@@ -194,17 +196,22 @@ This might not seems interesting at first sight, but with experience, you will n
 > Note: Hex (short for hexadecimal) values are usually represented with a leading `0x`. For instance the binary `10100100` in hex would be `0xa4`.
 
 
-## Data types
+Data types
+----------
 
-Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](https://beaujeant.github.io/AppSec101/memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
+Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](https://beaujeant.github.io/appsec101/memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
 
 __*image comparison data type*__
 
-> Note: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [source](https://en.wikipedia.org/wiki/Bit_numbering)
+> Note: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [[2](https://en.wikipedia.org/wiki/Bit_numbering)]
 
 So this means a __double word__ (32 bits) can be represented in hexadecimal with 8 symbols. E.g. `00010010001101001010101111001101` = `1234abcd`.
 
-As mentioned (many many times) already, the binary data stored in memory can be anything. Here are the most seen types:
+As mentioned (many many times) already, the binary data stored in memory can be anything and have any size (not only the ones mentioned). Here are the most seen types.
+
+### Instruction
+
+Instructions are the operation read and executed by the CPU. This could be moving data in registers/memory locations, arithmetic operation, logic operation, decision making and redirection of execution flow. The size of an instruction usually varies between 1 to 15 bytes. Once the instruction is executed, the CPU read and execute the instruction right after unless execution flow has been redirected with the previous instruction. So instructions should be seen a single block executed straight, but rather as multiple instruction blocks that usually coincide with functions.
 
 ### Integer
 
@@ -263,7 +270,7 @@ You cannot provide a variable name to the CPU, it will not understand where to f
 
 ### Function pointer
 
-We will see the chapter [memory](#) and [assembly](#), but the instructions sent to the CPU are also located in memory alongside the variables (although usually located in different sections). So whenever a function is called, it is merely a jump to another area of the memory where the function's instructions are located. A function pointer is an address (32 bits) of the memory where instructions are located.
+We will see more about it in chapters [memory](https://beaujeant.github.io/appsec101/memory/) and [assembly](https://beaujeant.github.io/appsec101/assembly/), but the instructions sent to the CPU are also located in memory alongside the variables (although usually located in different sections). So whenever a function is called, it is merely a jump to another area of the memory where the function's instructions are located. A function pointer is an address (32 bits) of the memory where instructions are located.
 
 ### Handle
 
@@ -298,7 +305,8 @@ While this could cause some functionality error, this might not be too dangerous
 * How to leverage overwritten technique for malicious purposes
 
 
-## Logic operation
+Logic operation
+---------------
 
 We've seen that the CPU (actually the ALU) is executing mathematic operations. It receive the command (mathematical operation to execute) and the two inputs. Commands can be basics maths, such as addition or division but also _logic operations_. In fact, all math executed are based on _logic operation_, even a simple addition.
 
@@ -340,8 +348,8 @@ Basically, the _OR_ gate returns `true` when at least one of the two arguments i
 
 The _NOT_ operation only takes one argument and satisfies the following conditions:
 
-* _NOT_ a = `0` __if__ a = `1`
-* _NOT_ a = `1` __if__ a = `0`
+* __if__ a = `0` __then__ _NOT_ a = `1`
+* __if__ a = `1` __then__ _NOT_ a = `0`
 
 |  a  | output |
 | :-: | :----: |
@@ -395,7 +403,10 @@ The _XOR_ is a combination of _OR_, _AND_ and _NOT_ operations:
 
 Basically, the _XOR_ gate returns `true` only when a and b are different.
 
-This was the last logic operation for this course and this was the last section for this chapter. I hope you now have a better understand how what a CPU is. In the next chapter, we will see how the memory is structured.
+This was the last logic operation for this course and the last section for this chapter. I hope you now have a better understanding of what a CPU is. In the next chapter, we will see how the memory is structured.
+
+* [[1](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)] https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan
+* [[2](https://en.wikipedia.org/wiki/Bit_numbering)] https://en.wikipedia.org/wiki/Bit_numbering
 
 [<< Introduction](https://beaujeant.github.io/appsec101/introduction/){: .btn .btn-outline }
 [Memory >>](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }

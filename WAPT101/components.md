@@ -8,7 +8,7 @@ nav_order: 2
 | [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |
 
 Components for a web application
---------------------------------
+================================
 
 Back in the days, websites were a collection of static pages that a users could browse without any interaction. Developers wanted more from website, like for instance the possibility to provide dynamic content where administrators could easily edit/add/delete content, or create some restricted areas with granular access control. Simple web server were not enough, therefore new technologies came in place. _Scripting languages_ and _frameworks_ were developed to add some logic in web applications and _database_ started to be use to easily store and manipulate dynamic content.
 

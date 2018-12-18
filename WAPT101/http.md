@@ -8,14 +8,15 @@ nav_order: 3
 | [<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >> |
 
 HTTP protocol
--------------
+=============
 
 Before diving into web application, we need to first understand the protocol – or language – used between the client and the server to communicate, i.e. the __Hypertext Transfer Protocol__, also known as __HTTP__.
 
 In this course, I will only cover the basis of the HTTP protocol, just enough to understand the rest of the course. However, I would highly recommend you to spend some time on the [HTTP/1.1 RFC](https://www.ietf.org/rfc/rfc2616.txt) document to have a better understanding of the protocol.
 
 
-### Communication client - server
+Communication client - server
+-----------------------------
 
 Four elements are required for a communication to happen:
 
@@ -37,11 +38,12 @@ With the IP address and the port number, the browser can now establish a [TCP co
 In essence, the browser will use the HTTP protocol to request some resources from the web server and display them to the user within its graphical interface. The protocol works on the simple concept of _request_ - _response_.
 
 
-### HTTP request
+HTTP request
+------------
 
 The HTTP request is split in two part, the _header_ and the _body_ (optional). Both parts are separated by an empty line.
 
-#### Header
+### Header
 
 The header first start with a _request line_ followed by 0, 1 or more _header fields_. The request line contains 3 elements: the __method__ (also known as _verb_), the __resource__ and the __version__.
 
@@ -55,7 +57,7 @@ There are many __header fields__ available. One is mandatory since HTTP version 
 
 > Note: There is a additional information that could be used in the URL called the _fragment_, placed after a _#_ (hashtag). This value is never sent to the web server and only available to the browse.
 
-#### Body
+### Body
 
 The body contains additional data for the query that will be processed by the underlying framework/scripting language. The body should be used only with a _POST_ request.
 
@@ -63,11 +65,13 @@ Like GET variables, POST variables could be separated with `&` (ampersand), but 
 
 Whenever the body is used, the size of the entity body should be indicate in the `Content-Length` header except in specific cases described [here](https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.4).
 
-### HTTP response
+
+HTTP response
+-------------
 
 The HTTP response is also split in two part with a _header_ and _body_ separated with an empty line.
 
-#### Header
+### Header
 
 The first line of a Response message is the _Status-Line_, consisting of the _protocol version_ followed by a numeric _status code_ and its associated _textual phrase_. The Status-Code element is a 3-digit integer result code used to understand how the web server handled the request. The Reason-Phrase is intended to give a short textual description of the Status-Code.
 
@@ -83,11 +87,13 @@ The following line(s) are response _header field_. The response header fields al
 
 Here is a list of [header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
 
-#### Body
+### Body
 
 The body contains the data requested. It could be a HTML page, an image, a JavaScript script, some variables in a JSON format, a file to download, anything.
 
-### Examples
+
+Examples
+--------
 
 Now that we reviewed the basic of the HTTP protocol, let's have some examples. Here is what happen whenever you type `http://www.example.com/`: First, your browser will first translate the domain `www.example.com` into the IP `93.184.216.34`. It then generates the following HTTP request:
 
@@ -166,7 +172,8 @@ Host: www.example.com
  If the TCP connection is still open (i.e. if you didn't get back to your local environment), you can close it by hitting `[ctrl] + c`.
 
 
-### caching
+Caching
+-------
 
 In order to increase the loading performance, HTTP/1.1 introduced different caching mechanisms to reduce the amount of requests and/or to reduce the size of the response. For this, HTTP uses header to give a validity period (with the header `max-age`) and an identifier (with the header `ETag`).
 
@@ -177,7 +184,8 @@ The `max-age` goes one step further by preventing the request itself to be sent.
 There are more straight forward solution for the cache management with HTTP, like for instance with the `If-Modified-Since`, where the browser tells the server what is the latest version it has, and the server send or not the resource accordingly, but in general you got the idea: caching is meant for performance, either by preventing the request to be sent or by reducing the response size.
 
 
-### Cookies
+Cookies
+-------
 
 HTTP is a stateless protocol. This means after one full transaction (request - response), the web application won't be able to recognise/identity you with your subsequent transaction, event if it happens right after the first one. Your IP address is not a reliable enough information to identify a person (see [NATing](https://en.wikipedia.org/wiki/Network_address_translation) or [public IP lease](https://en.wikipedia.org/wiki/Network_address_translation)). Although the [EFF](https://www.eff.org/) did some [research](https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy) to identify with a relative accuracy an Internet user based on its User-Agent but this is another topic.
 
@@ -198,7 +206,8 @@ In order to prevent the user to constantly send the language to use in POST/GET 
 Due to its nature, cookies are often use to store a session ID that is used to identify an authenticated user.
 
 
-### Encoding
+Encoding
+--------
 
 We have seen that some ASCII characters are used as delimiter or for special use in the HTTP protocol. For instance, the space character is used in the HTTP header to separate the method, the URI and the HTTP version. Or the new line feed is used to separate multiple HTTP header fields. All those special characters should be encoded in the HTTP header (and sometimes HTTP request body) in order to prevent them to be interpreted literally. For this, HTTP uses the percent-encoding, also known as URL encoding.
 
@@ -215,7 +224,8 @@ Note that the space character can also be replaced by the plus character (i.e. `
 Here is a website to easily URL-encode/URL-decode any text: http://www.url-encode-decode.com
 
 
-### Compression
+Compression
+-----------
 
 In order to save bandwidth and thus increase the communication speed, web servers can compress the data transferred (requested resource). For this, the client first need to advertise what compression schemes it supports with the `Accept-Encoding` header field:
 
@@ -241,7 +251,8 @@ Content-Encoding: gzip
 Multiple algorithms (tokens) are available by default [see [link](https://en.wikipedia.org/wiki/HTTP_compression#Content-Encoding_tokens)].
 
 
-### Authentication
+Authentication
+--------------
 
 Before digging into the different most used authentication mechanisms I would first like to define and compare _authentication_ and _identification_.
 
@@ -251,7 +262,7 @@ __Authentication__ is the action of verifying or proving the identity of a user.
 
 Following are the most used authentication mechanism used to verify the identity of user.
 
-#### Basic Access Authentication
+### Basic Access Authentication
 
 Basic Access Authentication is an authentication mechanism that transmits credentials as user-id/password pairs, encoded using [Base64](https://tools.ietf.org/html/rfc7617) in the header of the HTTP request.
 
@@ -312,7 +323,7 @@ would be considered to be outside the authentication scope.
 
 The Basic authentication scheme is not a secure method of user authentication, nor does it in any way protect the entity, which is transmitted in cleartext across the physical network used as the carrier. The most serious flaw of Basic authentication is that it results in the cleartext transmission of the user's password over the physical network. Many other authentication schemes address this problem, such as _Digest Access Authentication_
 
-#### Digest Access Authentication
+### Digest Access Authentication
 
 Like Basic Access Authentication, Digest Access Authentication is a challenge-response authentication mechanism. However, instead of sending the credentials encoded in BASE64, the username and password are concatenated with other values then the result is hashed. By default, the hash algorithm used is MD5.
 
@@ -414,15 +425,13 @@ Content-Length: 7984
 
 For the following requested, the client (i.e. browser) will simply increment the `nc` and recalculate the response accordingly.
 
-
-#### Integrated Windows Authentication
+### Integrated Windows Authentication
 
 Integrated Windows Authentication (IWA) uses the security features of Windows clients and servers. Unlike Basic or Digest authentication, initially, it does not prompt users for a user name and password. The current Windows user information on the client computer is supplied by the web browser through a cryptographic exchange involving hashing with the Web server. If the authentication exchange initially fails to identify the user, the web browser will prompt the user for a Windows user account user name and password [[source](https://en.wikipedia.org/wiki/Integrated_Windows_Authentication)].
 
 IWA is not an authentication protocol. The server and the browser will negatiate which authentication protocol to use ([Kerberos](https://en.wikipedia.org/wiki/Kerberos_%28protocol%29#Protocol) or [NTLMSSP](https://en.wikipedia.org/wiki/NTLMSSP)) thanks to the [SPNEGO](https://en.wikipedia.org/wiki/SPNEGO) mechanism.
 
-
-#### Normal form authentication
+### Normal form authentication
 
 Basic Authentication, Digest Authentication and Integrated Windows Authentication are built-in authentication mechanism already integrated in the browser and the server. However, most of the time, the authentication is handled by the application itself. For this, the application developer will create a form in the HTML page so that the user can enters its username and password. It is than up to the developer to decide how to identify and authenticate the user. Usually, developers tent to follow this workflow:
 
@@ -499,7 +508,8 @@ __LAB: Find password based on TCP Dump (basic auth)__
 __LAB: Find password based on TCP Dump (digest)__
 
 
-### URL Rewriting
+URL Rewriting
+-------------
 
 By default, the URI given in the HTTP header is a relative path to the requested resource. From a aesthetic point of view, the URI might not be very pretty or convenient. For instance the file extension or the GET parameter structure makes the URL more complicate than it should. Therefore, the web server allows the developers to change the structure and logic of the URI.
 
@@ -530,7 +540,8 @@ https://example.com/include.php?file=config.php
 ```
 
 
-### HTTPS, SSL & TLS
+HTTPS, SSL & TLS
+----------------
 
 HTTP Secure (HTTPS) is protocol that uses _HTTP_ over a "_secure_" connection using SSL (Secure Sockets Layer), or its predecessor, TLS (Transport Layer Security). The main goal of SSL/TLS is to _secure_ the communication by encrypting its so that only the client and the server can reads its content. If an attacker manage to eavesdrop the communication, (s)he should not be able to read the HTTP communication. Another interesting goal of SSL/TLS is to _authenticate_ the client and/or the server based on a _chain a trust_. Finally, the last goal of SSL/TLS is the message _integrity_ check that makes sure that the communication hasn't been altered or loss.
 
@@ -557,7 +568,8 @@ Clients should store a list of [Certificate Authorities](https://en.wikipedia.or
 It is possible for an attacker to execute a [Man-in-the-Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack even with SSL/TLS implemented and thus being able to read the HTTP communication. For this, the attacker should wait for the [ClientHello](https://tools.ietf.org/html/rfc5246#section-7.4.1.2) from the client, then establish a SSL/TLS connection with the server. Once done, the attacker should then continue the SSL/TLS handshake with the client and generate a [self-signed certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) for the [Certificate](https://tools.ietf.org/html/rfc5246#section-7.4.2) message. Since the certificate used is self-signed, it's authenticity cannot be verified. Therefore, current browser will display an error message and (sometimes) ask the user to trust the certificate anyway or simply terminate the communication. For clients without user interaction, the communication should be terminated by default.
 
 
-### Web Proxy
+Web Proxy
+---------
 
 Sometimes, you may want to have all you HTTP requests to go through one single server. This would grant you many advantages, such as:
 
@@ -580,7 +592,8 @@ Fiddler
 ZAP
 
 
-### Browser
+Browser
+-------
 
 The main tool available to communicate with HTTP and accessing websites is the web browser. The browser _generates_ HTTP requests, _parses_ the responses to _render_ the HTML/CSS page, _executes_ JavaScript scripts, update the cookie jar and manage the caching system.
 

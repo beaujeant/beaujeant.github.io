@@ -8,7 +8,7 @@ nav_order: 1
 | << | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/components/) |
 
 Introduction
-------------
+============
 
 This course will try to teach you about the different vulnerabilities identified in web application based on the [OWASP top ten](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) project. [OWASP](https://www.owasp.org/index.php/About_OWASP) is an open community dedicated to enabling organizations to conceive, develop, acquire, operate, and maintain applications that can be trusted. OWASP developed and maintained the OWASP top ten project, which represents a broad consensus about what the most critical web application security flaws are. Project members include a variety of security experts from around the world who have shared their expertise to produce this list.
 

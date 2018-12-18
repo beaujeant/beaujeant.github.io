@@ -5,7 +5,8 @@ nav_order: 2
 has_children: true
 ---
 
-# Application Security 101
+Application Security 101
+========================
 
 * [Introduction](https://beaujeant.github.io/appsec101/introduction/)
 * [CPU](https://beaujeant.github.io/appsec101/cpu/)
@@ -30,7 +31,7 @@ has_children: true
   * Import table
   * Common functions
   * Compiler optimization
-* Assembly
+* [Assembly](/appsec101/assembly/)
   * Instruction
   * Registers
   * Memory

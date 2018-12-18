@@ -5,22 +5,27 @@ parent: Application Security 101
 nav_order: 5
 ---
 
-[<< Lab setup](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
-[Buffer overflow >>](https://beaujeant.github.io/appsec101/bof/){: .btn .btn-outline }
+[<< Assembly](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
+[Buffer overflow >>](https://beaujeant.github.io/appsec101/assembly/){: .btn .btn-outline }
 
-#Programming
+Programming
+===========
 
 Beying scope of course to teach C. This is just refresh to remind you and also so we can reference later in course back to here.
 
-## Arguments and variables
+Arguments and variables
+-----------------------
 
 translation of C sending argument to asm. See call with ESP and EBP. Push with arguments, etc.
 
-## Dynamic memory allocation
+Dynamic memory allocation
+-------------------------
 
-## Import table
+Import table
+------------
 
-## Common functions
+Common functions
+----------------
 
 ### printf
 
@@ -32,7 +37,9 @@ translation of C sending argument to asm. See call with ESP and EBP. Push with a
 
 ### free
 
-## Compiler optimization
 
-[<< Lab setup](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
-[Buffer overflow >>](https://beaujeant.github.io/appsec101/bog/){: .btn .btn-outline }
+Compiler optimization
+---------------------
+
+[<< Assembly](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
+[Buffer overflow >>](https://beaujeant.github.io/appsec101/assembly/){: .btn .btn-outline }

@@ -6,13 +6,13 @@ nav_order: 4
 ---
 
 [<< Memory](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
-[Programming >>](https://beaujeant.github.io/appsec101/programming/){: .btn .btn-outline }
+[Assembly >>](https://beaujeant.github.io/appsec101/assembly/){: .btn .btn-outline }
 
 # Lab environment
 
 In this course, we will do a little bit of _reversing_, _debugging_ and _compiling_.
 
-__Reversing__, short for __reverse engineering__, is the process of reading machine language instructions and making sense out of it. The process could result in the translation of instructions into a higher-level language (usually pseudo-code). To help us in this task, we will use the built-in command-line debugger __GDB__ (see below). Many disassembler are much better than GDB, such as [IDA](https://www.hex-rays.com/products/ida/support/download_freeware.shtml), however, for what we need from it, GDB will be enough.
+__Reversing__, short for __reverse engineering__, is the process of reading machine language instructions and making sense out of it. The process could result in the translation of instructions into a higher-level language (usually pseudo-code). To help us in this task, we will use the built-in command-line debugger __GDB__ (see below). Many disassembler are much better than GDB, such as [IDA](https://www.hex-rays.com/products/ida/support/download_freeware.shtml), however, for what we need from it, GDB will be sufficient.
 
 In the context of this course, __Debugging__ means analyzing the binary application while it is running thanks to a _debugger_. A _debugger_ allows you to set _breakpoints_ in the debugged running application. A _breakpoint_ can be set on one or several instructions. Once the instruction with the breakpoint is reached and is about to be processed by the CPU, the application will pause the program. While being paused, the analyst can read and edit instructions, the memory and _registers_ (see more about registers in chapter [CPU](https://beaujeant.github.io/AppSec101/cpu/)). In this course, we will use __GDB__ (see below).
 
@@ -58,7 +58,7 @@ For this course, we only need 2 tools: __GDB__ and __GCC__. Both tools are alrea
 
 Let's compile our first C code for this course. Use you favorite text editor and create the following `mul.c` file:
 
-```
+```C
 #include <stdio.h>
 
 
@@ -156,7 +156,7 @@ If your resolution is not big enough, it is possible that GDB print the followin
 
 In this case, you simply need to type `ENTER` to see the rest of the disassembled code.
 
-As explained in the [introduction](https://beaujeant.github.io/AppSec101/introduction/), machine code instructions are basically a group of binary values that signify a specific instruction for the CPU. E.g. `b8 00 00 00 00` means moving `0x00000000` in the register `EAX`. However, it is usually easier for human to read pseudo-english rather than hexadecimal value, therefore disassembler translate the binary values (opcodes) in human readable code. Here in this case, `b8 00 00 00 00` is translated as `mov $0x0, %eax` (see instruction at the address `0x08048454`). This representation is the AT&T syntax. However, it exists a different way(s) to represent opcodes, the most known one being "Intel". In Intel syntax, `b8 00 00 00 00` is translated as `mov eax, 0x0`. We think the Intel syntax is easier to read than AT&T, therefore this course will be using Intel syntax. To change the syntax in GDB, you can run the following command:
+As explained in the [introduction](https://beaujeant.github.io/appsec101/introduction/), machine code instructions are basically a group of binary values that signify a specific instruction for the CPU. E.g. `b8 00 00 00 00` means moving `0x00000000` in the register `EAX`. However, it is usually easier for human to read pseudo-english rather than hexadecimal value, therefore disassembler translate the binary values (opcodes) in human readable code. Here in this case, `b8 00 00 00 00` is translated as `mov $0x0, %eax` (see instruction at the address `0x08048454`). This representation is the AT&T syntax. However, it exists a different way(s) to represent opcodes, the most known one being "Intel". In Intel syntax, `b8 00 00 00 00` is translated as `mov eax, 0x0`. We think the Intel syntax is easier to read than AT&T, therefore this course will be using Intel syntax. To change the syntax in GDB, you can run the following command:
 
 ```
 (gdb) disassemble main
