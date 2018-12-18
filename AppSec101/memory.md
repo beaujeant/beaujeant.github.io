@@ -1,6 +1,5 @@
 ---
-layout: default
-permalink: /AppSec101/memory/
+permalink: /appsec101/memory/
 title: Memory
 parent: Application Security 101
 nav_order: 3

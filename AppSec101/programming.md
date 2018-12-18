@@ -1,6 +1,5 @@
 ---
-layout: default
-permalink: /AppSec101/programming/
+permalink: /appsec101/programming/
 title: Programming
 parent: Application Security 101
 nav_order: 5

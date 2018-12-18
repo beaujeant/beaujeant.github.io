@@ -1,8 +1,8 @@
 ---
-layout: default
-permalink: /WAPT101/introduction/
+permalink: /wapt101/introduction/
 title: Introduction
-nav_exclude: true
+parent: Web Application Security 101
+nav_order: 1
 ---
 
 | << | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/components/) |

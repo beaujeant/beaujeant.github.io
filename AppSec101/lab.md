@@ -1,6 +1,5 @@
 ---
-layout: default
-permalink: /AppSec101/lab/
+permalink: /appsec101/lab/
 title: Lab environment
 parent: Application Security 101
 nav_order: 4

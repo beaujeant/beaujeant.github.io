@@ -1,13 +1,22 @@
 ---
-layout: default
 permalink: /
-title: Resources
+title: Home
+nav_order: 1
 ---
+
+Profile
+-----
+
+[Github](https://github.com/beaujeant){: .btn .btn-purple }
+[LinkedIn](https://www.linkedin.com/in/beaujeant){: .btn .btn-blue }
+[Twitter](http://twitter.com/beaujeant){: .btn .btn-green }
+
 
 Workshops
 ---------
 
-* Web Application Penetration Testing 101 (June '19)
+* [Application Security 101](https://beaujeant.github.io/appsec101/) (under constrution)
+* [ Web Application Security 101](https://beaujeant.github.io/wapt101/) (under constrution)
 * Reverse Engineering a (M)MORPG (June '19)
 
 

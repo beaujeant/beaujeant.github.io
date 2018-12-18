@@ -1,8 +1,8 @@
 ---
-layout: default
-permalink: /WAPT101/http/
+permalink: /wapt101/http/
 title: HTTP protocol
-nav_exclude: true
+parent: Web Application Security 101
+nav_order: 3
 ---
 
 | [<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >> |

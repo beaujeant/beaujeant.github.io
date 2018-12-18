@@ -1,8 +1,8 @@
 ---
-layout: default
-permalink: /WAPT101/components/
+permalink: /wapt101/components/
 title: Components for a web application
-nav_exclude: true
+parent: Web Application Security 101
+nav_order: 2
 ---
 
 | [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |

@@ -1,12 +1,12 @@
 ---
-layout: default
-permalink: /AppSec101/cpu/
+permalink: /appsec101/cpu/
 title: Central Processor Unit
 parent: Application Security 101
 nav_order: 2
 ---
 
-| [<<](https://beaujeant.github.io/AppSec101/introduction/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/memory/) |
+[<< Introduction](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
+[Memory >>](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
 
 Central Processor Unit
 ----------------------
@@ -398,4 +398,5 @@ Basically, the _XOR_ gate returns `true` only when a and b are different.
 
 This was the last logic operation for this course and this was the last section for this chapter. I hope you now have a better understand how what a CPU is. In the next chapter, we will see how the memory is structured.
 
-| [<<](https://beaujeant.github.io/AppSec101/introduction/) | [Table of content](https://beaujeant.github.io/AppSec101/) | [>>](https://beaujeant.github.io/AppSec101/memory/) |
+[<< Introduction](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }
+[Memory >>](https://beaujeant.github.io/AppSec101/introduction/){: .btn .btn-outline }

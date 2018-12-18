@@ -1,6 +1,5 @@
 ---
-layout: default
-permalink: /AppSec101/introduction/
+permalink: /appsec101/introduction/
 title: Introduction
 parent: Application Security 101
 nav_order: 1
