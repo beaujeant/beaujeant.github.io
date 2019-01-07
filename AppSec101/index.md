@@ -13,15 +13,12 @@ Application Security 101
   * CPU structure
   * Data/information
   * Binary numeral system
+  * Data types
   * Logic operation
 * [Memory](https://beaujeant.github.io/appsec101/memory/)
+  * ELF/PE file
+  * Memory layout
   * Registers
-  * Stack
-  * Static/hard coded data
-  * Heap
-  * Instruction
-  * Imported libraries
-  * Kernel and userland
 * [Lab environment](https://beaujeant.github.io/appsec101/lab/)
   * Operating system
   * Tools
