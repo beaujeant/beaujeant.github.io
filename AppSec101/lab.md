@@ -16,7 +16,7 @@ __Reversing__, short for __reverse engineering__, is the process of reading mach
 
 In the context of this course, __Debugging__ means analyzing the binary application while it is running thanks to a _debugger_. A _debugger_ allows you to set _breakpoints_ in the debugged running application. A _breakpoint_ can be set on one or several instructions. Once the instruction with the breakpoint is reached and is about to be processed by the CPU, the application will pause the program. While being paused, the analyst can read and edit instructions, the memory and _registers_ (see more about registers in chapter [CPU](https://beaujeant.github.io/AppSec101/cpu/)). In this course, we will use __GDB__ (see below).
 
-__Compiling__ is the process of transforming computer code written in one programming language (the source language) into another programming language (the target language). In the context of this course, this means transforming C code in binary application using machine language instructions. The compiler used in this course is __GCC__.
+__Compiling__ is the process of transforming computer code written in one programming language (the source language) into another programming language (the target language). In the context of this course, this means transforming C code in a binary application format using machine language instructions. The compiler used in this course is __GCC__.
 
 
 ## Operating System

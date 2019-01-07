@@ -119,7 +119,7 @@ The stack is a region in memory where data is added or removed in a last-in-firs
 
 In order to have a better understanding of the stack, here is an example. Let's consider the following C code:
 
-```C
+```
 #include <stdio.h>
 
 int add(int, int);
@@ -222,7 +222,7 @@ Source:
 * [[realloc](http://www.cplusplus.com/reference/cstdlib/realloc/)]
 * [[free](http://www.cplusplus.com/reference/cstdlib/free/)]
 
-![Stack frame](resources/images/stack.gif)
+![Stack frame](resources/images/heap.gif)
 
 ### Imported libraries
 

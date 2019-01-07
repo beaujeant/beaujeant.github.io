@@ -19,7 +19,7 @@ CPU structure
 
  The CPU is the elements responsible for the computer's operations. Operations can be arithmetic calculation (such as _additions_ or _division_) or logic operations (such as _AND_ or _OR_). Operations are executed by the __arithmetic unit__.
 
-Operations have one or two parameters (e.g. `5 + 2` has two parameters: `5` and `2`). In order to execute operations, the CPU needs to get (read) the parameters and store the results somewhere. This is why a part of the CPU (the __control unit__) is responsible for retrieving and saving data in the memory. The data processed and saved can be many things (e.g. an image, a music, a word document, the amount of health point your game character has left), but it will always be _binary_ data – meaning bunch of 1s and 0s.
+Operations have one or two parameters – also known as operands (e.g. `5 + 2` has two parameters: `5` and `2`). In order to execute operations, the CPU needs to get (read) the parameters and store the results somewhere. This is why a part of the CPU (the __control unit__) is responsible for retrieving and saving data in the memory. The data processed and saved can be many things (e.g. an image, a music, a word document, the amount of health point your game character has left), but it will always be _binary_ data – meaning bunch of 1s and 0s.
 
 Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensors). Once the operation done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
 
