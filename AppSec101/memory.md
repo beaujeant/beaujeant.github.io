@@ -403,23 +403,23 @@ The most important flags relevant for this course are:
 * [[3](https://www.transcend-info.com/Support/FAQ-292)] https://www.transcend-info.com/Support/FAQ-292
 * [[4](https://medium.com/@StueyGK/static-libraries-vs-dynamic-libraries-af78f0b5f1e4)] https://medium.com/@StueyGK/static-libraries-vs-dynamic-libraries-af78f0b5f1e4
 * [[5](https://www.brianmadden.com/opinion/The-4GB-Windows-Memory-Limit-What-does-it-really-mean)] https://www.brianmadden.com/opinion/The-4GB-Windows-Memory-Limit-What-does-it-really-mean
-* [open](https://en.wikipedia.org/wiki/Open_%28system_call%29) https://en.wikipedia.org/wiki/Open_%28system_call%29
-* [read](https://en.wikipedia.org/wiki/Read_%28system_call%29) https://en.wikipedia.org/wiki/Read_%28system_call%29
-* [write](https://en.wikipedia.org/wiki/Write_%28system_call%29) https://en.wikipedia.org/wiki/Write_%28system_call%29
+* [`open`](https://en.wikipedia.org/wiki/Open_%28system_call%29) https://en.wikipedia.org/wiki/Open_%28system_call%29
+* [`read`](https://en.wikipedia.org/wiki/Read_%28system_call%29) https://en.wikipedia.org/wiki/Read_%28system_call%29
+* [`write`](https://en.wikipedia.org/wiki/Write_%28system_call%29) https://en.wikipedia.org/wiki/Write_%28system_call%29
 * [[6](https://stackoverflow.com/a/5130690)] https://stackoverflow.com/a/5130690
 * [[7](https://stackoverflow.com/a/11906590)] https://stackoverflow.com/a/11906590
 * [[8](https://stackoverflow.com/a/8385488)] https://stackoverflow.com/a/8385488
 * [[9](https://stackoverflow.com/a/3889495)] https://stackoverflow.com/a/3889495
-* [[malloc](http://www.cplusplus.com/reference/cstdlib/malloc/)] http://www.cplusplus.com/reference/cstdlib/malloc/
-* [[calloc](http://www.cplusplus.com/reference/cstdlib/calloc/)] http://www.cplusplus.com/reference/cstdlib/calloc/
-* [[realloc](http://www.cplusplus.com/reference/cstdlib/realloc/)] http://www.cplusplus.com/reference/cstdlib/realloc/
-* [[free](http://www.cplusplus.com/reference/cstdlib/free/)] http://www.cplusplus.com/reference/cstdlib/free/
-* [[`pow`](http://www.cplusplus.com/reference/cmath/pow/)] http://www.cplusplus.com/reference/cmath/pow/
-* [[`printf`](http://www.cplusplus.com/reference/cstdio/printf/)] http://www.cplusplus.com/reference/cstdio/printf/
-* [[`scanf`](http://www.cplusplus.com/reference/cstdio/scanf/)] http://www.cplusplus.com/reference/cstdio/scanf/
-* [[`fopen`](http://www.cplusplus.com/reference/cstdio/fopen/)] http://www.cplusplus.com/reference/cstdio/fopen/
+* [`malloc`](http://www.cplusplus.com/reference/cstdlib/malloc/) http://www.cplusplus.com/reference/cstdlib/malloc/
+* [`calloc`](http://www.cplusplus.com/reference/cstdlib/calloc/) http://www.cplusplus.com/reference/cstdlib/calloc/
+* [`realloc`](http://www.cplusplus.com/reference/cstdlib/realloc/) http://www.cplusplus.com/reference/cstdlib/realloc/
+* [`free`](http://www.cplusplus.com/reference/cstdlib/free/) http://www.cplusplus.com/reference/cstdlib/free/
+* [`pow`](http://www.cplusplus.com/reference/cmath/pow/) http://www.cplusplus.com/reference/cmath/pow/
+* [`printf`](http://www.cplusplus.com/reference/cstdio/printf/) http://www.cplusplus.com/reference/cstdio/printf/
+* [`scanf`](http://www.cplusplus.com/reference/cstdio/scanf/) http://www.cplusplus.com/reference/cstdio/scanf/
+* [`fopen`](http://www.cplusplus.com/reference/cstdio/fopen/) http://www.cplusplus.com/reference/cstdio/fopen/
 * [[10](http://www.equestionanswers.com/c/c-printf-scanf-working-principle.php)] http://www.equestionanswers.com/c/c-printf-scanf-working-principle.php
-* [[prototype](https://en.wikipedia.org/wiki/Function_prototype)] https://en.wikipedia.org/wiki/Function_prototype
+* [prototype](https://en.wikipedia.org/wiki/Function_prototype) https://en.wikipedia.org/wiki/Function_prototype
 * [[11](https://www.slideshare.net/kentarokawamoto/runtime-symbol-resolution)] https://www.slideshare.net/kentarokawamoto/runtime-symbol-resolution
 * [[12](https://reverseengineering.stackexchange.com/a/20214)] https://reverseengineering.stackexchange.com/a/20214
 * [[13](https://en.wikipedia.org/wiki/Data_segment)] https://en.wikipedia.org/wiki/Data_segment
@@ -427,8 +427,8 @@ The most important flags relevant for this course are:
 * [[15](https://techdifferences.com/difference-between-register-and-memory.html)] https://techdifferences.com/difference-between-register-and-memory.html
 * [[16](https://www.quora.com/Why-can%E2%80%99t-two-operands-both-be-memory-operands-in-assembly-language)] https://www.quora.com/Why-can%E2%80%99t-two-operands-both-be-memory-operands-in-assembly-language
 * [[17](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#x86_Architecture)] https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#x86_Architecture
-* [[carry](http://mathworld.wolfram.com/Carry.html)] http://mathworld.wolfram.com/Carry.html
-* [[borrow](http://mathworld.wolfram.com/Borrow.html)] http://mathworld.wolfram.com/Borrow.html
+* [carry](http://mathworld.wolfram.com/Carry.html) http://mathworld.wolfram.com/Carry.html
+* [borrow](http://mathworld.wolfram.com/Borrow.html) http://mathworld.wolfram.com/Borrow.html
 
 [<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
 [Lab setup >>](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
