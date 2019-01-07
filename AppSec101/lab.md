@@ -40,7 +40,7 @@ In order to keep this course free, we recommend to use [VirtualBox](https://www.
 * 1024 Mb RAM
 * 10 Gb Hard disk (VDI - Dynamically allocated)
 
-> Note: during the Ubuntu installation, make sure you select the right keyboard (use "Detect keyboard layout"). For the rest, you can choose whatever name, username, password and language.
+> __Note__: during the Ubuntu installation, make sure you select the right keyboard (use "Detect keyboard layout"). For the rest, you can choose whatever name, username, password and language.
 
 Once the VM deployed, open your terminal and update VM then install the VirtualBox Guest Addition:
 
@@ -58,7 +58,7 @@ For this course, we only need 2 tools: __GDB__ and __GCC__. Both tools are alrea
 
 Let's compile our first C code for this course. Use you favorite text editor and create the following `mul.c` file:
 
-```C
+```
 #include <stdio.h>
 
 
@@ -112,7 +112,7 @@ As mentioned earlier, GDB is a debugger. The main feature of a debugger is to se
 gdb mul -q
 ```
 
-> Note: The option `-q` is avoid printing introducery and copyright message
+> __Note__: The option `-q` is avoid printing introducery and copyright message.
 
 Now, we want to disassemble the `main()` function so we know where to set a breakpoint.
 
@@ -207,7 +207,7 @@ Starting program: /home/lab/mul
 Breakpoint 1, 0x08048454 in main ()
 ```
 
-As you can see, at this stage, the application already did the multiplication and printed the result. Once the breakpoint reached, the application pauses. At this point, you can read (and write) memory, instructions and registers. To view the registers, you can run the command:
+As you can see, at this stage, the application already did the multiplication and printed the result. Once the breakpoint reached, the application pauses. At this point, you can read (and write) memory, instructions and registers (see chapter [memory](https://beaujeant.github.io/appsec101/memory/)). To view the registers, you can run the command:
 
 ```
 (gdb) info registers
@@ -228,8 +228,6 @@ es             0x7b	123
 fs             0x0	0
 gs             0x33	51
 ```
-
-> We will learn more about registers in the chapter [CPU](#), but for now, you have to see registers as a collection of 32 bits variable available to the CPU, where read/write access is much faster than access to "normal" memory.
 
 To read memory locations, including instructions (since instruction are located in memory), you can use the command `x` (for eXamine). The command `x` has the following format:
 
@@ -262,7 +260,7 @@ Now, if we want to see the opcode instead of the instruction, we have to change 
 0x8048454 <main+73>:	0xb8	0x00	0x00	0x00	0x00
 ```
 
-> Note: Unlike ARM, x386 instruction length is variable, so we first need to read the first byte to know how long will be the instruction in opcode. For instance, `0xb8` means move the next 4 bytes (word) in EAX. So the entire instruction is 1 byte (`0xb8`) + 4 bytes (value to copy in EAX) = 5 bytes. Whilst `0x89` means moving the value of a register into another register. The following byte will indicate which is the source register and the destination register. For instance `0xc8` would means source is ECX and destination is EAX, which means `89 c8` means `mov eax, ecx`. So the entire instruction is 1 byte (`0x89`) + 1 byte (source/destination register) = 2 bytes.
+> __Note__: Unlike ARM, x386 instruction length is variable, so we first need to read the first byte to know how long will be the instruction in opcode. For instance, `0xb8` means move the next 4 bytes (word) in EAX. So the entire instruction is 1 byte (`0xb8`) + 4 bytes (value to copy in EAX) = 5 bytes. Whilst `0x89` means moving the value of a register into another register. The following byte will indicate which is the source register and the destination register. For instance `0xc8` would means source is ECX and destination is EAX, which means `89 c8` means `mov eax, ecx`. So the entire instruction is 1 byte (`0x89`) + 1 byte (source/destination register) = 2 bytes.
 
 Now that we know how to read memory, let's navigate through the instructions. The four main commands to remember are `run`, `continue`, `nexti` and `stepi`:
 
@@ -286,7 +284,7 @@ Starting program: /home/lab/mul
 Breakpoint 2, 0x08048433 in main ()
 ```
 
-> Note: Since the application was already running, you should have a warning asking you whether you really want to start from the beginning. You simply need to type `y` to confirm.
+> __Note__: Since the application was already running, you should have a warning asking you whether you really want to start from the beginning. You simply need to type `y` to confirm.
 
 Now we reached the breakpoint at `call 0x8048461 <mul>`. If you want to, you can execute the command `disassemble main` again to see where we are. The `call` instruction will redirect the execution flow to the function `mul`. If you want the function to execute and go straight to the next instruction (i.e. `add esp,0x10`) you can use the command `nexti`. But if you want to follow the execution flow and jump in the function `mul`, you can use the command `stepi`. Let's use the later:
 
@@ -382,7 +380,7 @@ fs             0x0	0
 gs             0x33	51
 ```
 
-> Note: You can print a single register by using `print $reg`, for instance `print $eax`.
+> __Note__: You can print a single register by using `print $reg`, for instance `print $eax`.
 
 Finally, let's have a look at the breakpoints we have set with the command `info breakpoints`:
 

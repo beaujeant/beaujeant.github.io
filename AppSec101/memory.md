@@ -38,7 +38,7 @@ The executable (ELF or PE file) contains (among others) the following parts:
 * __Entry Point__: The address where the start once the application is loaded in memory
 * __Import table__: Most applications rely on functions located in different _libraries_ (i.e. collection of pre-compiled functions). So for instance, when using `printf`, the code of the function is not in the program itself but in the library `libc.so` (in Linux). When the application is run, the startup routine load all of the libraries that the application uses and map them into memory. This can be done thanks to the list of libraries (and function) from the _import table_.
 
-> Note: Program can be compiled with static library or dynamic/shared library. Shared library means the code of imported functions reside in different libraries/files (as we seen with the _import table_). Whilst static library means the actual code of imported functions is copied in the program itself so that the program doesn't relies on different libraries/files (the _import table_ is thus empty). [[4](https://medium.com/@StueyGK/static-libraries-vs-dynamic-libraries-af78f0b5f1e4)]
+> __Note__: Program can be compiled with static library or dynamic/shared library. Shared library means the code of imported functions reside in different libraries/files (as we seen with the _import table_). Whilst static library means the actual code of imported functions is copied in the program itself so that the program doesn't relies on different libraries/files (the _import table_ is thus empty). [[4](https://medium.com/@StueyGK/static-libraries-vs-dynamic-libraries-af78f0b5f1e4)]
 
 Once you run an application, the operating system will first allocated some space in memory to load the application. Since we are working with 32-bit computer, the program can only access address in memory that fit within 32 bits (due to the design of the CPU [[5](https://www.brianmadden.com/opinion/The-4GB-Windows-Memory-Limit-What-does-it-really-mean)]), i.e. between `00000000000000000000000000000000` (0) and `11111111111111111111111111111111` (4,294,967,295). So by default, whenever you run an application, the operating system allocate 4GB (4,294,967,295) of _virtual memory_ for that application. It is important to understand the concept of virtual memory. The Operating System won't be able to allocate 4GB in RAM for each application. First of all because most of computer won't have enough memory to run more than 3 applications (including the OS) at the same time, but also because some data should be shared across all applications. So _virtual memory_ is rather an abstraction of the actual memory (RAM) where the data is actually stored in non-consecutive areas of the memory and storage. This is a huge advantage for application so that they don't have to take into consideration how to distribute the data across the RAM and keep track where is what. Instead the application sees one unique continuous block of memory and let the operating system deal with the translation to the actual location of the data in RAM.
 
@@ -46,7 +46,7 @@ Once you run an application, the operating system will first allocated some spac
 
 Once the memory allocated, the OS (actually the _dynamic linker_) will map the binary application in memory according to its mapping table then load the libraries. Once done, the execution of the program starts at the _entry point_.
 
-> Note: We only kept the main steps relevant for this course. The process has been simplified and some steps are missing [[6](https://stackoverflow.com/a/5130690)].
+> __Note__: We only kept the main steps relevant for this course. The process has been simplified and some steps are missing [[6](https://stackoverflow.com/a/5130690)].
 
 The command `readelf` allows you to parse and extract information from the ELF file. The entry point of the application `ls` can be found with the following command:
 
@@ -94,7 +94,7 @@ In this diagram, the lowest memory (smallest memory address) is at the bottom an
 
 I personally prefer this representation (lowest at top) because later when using _debuggers_, memory areas are usually represented in that order.
 
-> Note: Those diagrams represent the layout for 32-bit Linux application. The main different with 32-bit Windows application is the repartition between kernel-land (2GB) and user-land (2GB).
+> __Note__: Those diagrams represent the layout for 32-bit Linux application. The main different with 32-bit Windows application is the repartition between kernel-land (2GB) and user-land (2GB).
 
 ### Kernel and user-land
 
@@ -106,7 +106,7 @@ All operations that requires privileges (on the operating system level) has to g
 
 Once in kernel-land, more instructions (privileged instruction) are available. The CPU verify whether the instructions are run from kernel-land simply by checking whether the address of the instruction executed starts with `11`.
 
-> Note: Of course, user-land instructions cannot read/write/edit instruction in kernel-land.
+> __Note__: Of course, user-land instructions cannot read/write/edit instruction in kernel-land.
 
 ### Stack
 
@@ -172,7 +172,7 @@ int mul(int x, int y)
 }
 ```
 
-> Note: This code is a simple multiplier that only uses addition as mathematical operation
+> __Note__: This code is a simple multiplier that only uses addition as mathematical operation.
 
 In this example, the function `main()` calls the function `mul()`, and the function `mul()` calls the function `add()` multiple times.
 
@@ -197,7 +197,7 @@ The heap is a region in memory where __dynamically allocated variables__ are sto
 * __Automatic memory allocation__: The memory is allocated in the beginning of the stack frame whenever the function is called. The variable last as long as the function is running. Once the function is finish, the stack frame is clear and the memory is no longer allocated for the variable.
 * __Dynamic memory allocation__: The memory is allocated when `malloc()` or `calloc()` are used. Both take as argument the size you want to allocate in memory then return a pointer to this newly allocated memory. The memory will be allocated until explicitly un-allocated with the function `free()`. [[8](https://stackoverflow.com/a/8385488)]
 
-> Note: Automatic memory allocation doesn't need to take place in the stack, but this is the most seen method.
+> __Note__: Automatic memory allocation doesn't need to take place in the stack, but this is the most seen method.
 
 Being able to dynamically allocated memory can be useful in many cases:
 
@@ -239,7 +239,7 @@ A shared library used by multiple applications means the library is loaded only 
 
 The function `printf` for instance is located in the shared library `/lib/i386-linux-gnu/libc.so.6`. By default, GCC always includes the shared library `libc`, so there is no need to specify it when compiling. For instance, let's consider the following code `hello.c`:
 
-```C
+```
 #include <stdio.h>
 
 int main()
@@ -260,7 +260,7 @@ $ ldd hello
 	/lib/ld-linux.so.2 (0xb7f97000)
 ```
 
-> Note: More information about the compiler in chapter [lab](https://beaujeant.github.io/appsec101/lab/)
+> __Note__: More information about the compiler in chapter [lab](https://beaujeant.github.io/appsec101/lab/)
 
 Although the `libc` library is meant to be used as a _dynamically linked shared object library_, it is possible to add it directly in the final binary application as a _static library_ by using the option `-static` with `gcc`:
 
@@ -272,7 +272,7 @@ $ ldd hello_static
 
 However, the application `hello_static` will be much bigger since the library will be copied in the program: `hello` is 7,2K and `hello_static` is 712K
 
-> Note: Unused functions won't be added in the program
+> __Note__: Unused functions won't be added in the program
 
 Now, let's have a look at how the functions from shared libraries are loaded. First of all, libraries have an _export table_. It's a table that list all exported functions (e.g. `printf`) and tells at which offset the function is located. To see the list of exported functions, you can use either `mn -D <libfile>`, `readelf -s <libfile>` or `objdump -T <libfile>`:
 
@@ -295,7 +295,7 @@ DYNAMIC SYMBOL TABLE:
 ...
 ```
 
-> Note: The list does not only contains exported functions but all exported symbols, which also includes exported variables.
+> __Note__: The list does not only contains exported functions but all exported symbols, which also includes exported variables.
 
 The first line contains the offset where to find the function when loaded in memory. So this means the function `printf` is not located at `0x49670` in the file `libc.so.6`, but `printf` will be located at an offset of `0x49670` starting from where `libc.so.6` is loaded in memory.
 
@@ -348,7 +348,7 @@ Registers are small memory locations built into the CPU, which increase the read
 
 Most instructions executed by the CPU involve (at least) one register as operands. Beside the advantageous fast access to register, the design of the machine language does not allow memory-to-memory operations [[16](https://www.quora.com/Why-can%E2%80%99t-two-operands-both-be-memory-operands-in-assembly-language)]. So this means if we want to add two numbers, we won't tell the CPU "_add_ the value located at the address `0x11223344` with the value located at the address `0x44332211` and save the result in `0x12345678`". Instead, we will tell the CPU "_move_ the value located at the address `0x11223344` in the register `DX`, then _add_ the value in the register `DX` with the value located at the address `0x44332211`" The instruction _add_ always saves the result in a particular register (i.e. `AX`) so we then have to tell the CPU "_move_ the value in the register `AX` to memory at the address `0x12345678`".
 
-> Note: We could also move both values in register and execute the addition, but this would require one additional instruction.
+> __Note__: We could also move both values in register and execute the addition, but this would require one additional instruction.
 
 32-bit architectures have the following registers:
 
@@ -370,7 +370,7 @@ The 8 GPRs are:
 * __S__​ource __I__​ndex register (SI): Used as a pointer to a source in string/stream operations.
 * __D__​estination __I__​ndex register (DI): Used as a pointer to a destination in string/stream operations.
 
-> Note: The purpose of the first four registers (`AX`, `CX`, `DX` and `BX`) can be interchangeable. Even `SI` and `DI` can be used for a different purpose. These are guideline, but if `BX` is used as a loop counter, the code will still work fine.
+> __Note__: The purpose of the first four registers (`AX`, `CX`, `DX` and `BX`) can be interchangeable. Even `SI` and `DI` can be used for a different purpose. These are guideline, but if `BX` is used as a loop counter, the code will still work fine.
 
 All registers can be accessed in 16-bit and 32-bit modes. In 16-bit mode, the register is identified by its two-letter abbreviation from the list above. In 32-bit mode, this two-letter abbreviation is prefixed with an `E` (extended). For example, `EAX` is the accumulator register as a 32-bit value. It is also possible to address the first four registers (`AX`, `CX`, `DX` and `BX`) in their size of 16-bit as two 8-bit halves. The least significant byte (LSB), or low half, is identified by replacing the `X` with an `L`. The most significant byte (MSB), or high half, uses an `H` instead. For example, `CL` is the least-significant bits (LSB) of the counter register (`CX`), whereas `CH` is its most-significant bits (MSB). [[17](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#x86_Architecture)].
 
@@ -386,7 +386,7 @@ Initially called FLAGS on 16-bit architecture, then later EFLAGS on 32-bit archi
 
 ![EFLAGS](resources/images/eflags.png)
 
-> Note: _Res_ flag are reserved for future use.
+> __Note__: _Res_ flag are reserved for future use.
 
 The most important flags relevant for this course are:
 
