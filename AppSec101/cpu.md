@@ -5,8 +5,8 @@ parent: Application Security 101
 nav_order: 2
 ---
 
-[<< Introduction](https://beaujeant.github.io/appsec101/introduction/){: .btn .btn-outline }
-[Memory >>](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
+[<< Introduction](introduction/){: .btn .btn-outline }
+[Memory >>](memory/){: .btn .btn-outline }
 
 Central Processing Unit
 =======================
@@ -23,20 +23,27 @@ Operations have one or two parameters – also known as operands (e.g. `5 + 2` h
 
 Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensors). Once the operation done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
 
-__*image CPU + memory + I/O*__
+![CPU-Memory-I/O](resources/images/cpu-memory-io.png)
 
 As you can see, the __control unit__ is doing a lot in the CPU. It orchestrates the four elements (i.e. memory, arithmetic unit, input and output) and route the data across them. The control unit doesn't magically work on its own. It needs instructions to follow. Instruction such as "take the value located here in memory and send it to the arithmetic unit to execute the following operation". Those sequences of instruction is the program itself. Whenever a programmers compiles code, they actually create a binary application that contains a list of CPU instructions that the control unit will execute. When the program is running, instructions are loaded in memory and read by the control unit. Once executed, the control unit will look at the instruction located right after in memory – unless the instruction executed redirected the execution flow somewhere else (with a jump for instance).
 
 Now, lets focus on the __arithmetic unit__ and its principal component: the __A__​rithmentic __L__​ogic __U__​nit (ALU). ALU can be represented as follow:
 
-__* image of ALU*__
+![ALU](resources/images/alu.png)
 
-It has three inputs (_input A_, _input B_ and the _command_) and two outputs (_output_ and _status output_):
+It has four inputs (_input A_, _input B_, _command_ and the _status_) and two outputs (_output_ and _status output_):
 
 * _Command_ is the arithmetic or logic operation to execute (subtraction, multiplication, XOR, NOT, etc). The _command_ is a binary value that will select the right area in the ALU to be triggered.
+* _Status_ is the _status output_ from the previous operation.
 * _Input A_ and _input B_ are the parameters of the operation.
 * _Output_ is the result of the operation.
 * _Status output_ indicates how the operation went. It could have several meaning depending on the operation execute. For instance, with a subtraction, the _status output_ can tell whether the _output_ value is positive or negative. The _status output_ is important as it is used for taking decision.
+
+For instance, the `9 + 33` would represented as follow:
+
+![Addition](resources/images/addition.png)
+
+> __Note__: The input _stauts_ has been removed cause in this case, it was not relevant.
 
 We've seen earlier, the  control unit read instructions and coordinate the memory, input/output and arithmetic unit accordingly. But it also takes decision based on operation output (and status output). For instance, let's consider an online transaction. Before executing the transaction, the bank server will first subtract the amount of the transaction to the current account balance. If the subtraction (which took place in the ALU) returns a negative value (indicated by the _status output_), this would means the user doesn't have enough money for the transaction, and thus when the _control unit_ reads the instructions "go to _cancel transaction_ if negative otherwise proceed with transaction" it will be able to will take the right decision.
 
@@ -189,7 +196,7 @@ So, why using base 16 and not 10 you may ask. Their are multiple reasons but the
 * It is easier to convert binary number in hexadecimal and the other way around. Four binary values can always be represented with one hexadecimal value. So this means if you want to convert from hexadecimal to binary, you first need to chunk the number character by character and convert them in their respective 4 binary values.
 * This is related to the first reason, but hexadecimal value aligns with its binary equivalent. For instance, the number 9 (decimal) is 1001 in binary. One symbol in decimal for four symbols in binary. Now the number 12 (decimal) is 1100 in binary. Two symbols in decimal but still four symbols in binary. Now 18 (decimal) is 10010 in binary. Two symbols in decimal and 5 in binary. All this long example to explain that there is not a direct correlation with the amount a symbol in decimal and binary. However, since both hexadecimal and binary are bases that are powers of 2, it all aligns. 1-4 symbols in binary will always be 1 symbol in hexadecimal. 5-8 symbols in binary will always be 2 symbols in hexadecimal, etc.
 
-__*image of an number in bits chunk in block of 4 bits corresponding to hexdecimal printed below*__
+![Bin to Hex](resources/images/bin-hex.gif)
 
 This might not seems interesting at first sight, but with experience, you will notice hexadecimal comes handy.
 
@@ -199,9 +206,9 @@ This might not seems interesting at first sight, but with experience, you will n
 Data types
 ----------
 
-Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](https://beaujeant.github.io/appsec101/memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
+Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
 
-__*image comparison data type*__
+![Data types](resources/images/data-types.png)
 
 > __Note__: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [[2](https://en.wikipedia.org/wiki/Bit_numbering)]
 
@@ -221,13 +228,35 @@ An integer is a whole number (not fractional) that can be positive, negative or 
 
 Floats represent fractional values. You typically have the 32-bits _single precision_ (`float` in C) and the 64-bit _double precision_ (`double` in C) float values. A float is composed of 3 parts: the sign (1 bit), the exponent (8 bits for _single precision_ and 11 bits for _double precision_) and the fraction (23 bits for the single precision and 52 bits for the _double precision_).
 
-Here is the explanation for the conversion of [single precision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format#Converting_from_single-precision_binary_to_decimal) and [double precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format#Exponent_encoding). You can play with flat (single and double) [here](https://evanw.github.io/float-toy/).
+Here is the explanation for the conversion of [single precision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format#Converting_from_single-precision_binary_to_decimal) and [double precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format#Exponent_encoding). You can play with float (single and double) here: [float toy](https://evanw.github.io/float-toy/).
 
 ### Character
 
 A character (`char` in C) is typically one byte long. It (usually) contains one printable character using the ASCII encoding standard.
 
-__*image of ASCII from terminal*__
+```
+$ man ascii
+...
+The hexadecimal set:
+
+00 nul   01 soh   02 stx   03 etx   04 eot   05 enq   06 ack   07 bel
+08 bs    09 ht    0a nl    0b vt    0c np    0d cr    0e so    0f si
+10 dle   11 dc1   12 dc2   13 dc3   14 dc4   15 nak   16 syn   17 etb
+18 can   19 em    1a sub   1b esc   1c fs    1d gs    1e rs    1f us
+20 sp    21  !    22  "    23  #    24  $    25  %    26  &    27  '
+28  (    29  )    2a  *    2b  +    2c  ,    2d  -    2e  .    2f  /
+30  0    31  1    32  2    33  3    34  4    35  5    36  6    37  7
+38  8    39  9    3a  :    3b  ;    3c  <    3d  =    3e  >    3f  ?
+40  @    41  A    42  B    43  C    44  D    45  E    46  F    47  G
+48  H    49  I    4a  J    4b  K    4c  L    4d  M    4e  N    4f  O
+50  P    51  Q    52  R    53  S    54  T    55  U    56  V    57  W
+58  X    59  Y    5a  Z    5b  [    5c  \    5d  ]    5e  ^    5f  _
+60  `    61  a    62  b    63  c    64  d    65  e    66  f    67  g
+68  h    69  i    6a  j    6b  k    6c  l    6d  m    6e  n    6f  o
+70  p    71  q    72  r    73  s    74  t    75  u    76  v    77  w
+ 78  x    79  y    7a  z    7b  {    7c  |    7d  }    7e  ~    7f del
+...
+```
 
 So for instance, the character `A` (uppercase) is `0x41` in hexadecimal and the ASCII character `1` is not `0x01` but `0x31` in hexadecimal.
 
@@ -270,7 +299,7 @@ You cannot provide a variable name to the CPU, it will not understand where to f
 
 ### Function pointer
 
-We will see more about it in chapters [memory](https://beaujeant.github.io/appsec101/memory/) and [assembly](https://beaujeant.github.io/appsec101/assembly/), but the instructions sent to the CPU are also located in memory alongside the variables (although usually located in different sections). So whenever a function is called, it is merely a jump to another area of the memory where the function's instructions are located. A function pointer is an address (32 bits) of the memory where instructions are located.
+We will see more about it in chapters [memory](memory/) and [assembly](assembly/), but the instructions sent to the CPU are also located in memory alongside the variables (although usually located in different sections). So whenever a function is called, it is merely a jump to another area of the memory where the function's instructions are located. A function pointer is an address (32 bits) of the memory where instructions are located.
 
 ### Handle
 
@@ -405,8 +434,15 @@ Basically, the _XOR_ gate returns `true` only when a and b are different.
 
 This was the last logic operation for this course and the last section for this chapter. I hope you now have a better understanding of what a CPU is. In the next chapter, we will see how the memory is structured.
 
-* [[1](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)] https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan
-* [[2](https://en.wikipedia.org/wiki/Bit_numbering)] https://en.wikipedia.org/wiki/Bit_numbering
 
-[<< Introduction](https://beaujeant.github.io/appsec101/introduction/){: .btn .btn-outline }
-[Memory >>](https://beaujeant.github.io/appsec101/memory/){: .btn .btn-outline }
+* [roll film](https://en.wikipedia.org/wiki/Roll_film) https://en.wikipedia.org/wiki/Roll_film
+* [[1](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)] https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan
+* [Arabic numerals](https://en.wikipedia.org/wiki/Arabic_numerals) https://en.wikipedia.org/wiki/Arabic_numerals
+* [[2](https://en.wikipedia.org/wiki/Bit_numbering)] https://en.wikipedia.org/wiki/Bit_numbering
+* [single precision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format#Converting_from_single-precision_binary_to_decimal) https://en.wikipedia.org/wiki/Single-precision_floating-point_format#Converting_from_single-precision_binary_to_decimal
+* [double precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format#Exponent_encoding) https://en.wikipedia.org/wiki/Double-precision_floating-point_format#Exponent_encoding
+* [float toy](https://evanw.github.io/float-toy/) https://evanw.github.io/float-toy/
+
+
+[<< Introduction](introduction/){: .btn .btn-outline }
+[Memory >>](memory/){: .btn .btn-outline }

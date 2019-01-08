@@ -5,8 +5,8 @@ parent: Application Security 101
 nav_order: 3
 ---
 
-[<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
-[Lab setup >>](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
+[<< Central Processing Unit](cpu/){: .btn .btn-outline }
+[Lab setup >>](lab/){: .btn .btn-outline }
 
 Memory
 ======
@@ -18,7 +18,7 @@ Memory is a core component of a computer system. Without memory, there would be 
 
 While the storage contains the data at rest, the memory contains the data currently in used, including the instructions of all applications running and the data associated.
 
-So the memory is the place where the data is stored. As we've seen in the chapter [Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/), data could be anything: variable, image, instruction, etc. In the memory, there is nothing that explain what type of data is stored at any location. There is nothing that explain where the data start and where it ends. Most data type doesn't have delimiter that tells "you reach the end of the variable". So that means if you pick data at a random address in the memory, you shouldn't be able to tell whether this value is meant to be an integer, an instruction or a string. Stored data only makes sense when manipulated by instructions.
+So the memory is the place where the data is stored. As we've seen in the chapter [Central Processing Unit](cpu/), data could be anything: variable, image, instruction, etc. In the memory, there is nothing that explain what type of data is stored at any location. There is nothing that explain where the data start and where it ends. Most data type doesn't have delimiter that tells "you reach the end of the variable". So that means if you pick data at a random address in the memory, you shouldn't be able to tell whether this value is meant to be an integer, an instruction or a string. Stored data only makes sense when manipulated by instructions.
 
 
 ELF/PE file
@@ -181,13 +181,13 @@ In this example, the function `main()` calls the function `mul()`, and the funct
 Each function has its own stack frame. Whenever `main()` calls `mul()`, a new stack frame is added on top of the current one. A stack frame can grow and reduce with temporary local variables. A stack frame is usually structured as follow:
 
 * Function arguments: When a function is called, is generally receives argument, e.g. in the call `mul(4,3)`, the first argument is `4` and the second argument is `3`. In this example, arguments are integer, but this could be any data (float, string, etc).
-* Return address: We will see it later in chapter [assembly](https://beaujeant.github.io/appsec101/assembly/), but basically, whenever a function is called, the CPU jump to a different of the memory where the instruction of the called function is located. At the end of the function, the CPU needs to return at the instruction right after the initial call of the function. In order to know where to return, the address is saved in the stack.
+* Return address: We will see it later in chapter [assembly](assembly/), but basically, whenever a function is called, the CPU jump to a different of the memory where the instruction of the called function is located. At the end of the function, the CPU needs to return at the instruction right after the initial call of the function. In order to know where to return, the address is saved in the stack.
 * Stack base pointer of the callee function: The base pointer point to the beginning of the stack frame. Oddly enough, the base pointer doesn't point exactly at the beginning of the frame but rather the beginning of the local variable.
 * Local variables: When local variables are initialized, those are actually located in the stack. So for instance if you have `int a;`, it allocated 4 bytes in the stack for the variable `a`.
 
 ![Stack frame](resources/images/stack.gif)
 
-We will see more examples with the stack in the chapter [assembly](https://beaujeant.github.io/appsec101/assembly/).
+We will see more examples with the stack in the chapter [assembly](assembly/).
 
 ### Heap
 
@@ -260,7 +260,7 @@ $ ldd hello
 	/lib/ld-linux.so.2 (0xb7f97000)
 ```
 
-> __Note__: More information about the compiler in chapter [lab](https://beaujeant.github.io/appsec101/lab/)
+> __Note__: More information about the compiler in chapter [lab](lab/)
 
 Although the `libc` library is meant to be used as a _dynamically linked shared object library_, it is possible to add it directly in the final binary application as a _static library_ by using the option `-static` with `gcc`:
 
@@ -336,7 +336,7 @@ The _.data_ and _.bss_ sections are read-write, since the values of variables ca
 
 The section _.text_ contains the translation of the source code in machine instructions. Those instructions are sent and executed by the CPU. Those instructions consist of moving data, redirect the execution flow and execute mathematical and logical operations. There is a quite large set of instructions (around 1500 [[14](https://fgiesen.wordpress.com/2016/08/25/how-many-x86-instructions-are-there/)]) available for the i386 architecture. Fortunately, the 20 most used instructions makes 90% of an application, so if learn those 20 instructions, you should be able to read most of the code.
 
-Unlike in ARM instructions, the size in memory for a single i386 instruction can very from 1 to 15 bytes (although most of instructions are between 1 and 5 bytes). When reading machine instructions, we (human) usually don't read directly what is stored in memory but rather its interpretation. For instance, the instruction `push 0x0`, which will basically push to the _stack_ the value `0x00000000` is `64 00` in memory. So while we (human) could technically remember that the value `64 00` is the instruction `push 0x0`, we are better at remembering meaningful word, that's why all machine instructions can be directly translated in __assembly__ (also known as __asm__). So assembly is a human readable language that represents machine machine instructions. More info about assembly in the chapter [assembly](https://beaujeant.github.io/appsec101/assembly/).
+Unlike in ARM instructions, the size in memory for a single i386 instruction can very from 1 to 15 bytes (although most of instructions are between 1 and 5 bytes). When reading machine instructions, we (human) usually don't read directly what is stored in memory but rather its interpretation. For instance, the instruction `push 0x0`, which will basically push to the _stack_ the value `0x00000000` is `64 00` in memory. So while we (human) could technically remember that the value `64 00` is the instruction `push 0x0`, we are better at remembering meaningful word, that's why all machine instructions can be directly translated in __assembly__ (also known as __asm__). So assembly is a human readable language that represents machine machine instructions. More info about assembly in the chapter [assembly](assembly/).
 
 Instructions are stored one after another in memory, although not necessary in chronological execution since the execution flow can be redirected. There is not delimiters between instructions and instructions have variable length, so CPU knows where the next instruction is based on the current one being executed. For instance, it knows that if it reads the value `64`, this is a `push` instruction that takes only one argument (operand) that is one byte long so the total instruction is 2 bytes and therefore, the next instruction is located two bytes after the current one.
 
@@ -393,9 +393,11 @@ The most important flags relevant for this course are:
 * __C__​arry __F__​lag (CF): indicates whether an arithmetic [carry](http://mathworld.wolfram.com/Carry.html) or [borrow](http://mathworld.wolfram.com/Borrow.html) has been done on the most significant bit position.
 * __P__​arity __F__​lag (PF): indicates whether the result of the last operation is even (PF = `1`) or odd (PF = `0`).
 * __Z__​ero __F__​lag (ZF): indicates whether the result of the last operation is zero (ZF = `1`) or otherwise (ZF = `0`).
-* __S__​ign __F__​lag (SF): indicates whether the result of the last operation has its most significant bit set to `1` (SF = `1`) or set to `0` (SF = `0`). As seen in chapter [CPU](https://beaujeant.github.io/appsec101/cpu/), a signed integer indicate its parity with the most-significant bit.
-* __T__​rap __F__​lag (TF): indicates whether the CPU is in single-step mode (TF = `1`) or not (TF = `0`). The single-step mode is used to debug applications. When set, the CPU will execute one instruction and then stop so that you can examine the memory and registers between each instructions. This flag is used by debugger tools such as GDB, which will be covered in the next chapter [lab](https://beaujeant.github.io/appsec101/lab/).
+* __S__​ign __F__​lag (SF): indicates whether the result of the last operation has its most significant bit set to `1` (SF = `1`) or set to `0` (SF = `0`). As seen in chapter [CPU](cpu/), a signed integer indicate its parity with the most-significant bit.
+* __T__​rap __F__​lag (TF): indicates whether the CPU is in single-step mode (TF = `1`) or not (TF = `0`). The single-step mode is used to debug applications. When set, the CPU will execute one instruction and then stop so that you can examine the memory and registers between each instructions. This flag is used by debugger tools such as GDB, which will be covered in the next chapter [lab](lab/).
 * __O__​verflow __F__​lag (OF): indicate whether an arithmetic overflow has occurred in the last operation operation. An overflow happens when two operands are added and the sign bit (most-significant bit) is flipped. If the expected result is a signed integer, the next operation will see the result as a negative number.
+
+Remember the _ALU_ in chapter [CPU](cpu/)? Well _CF_, _PF_, _ZF_, _SF_ and _OF_ are part of the _status output_.
 
 
 * [[1](https://www.kingston.com/en/community/articledetail/articleid/29685)] https://www.kingston.com/en/community/articledetail/articleid/29685
@@ -430,5 +432,6 @@ The most important flags relevant for this course are:
 * [carry](http://mathworld.wolfram.com/Carry.html) http://mathworld.wolfram.com/Carry.html
 * [borrow](http://mathworld.wolfram.com/Borrow.html) http://mathworld.wolfram.com/Borrow.html
 
-[<< Central Processing Unit](https://beaujeant.github.io/appsec101/cpu/){: .btn .btn-outline }
-[Lab setup >>](https://beaujeant.github.io/appsec101/lab/){: .btn .btn-outline }
+
+[<< Central Processing Unit](cpu/){: .btn .btn-outline }
+[Lab setup >>](lab/){: .btn .btn-outline }

@@ -8,27 +8,27 @@ has_children: true
 Application Security 101
 ========================
 
-* [Introduction](https://beaujeant.github.io/appsec101/introduction/)
-* [CPU](https://beaujeant.github.io/appsec101/cpu/)
+* [Introduction](introduction/)
+* [Central Processing Unit](cpu/)
   * CPU structure
   * Data/information
   * Binary numeral system
   * Data types
   * Logic operation
-* [Memory](https://beaujeant.github.io/appsec101/memory/)
+* [Memory](memory/)
   * ELF/PE file
   * Memory layout
   * Registers
-* [Lab environment](https://beaujeant.github.io/appsec101/lab/)
+* [Lab environment](lab/)
   * Operating system
   * Tools
-* [Programming](https://beaujeant.github.io/appsec101/programming/)
+* [Programming](programming/)
   * Arguments and variables
   * Dynamic memory allocation
   * Import table
   * Common functions
   * Compiler optimization
-* [Assembly](/appsec101/assembly/)
+* [Assembly](assembly/)
   * Instruction
   * Registers
   * Memory

@@ -4,7 +4,7 @@ title:  Beaujeant
 remote_theme: pmarsceill/just-the-docs
 
 # Enable or disable the site search
-search_enabled: true
+search_enabled: false
 
 # Aux links for the upper right navigation
 aux_links:
