@@ -42,7 +42,7 @@ The executable (ELF or PE file) contains (among others) the following parts:
 
 Once you run an application, the operating system will first allocated some space in memory to load the application. Since we are working with 32-bit computer, the program can only access address in memory that fit within 32 bits (due to the design of the CPU [[5](https://www.brianmadden.com/opinion/The-4GB-Windows-Memory-Limit-What-does-it-really-mean)]), i.e. between `00000000000000000000000000000000` (0) and `11111111111111111111111111111111` (4,294,967,295). So by default, whenever you run an application, the operating system allocate 4GB (4,294,967,295) of _virtual memory_ for that application. It is important to understand the concept of virtual memory. The Operating System won't be able to allocate 4GB in RAM for each application. First of all because most of computer won't have enough memory to run more than 3 applications (including the OS) at the same time, but also because some data should be shared across all applications. So _virtual memory_ is rather an abstraction of the actual memory (RAM) where the data is actually stored in non-consecutive areas of the memory and storage. This is a huge advantage for application so that they don't have to take into consideration how to distribute the data across the RAM and keep track where is what. Instead the application sees one unique continuous block of memory and let the operating system deal with the translation to the actual location of the data in RAM.
 
-![Virtual memory](/appsec101/resources/images/virtual_memory.png)
+![Virtual memory](resources/images/virtual_memory.png)
 
 Once the memory allocated, the OS (actually the _dynamic linker_) will map the binary application in memory according to its mapping table then load the libraries. Once done, the execution of the program starts at the _entry point_.
 
@@ -86,11 +86,11 @@ Memory layout
 
 Now that the program is running, we have the binary file as well as the libraries mapped in the virtual memory, but that's not all. We also need memory space for local variable, dynamically allocated memory, and OS related memory. All this is also in the virtual memory in specific areas.
 
-![Linux memory layout](/appsec101/resources/images/linux_memory_layout.png)
+![Linux memory layout](resources/images/linux_memory_layout.png)
 
 In this diagram, the lowest memory (smallest memory address) is at the bottom and the highest at the top. However, some people prefer to represent the memory the other way round, i.e. starting with the lowest memory at the top.
 
-![Linux memory layout inverted](/appsec101/resources/images/linux_memory_layout_inv.png)
+![Linux memory layout inverted](resources/images/linux_memory_layout_inv.png)
 
 I personally prefer this representation (lowest at top) because later when using _debuggers_, memory areas are usually represented in that order.
 
@@ -176,7 +176,7 @@ int mul(int x, int y)
 
 In this example, the function `main()` calls the function `mul()`, and the function `mul()` calls the function `add()` multiple times.
 
-![Function calls](/appsec101/resources/images/function_calls.png)
+![Function calls](resources/images/function_calls.png)
 
 Each function has its own stack frame. Whenever `main()` calls `mul()`, a new stack frame is added on top of the current one. A stack frame can grow and reduce with temporary local variables. A stack frame is usually structured as follow:
 
@@ -185,7 +185,7 @@ Each function has its own stack frame. Whenever `main()` calls `mul()`, a new st
 * Stack base pointer of the callee function: The base pointer point to the beginning of the stack frame. Oddly enough, the base pointer doesn't point exactly at the beginning of the frame but rather the beginning of the local variable.
 * Local variables: When local variables are initialized, those are actually located in the stack. So for instance if you have `int a;`, it allocated 4 bytes in the stack for the variable `a`.
 
-![Stack frame](/appsec101/resources/images/stack.gif)
+![Stack frame](resources/images/stack.gif)
 
 We will see more examples with the stack in the chapter [assembly](/appsec101/assembly/).
 
@@ -222,7 +222,7 @@ Source:
 * [[realloc](http://www.cplusplus.com/reference/cstdlib/realloc/)]
 * [[free](http://www.cplusplus.com/reference/cstdlib/free/)]
 
-![Stack frame](/appsec101/resources/images/heap.gif)
+![Stack frame](resources/images/heap.gif)
 
 ### Imported libraries
 
@@ -374,7 +374,7 @@ The 8 GPRs are:
 
 All registers can be accessed in 16-bit and 32-bit modes. In 16-bit mode, the register is identified by its two-letter abbreviation from the list above. In 32-bit mode, this two-letter abbreviation is prefixed with an `E` (extended). For example, `EAX` is the accumulator register as a 32-bit value. It is also possible to address the first four registers (`AX`, `CX`, `DX` and `BX`) in their size of 16-bit as two 8-bit halves. The least significant byte (LSB), or low half, is identified by replacing the `X` with an `L`. The most significant byte (MSB), or high half, uses an `H` instead. For example, `CL` is the least-significant bits (LSB) of the counter register (`CX`), whereas `CH` is its most-significant bits (MSB). [[17](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#x86_Architecture)].
 
-![Global-Purpose Registers](/appsec101/resources/images/gpr.png)
+![Global-Purpose Registers](resources/images/gpr.png)
 
 ### Instruction Pointer
 
@@ -384,7 +384,7 @@ The __I__​nstruction __P__​ointer (EIP) register contains the address of the
 
 Initially called FLAGS on 16-bit architecture, then later EFLAGS on 32-bit architecture, the flags register is a special register where each bit represent a boolean value for a specific flag. Flags are automatically set by the CPU after specific operations.
 
-![EFLAGS](/appsec101/resources/images/eflags.png)
+![EFLAGS](resources/images/eflags.png)
 
 > __Note__: _Res_ flag are reserved for future use.
 

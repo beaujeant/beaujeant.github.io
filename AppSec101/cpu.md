@@ -23,13 +23,13 @@ Operations have one or two parameters – also known as operands (e.g. `5 + 2` h
 
 Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensors). Once the operation done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
 
-![CPU-Memory-I/O](/appsec101/resources/images/cpu-memory-io.png)
+![CPU-Memory-I/O](resources/images/cpu-memory-io.png)
 
 As you can see, the __control unit__ is doing a lot in the CPU. It orchestrates the four elements (i.e. memory, arithmetic unit, input and output) and route the data across them. The control unit doesn't magically work on its own. It needs instructions to follow. Instruction such as "take the value located here in memory and send it to the arithmetic unit to execute the following operation". Those sequences of instruction is the program itself. Whenever a programmers compiles code, they actually create a binary application that contains a list of CPU instructions that the control unit will execute. When the program is running, instructions are loaded in memory and read by the control unit. Once executed, the control unit will look at the instruction located right after in memory – unless the instruction executed redirected the execution flow somewhere else (with a jump for instance).
 
 Now, lets focus on the __arithmetic unit__ and its principal component: the __A__​rithmentic __L__​ogic __U__​nit (ALU). ALU can be represented as follow:
 
-![ALU](/appsec101/resources/images/alu.png)
+![ALU](resources/images/alu.png)
 
 It has four inputs (_input A_, _input B_, _command_ and the _status_) and two outputs (_output_ and _status output_):
 
@@ -41,7 +41,7 @@ It has four inputs (_input A_, _input B_, _command_ and the _status_) and two ou
 
 For instance, the `9 + 33` would represented as follow:
 
-![Addition](/appsec101/resources/images/addition.png)
+![Addition](resources/images/addition.png)
 
 > __Note__: The input _status_ has been removed because it was not relevant in this example.
 
@@ -196,7 +196,7 @@ So, why using base 16 and not 10 you may ask. Their are multiple reasons but the
 * It is easier to convert binary number in hexadecimal and the other way around. Four binary values can always be represented with one hexadecimal value. So this means if you want to convert from hexadecimal to binary, you first need to chunk the number character by character and convert them in their respective 4 binary values.
 * This is related to the first reason, but hexadecimal value aligns with its binary equivalent. For instance, the number 9 (decimal) is 1001 in binary. One symbol in decimal for four symbols in binary. Now the number 12 (decimal) is 1100 in binary. Two symbols in decimal but still four symbols in binary. Now 18 (decimal) is 10010 in binary. Two symbols in decimal and 5 in binary. All this long example to explain that there is not a direct correlation with the amount a symbol in decimal and binary. However, since both hexadecimal and binary are bases that are powers of 2, it all aligns. 1-4 symbols in binary will always be 1 symbol in hexadecimal. 5-8 symbols in binary will always be 2 symbols in hexadecimal, etc.
 
-![Bin to Hex](/appsec101/resources/images/bin-hex.gif)
+![Bin to Hex](resources/images/bin-hex.gif)
 
 This might not seems interesting at first sight, but with experience, you will notice hexadecimal comes handy.
 
@@ -208,7 +208,7 @@ Data types
 
 Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](/appsec101/memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
 
-![Data types](/appsec101/resources/images/data-types.png)
+![Data types](resources/images/data-types.png)
 
 > __Note__: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [[2](https://en.wikipedia.org/wiki/Bit_numbering)]
 
