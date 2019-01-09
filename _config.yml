@@ -3,9 +3,6 @@ title:  Beaujeant
 # https://pmarsceill.github.io/just-the-docs/
 remote_theme: pmarsceill/just-the-docs
 
-# Enable or disable the site search
-search_enabled: false
-
 # Aux links for the upper right navigation
 aux_links:
     "@Beaujeant":

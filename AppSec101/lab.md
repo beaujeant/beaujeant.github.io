@@ -5,8 +5,8 @@ parent: Application Security 101
 nav_order: 4
 ---
 
-[<< Memory](memory/){: .btn .btn-outline }
-[Assembly >>](assembly/){: .btn .btn-outline }
+[<< Memory](/appsec101/memory/){: .btn .btn-outline }
+[Assembly >>](/appsec101/assembly/){: .btn .btn-outline }
 
 Lab environment
 ===============
@@ -15,7 +15,7 @@ In this course, we will do a little bit of _reversing_, _debugging_ and _compili
 
 __Reversing__, short for __reverse engineering__, is the process of reading machine language instructions and making sense out of it. The process could result in the translation of instructions into a higher-level language (usually pseudo-code). To help us in this task, we will use the built-in command-line debugger __GDB__ (see below). Many disassembler are much better than GDB, such as [IDA](https://www.hex-rays.com/products/ida/support/download_freeware.shtml), however, for what we need from it, GDB will be sufficient.
 
-In the context of this course, __Debugging__ means analyzing the binary application while it is running thanks to a _debugger_. A _debugger_ allows you to set _breakpoints_ in the debugged running application. A _breakpoint_ can be set on one or several instructions. Once the instruction with the breakpoint is reached and is about to be processed by the CPU, the application will pause the program. While being paused, the analyst can read and edit instructions, the memory and _registers_ (see more about registers in chapter [CPU](cpu/)). In this course, we will use __GDB__ (see below).
+In the context of this course, __Debugging__ means analyzing the binary application while it is running thanks to a _debugger_. A _debugger_ allows you to set _breakpoints_ in the debugged running application. A _breakpoint_ can be set on one or several instructions. Once the instruction with the breakpoint is reached and is about to be processed by the CPU, the application will pause the program. While being paused, the analyst can read and edit instructions, the memory and _registers_ (see more about registers in chapter [CPU](/appsec101/cpu/)). In this course, we will use __GDB__ (see below).
 
 __Compiling__ is the process of transforming computer code written in one programming language (the source language) into another programming language (the target language). In the context of this course, this means transforming C code in a binary application format using machine language instructions. The compiler used in this course is __GCC__.
 
@@ -25,7 +25,7 @@ Operating System
 
 For this course, we decided to use the standard __Ubuntu 32-bit Desktop__ distribution. We could have found a much lighter Operating System (OS) which would have been sufficient for what we need, however, we thought this would be easier to install configure and maintain. Furthermore, Ubuntu is free and widely used, so there is a high chance you already encountered and used it, so you should feel already comfortable with it.
 
-As mentioned in the [introduction](introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 application on 64-bit operating systems, using a 32-bit OS will reduce the dependency and environment complexity.
+As mentioned in the [introduction](/appsec101/introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 application on 64-bit operating systems, using a 32-bit OS will reduce the dependency and environment complexity.
 
 ### Download
 
@@ -181,7 +181,7 @@ If your resolution is not big enough, it is possible that `GDB` prints the follo
 
 In this case, you simply need to type `ENTER` to see the rest of the disassembled code.
 
-As explained in the [CPU](cpu/) and [memory](memory/) chapters, machine code instructions are basically a group of binary values that signify a specific instruction for the CPU. E.g. `b8 00 00 00 00` means moving `0x00000000` in the register `EAX`. However, it is usually easier for human to read pseudo-english rather than hexadecimal value, therefore disassembler translate the binary values (opcodes) in human readable code. Here in this case, `b8 00 00 00 00` is translated as `mov $0x0, %eax` (see instruction at the address `0x08048454`). This representation is the AT&T syntax. However, it exists different ways to represent opcodes, the most known one being "Intel". In Intel syntax, `b8 00 00 00 00` is translated as `mov eax, 0x0`. I think the Intel syntax is easier to read than AT&T, therefore this course will be using Intel syntax. To change the syntax in GDB, you can run the following command:
+As explained in the [CPU](/appsec101/cpu/) and [memory](/appsec101/memory/) chapters, machine code instructions are basically a group of binary values that signify a specific instruction for the CPU. E.g. `b8 00 00 00 00` means moving `0x00000000` in the register `EAX`. However, it is usually easier for human to read pseudo-english rather than hexadecimal value, therefore disassembler translate the binary values (opcodes) in human readable code. Here in this case, `b8 00 00 00 00` is translated as `mov $0x0, %eax` (see instruction at the address `0x08048454`). This representation is the AT&T syntax. However, it exists different ways to represent opcodes, the most known one being "Intel". In Intel syntax, `b8 00 00 00 00` is translated as `mov eax, 0x0`. I think the Intel syntax is easier to read than AT&T, therefore this course will be using Intel syntax. To change the syntax in GDB, you can run the following command:
 
 ```
 (gdb) set disassembly-flavor intel
@@ -326,7 +326,7 @@ Now we reached the breakpoint at `call 0x8048461 <mul>`. If you want to, you can
 
 As you can see, we now are in the function `mul` located at `0x08048483`. The debugger executed one single instruction, then automatically paused the program without the need to set another breakpoint.
 
-Now let's have a look at the next 4 instructions. Instead of retyping the address where are, you could use the register _EIP_, which is the instruction pointer (see [memory](memory/) chapter):
+Now let's have a look at the next 4 instructions. Instead of retyping the address where are, you could use the register _EIP_, which is the instruction pointer (see [memory](/appsec101/memory/) chapter):
 
 ```
 (gdb) x/4i $eip
@@ -460,5 +460,5 @@ In the next exercises, we will go a bit deeper with the usage of `GDB`.
 * [onlinedocs](https://sourceware.org/gdb/onlinedocs/gdb/Memory.html) https://sourceware.org/gdb/onlinedocs/gdb/Memory.html
 
 
-[<< Memory](memory/){: .btn .btn-outline }
-[Programming >>](programming/){: .btn .btn-outline }
+[<< Memory](/appsec101/memory/){: .btn .btn-outline }
+[Programming >>](/appsec101/programming/){: .btn .btn-outline }

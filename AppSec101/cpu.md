@@ -5,8 +5,8 @@ parent: Application Security 101
 nav_order: 2
 ---
 
-[<< Introduction](introduction/){: .btn .btn-outline }
-[Memory >>](memory/){: .btn .btn-outline }
+[<< Introduction](/appsec101/introduction/){: .btn .btn-outline }
+[Memory >>](/appsec101/memory/){: .btn .btn-outline }
 
 Central Processing Unit
 =======================
@@ -23,13 +23,13 @@ Operations have one or two parameters – also known as operands (e.g. `5 + 2` h
 
 Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensors). Once the operation done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
 
-![CPU-Memory-I/O](resources/images/cpu-memory-io.png)
+![CPU-Memory-I/O](/appsec101/resources/images/cpu-memory-io.png)
 
 As you can see, the __control unit__ is doing a lot in the CPU. It orchestrates the four elements (i.e. memory, arithmetic unit, input and output) and route the data across them. The control unit doesn't magically work on its own. It needs instructions to follow. Instruction such as "take the value located here in memory and send it to the arithmetic unit to execute the following operation". Those sequences of instruction is the program itself. Whenever a programmers compiles code, they actually create a binary application that contains a list of CPU instructions that the control unit will execute. When the program is running, instructions are loaded in memory and read by the control unit. Once executed, the control unit will look at the instruction located right after in memory – unless the instruction executed redirected the execution flow somewhere else (with a jump for instance).
 
 Now, lets focus on the __arithmetic unit__ and its principal component: the __A__​rithmentic __L__​ogic __U__​nit (ALU). ALU can be represented as follow:
 
-![ALU](resources/images/alu.png)
+![ALU](/appsec101/resources/images/alu.png)
 
 It has four inputs (_input A_, _input B_, _command_ and the _status_) and two outputs (_output_ and _status output_):
 
@@ -41,9 +41,9 @@ It has four inputs (_input A_, _input B_, _command_ and the _status_) and two ou
 
 For instance, the `9 + 33` would represented as follow:
 
-![Addition](resources/images/addition.png)
+![Addition](/appsec101/resources/images/addition.png)
 
-> __Note__: The input _stauts_ has been removed cause in this case, it was not relevant.
+> __Note__: The input _status_ has been removed because it was not relevant in this example.
 
 We've seen earlier, the  control unit read instructions and coordinate the memory, input/output and arithmetic unit accordingly. But it also takes decision based on operation output (and status output). For instance, let's consider an online transaction. Before executing the transaction, the bank server will first subtract the amount of the transaction to the current account balance. If the subtraction (which took place in the ALU) returns a negative value (indicated by the _status output_), this would means the user doesn't have enough money for the transaction, and thus when the _control unit_ reads the instructions "go to _cancel transaction_ if negative otherwise proceed with transaction" it will be able to will take the right decision.
 
@@ -196,19 +196,19 @@ So, why using base 16 and not 10 you may ask. Their are multiple reasons but the
 * It is easier to convert binary number in hexadecimal and the other way around. Four binary values can always be represented with one hexadecimal value. So this means if you want to convert from hexadecimal to binary, you first need to chunk the number character by character and convert them in their respective 4 binary values.
 * This is related to the first reason, but hexadecimal value aligns with its binary equivalent. For instance, the number 9 (decimal) is 1001 in binary. One symbol in decimal for four symbols in binary. Now the number 12 (decimal) is 1100 in binary. Two symbols in decimal but still four symbols in binary. Now 18 (decimal) is 10010 in binary. Two symbols in decimal and 5 in binary. All this long example to explain that there is not a direct correlation with the amount a symbol in decimal and binary. However, since both hexadecimal and binary are bases that are powers of 2, it all aligns. 1-4 symbols in binary will always be 1 symbol in hexadecimal. 5-8 symbols in binary will always be 2 symbols in hexadecimal, etc.
 
-![Bin to Hex](resources/images/bin-hex.gif)
+![Bin to Hex](/appsec101/resources/images/bin-hex.gif)
 
 This might not seems interesting at first sight, but with experience, you will notice hexadecimal comes handy.
 
-> Note: Hex (short for hexadecimal) values are usually represented with a leading `0x`. For instance the binary `10100100` in hex would be `0xa4`.
+> __Note__: Hex (short for hexadecimal) values are usually represented with a leading `0x`. For instance the binary `10100100` in hex would be `0xa4`.
 
 
 Data types
 ----------
 
-Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
+Now that we covered binary and hexadecimal, let's discuss data type. This course covers 32-bit architecture. This means the memory addresses and registers (see in the chapter [memory](/appsec101/memory/)) are 32-bits long. 32-bits long data is called a __double word__ – also known as __long word__. A __word__ is thus 16 bits, and a __byte__ – also known as __octet__ – is 8 bits. Those are type name for data of a specific size (in bits).
 
-![Data types](resources/images/data-types.png)
+![Data types](/appsec101/resources/images/data-types.png)
 
 > __Note__: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [[2](https://en.wikipedia.org/wiki/Bit_numbering)]
 
@@ -254,7 +254,7 @@ The hexadecimal set:
 60  `    61  a    62  b    63  c    64  d    65  e    66  f    67  g
 68  h    69  i    6a  j    6b  k    6c  l    6d  m    6e  n    6f  o
 70  p    71  q    72  r    73  s    74  t    75  u    76  v    77  w
- 78  x    79  y    7a  z    7b  {    7c  |    7d  }    7e  ~    7f del
+78  x    79  y    7a  z    7b  {    7c  |    7d  }    7e  ~    7f del
 ...
 ```
 
@@ -273,7 +273,7 @@ A string is an array of char that is terminated with the ASCII `NULL` character 
 |  Hex  | `0x48` | `0x65` | `0x6c` | `0x6c` | `0x6f` | `0x20` | `0x57` | `0x6f` | `0x72` | `0x6c` | `0x64` | `0x00` |
 | ASCII |  `H`   |  `e`   |  `l`   |  `l`   |  `o`   |  ` `   |  `W`   |  `o`   |  `r`   |  `l`   |  `d`   | `NULL` |
 
-> Note: When calculating the length of a string, the `NULL` character is counted. So the string "Hello World" is 12 characters long.
+> __Note__: When calculating the length of a string, the `NULL` character is counted. So the string "Hello World" is 12 characters long.
 
 When you want to write a mutli-line text, you can use the ASCII `\n` character (`0x0a` in hexadecimal) and/or `\r` character (`0x0d` in hexadecimal). Unix systems only need `\n`, Windows systems need both `\r` and `\n` (in that order). So the following string:
 
@@ -299,7 +299,7 @@ You cannot provide a variable name to the CPU, it will not understand where to f
 
 ### Function pointer
 
-We will see more about it in chapters [memory](memory/) and [assembly](assembly/), but the instructions sent to the CPU are also located in memory alongside the variables (although usually located in different sections). So whenever a function is called, it is merely a jump to another area of the memory where the function's instructions are located. A function pointer is an address (32 bits) of the memory where instructions are located.
+We will see more about it in chapters [memory](/appsec101/memory/) and [assembly](/appsec101/assembly/), but the instructions sent to the CPU are also located in memory alongside the variables (although usually located in different sections). So whenever a function is called, it is merely a jump to another area of the memory where the function's instructions are located. A function pointer is an address (32 bits) of the memory where instructions are located.
 
 ### Handle
 
@@ -326,7 +326,7 @@ Data in memory are pure binary. So if you run a program and start looking at the
 
 Next time the function will access the variable, it will have no way to figure out the value has been overwritten and that the new value was initially a string. It will simply read it as an integer an proceed as if nothing happened.
 
-> Note: Of course, the developer could add some additional checks to verify the integrity of the data, but by default, C program will not enforce it.
+> __Note__: Of course, the developer could add some additional checks to verify the integrity of the data, but by default, C program will not enforce it.
 
 While this example could cause some functionality error, this might not be too dangerous from a security point of view. However, what if data in memory is overwritten with malicious instructions and that a function pointer is overwritten with the address to those malicious instructions. Next time the initial function is called, the malicious instructions will be executed, which could compromise the computer. This what we will try to explain in this course:
 
@@ -444,5 +444,5 @@ This was the last logic operation for this course and the last section for this 
 * [float toy](https://evanw.github.io/float-toy/) https://evanw.github.io/float-toy/
 
 
-[<< Introduction](introduction/){: .btn .btn-outline }
-[Memory >>](memory/){: .btn .btn-outline }
+[<< Introduction](/appsec101/introduction/){: .btn .btn-outline }
+[Memory >>](/appsec101/memory/){: .btn .btn-outline }

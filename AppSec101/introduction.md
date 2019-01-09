@@ -5,7 +5,7 @@ parent: Application Security 101
 nav_order: 1
 ---
 
-[Central Processing Unit >>](cpu/){: .btn .btn-outline }
+[Central Processing Unit >>](/appsec101/cpu/){: .btn .btn-outline }
 
 Introduction
 ============
@@ -36,7 +36,7 @@ A __binary application__, also known as __software__, is a collection of instruc
 
 A __security vulnerability__ is a weakness which allows an attacker to reduce a system's information assurance [[2](https://en.wikipedia.org/wiki/Vulnerability_%28computing%29)]. Typically, a vulnerability will allow an attacker to compromise the __C__​onfidentiality and/or the __I__​ntegrity and/or the __A__​vailability of a system, hence the [CIA](https://en.wikipedia.org/wiki/Information_security#Key_concepts) concept in IT security.
 
-For the sake of simplicity, this course will only cover application running on [i386](https://en.wikipedia.org/wiki/Intel_80386) (32-bit architecture). The high-level language used for demonstrations will be __C__ since it is a widely known language that produces binary application relatively easy to understand. As for the [lab](lab/), we will exercise in Linux (Ubuntu) environment.
+For the sake of simplicity, this course will only cover application running on [i386](https://en.wikipedia.org/wiki/Intel_80386) (32-bit architecture). The high-level language used for demonstrations will be __C__ since it is a widely known language that produces binary application relatively easy to understand. As for the [lab](/appsec101/lab/), we will exercise in Linux (Ubuntu) environment.
 
 
 * [[1](https://en.wikipedia.org/wiki/Web_application)] https://en.wikipedia.org/wiki/Web_application
@@ -45,4 +45,4 @@ For the sake of simplicity, this course will only cover application running on [
 * [i386](https://en.wikipedia.org/wiki/Intel_80386) https://en.wikipedia.org/wiki/Intel_80386
 
 
-[Central Processing Unit >>](cpu/){: .btn .btn-outline }
+[Central Processing Unit >>](/appsec101/cpu/){: .btn .btn-outline }

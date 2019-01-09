@@ -5,8 +5,8 @@ parent: Application Security 101
 nav_order: 3
 ---
 
-[<< Central Processing Unit](cpu/){: .btn .btn-outline }
-[Lab setup >>](lab/){: .btn .btn-outline }
+[<< Central Processing Unit](/appsec101/cpu/){: .btn .btn-outline }
+[Lab setup >>](/appsec101/lab/){: .btn .btn-outline }
 
 Memory
 ======
@@ -18,7 +18,7 @@ Memory is a core component of a computer system. Without memory, there would be 
 
 While the storage contains the data at rest, the memory contains the data currently in used, including the instructions of all applications running and the data associated.
 
-So the memory is the place where the data is stored. As we've seen in the chapter [Central Processing Unit](cpu/), data could be anything: variable, image, instruction, etc. In the memory, there is nothing that explain what type of data is stored at any location. There is nothing that explain where the data start and where it ends. Most data type doesn't have delimiter that tells "you reach the end of the variable". So that means if you pick data at a random address in the memory, you shouldn't be able to tell whether this value is meant to be an integer, an instruction or a string. Stored data only makes sense when manipulated by instructions.
+So the memory is the place where the data is stored. As we've seen in the chapter [Central Processing Unit](/appsec101/cpu/), data could be anything: variable, image, instruction, etc. In the memory, there is nothing that explain what type of data is stored at any location. There is nothing that explain where the data start and where it ends. Most data type doesn't have delimiter that tells "you reach the end of the variable". So that means if you pick data at a random address in the memory, you shouldn't be able to tell whether this value is meant to be an integer, an instruction or a string. Stored data only makes sense when manipulated by instructions.
 
 
 ELF/PE file
@@ -42,7 +42,7 @@ The executable (ELF or PE file) contains (among others) the following parts:
 
 Once you run an application, the operating system will first allocated some space in memory to load the application. Since we are working with 32-bit computer, the program can only access address in memory that fit within 32 bits (due to the design of the CPU [[5](https://www.brianmadden.com/opinion/The-4GB-Windows-Memory-Limit-What-does-it-really-mean)]), i.e. between `00000000000000000000000000000000` (0) and `11111111111111111111111111111111` (4,294,967,295). So by default, whenever you run an application, the operating system allocate 4GB (4,294,967,295) of _virtual memory_ for that application. It is important to understand the concept of virtual memory. The Operating System won't be able to allocate 4GB in RAM for each application. First of all because most of computer won't have enough memory to run more than 3 applications (including the OS) at the same time, but also because some data should be shared across all applications. So _virtual memory_ is rather an abstraction of the actual memory (RAM) where the data is actually stored in non-consecutive areas of the memory and storage. This is a huge advantage for application so that they don't have to take into consideration how to distribute the data across the RAM and keep track where is what. Instead the application sees one unique continuous block of memory and let the operating system deal with the translation to the actual location of the data in RAM.
 
-![Virtual memory](resources/images/virtual_memory.png)
+![Virtual memory](/appsec101/resources/images/virtual_memory.png)
 
 Once the memory allocated, the OS (actually the _dynamic linker_) will map the binary application in memory according to its mapping table then load the libraries. Once done, the execution of the program starts at the _entry point_.
 
@@ -86,11 +86,11 @@ Memory layout
 
 Now that the program is running, we have the binary file as well as the libraries mapped in the virtual memory, but that's not all. We also need memory space for local variable, dynamically allocated memory, and OS related memory. All this is also in the virtual memory in specific areas.
 
-![Linux memory layout](resources/images/linux_memory_layout.png)
+![Linux memory layout](/appsec101/resources/images/linux_memory_layout.png)
 
 In this diagram, the lowest memory (smallest memory address) is at the bottom and the highest at the top. However, some people prefer to represent the memory the other way round, i.e. starting with the lowest memory at the top.
 
-![Linux memory layout inverted](resources/images/linux_memory_layout_inv.png)
+![Linux memory layout inverted](/appsec101/resources/images/linux_memory_layout_inv.png)
 
 I personally prefer this representation (lowest at top) because later when using _debuggers_, memory areas are usually represented in that order.
 
@@ -176,18 +176,18 @@ int mul(int x, int y)
 
 In this example, the function `main()` calls the function `mul()`, and the function `mul()` calls the function `add()` multiple times.
 
-![Function calls](resources/images/function_calls.png)
+![Function calls](/appsec101/resources/images/function_calls.png)
 
 Each function has its own stack frame. Whenever `main()` calls `mul()`, a new stack frame is added on top of the current one. A stack frame can grow and reduce with temporary local variables. A stack frame is usually structured as follow:
 
 * Function arguments: When a function is called, is generally receives argument, e.g. in the call `mul(4,3)`, the first argument is `4` and the second argument is `3`. In this example, arguments are integer, but this could be any data (float, string, etc).
-* Return address: We will see it later in chapter [assembly](assembly/), but basically, whenever a function is called, the CPU jump to a different of the memory where the instruction of the called function is located. At the end of the function, the CPU needs to return at the instruction right after the initial call of the function. In order to know where to return, the address is saved in the stack.
+* Return address: We will see it later in chapter [assembly](/appsec101/assembly/), but basically, whenever a function is called, the CPU jump to a different of the memory where the instruction of the called function is located. At the end of the function, the CPU needs to return at the instruction right after the initial call of the function. In order to know where to return, the address is saved in the stack.
 * Stack base pointer of the callee function: The base pointer point to the beginning of the stack frame. Oddly enough, the base pointer doesn't point exactly at the beginning of the frame but rather the beginning of the local variable.
 * Local variables: When local variables are initialized, those are actually located in the stack. So for instance if you have `int a;`, it allocated 4 bytes in the stack for the variable `a`.
 
-![Stack frame](resources/images/stack.gif)
+![Stack frame](/appsec101/resources/images/stack.gif)
 
-We will see more examples with the stack in the chapter [assembly](assembly/).
+We will see more examples with the stack in the chapter [assembly](/appsec101/assembly/).
 
 ### Heap
 
@@ -222,7 +222,7 @@ Source:
 * [[realloc](http://www.cplusplus.com/reference/cstdlib/realloc/)]
 * [[free](http://www.cplusplus.com/reference/cstdlib/free/)]
 
-![Stack frame](resources/images/heap.gif)
+![Stack frame](/appsec101/resources/images/heap.gif)
 
 ### Imported libraries
 
@@ -260,7 +260,7 @@ $ ldd hello
 	/lib/ld-linux.so.2 (0xb7f97000)
 ```
 
-> __Note__: More information about the compiler in chapter [lab](lab/)
+> __Note__: More information about the compiler in chapter [lab](/appsec101/lab/)
 
 Although the `libc` library is meant to be used as a _dynamically linked shared object library_, it is possible to add it directly in the final binary application as a _static library_ by using the option `-static` with `gcc`:
 
@@ -336,7 +336,7 @@ The _.data_ and _.bss_ sections are read-write, since the values of variables ca
 
 The section _.text_ contains the translation of the source code in machine instructions. Those instructions are sent and executed by the CPU. Those instructions consist of moving data, redirect the execution flow and execute mathematical and logical operations. There is a quite large set of instructions (around 1500 [[14](https://fgiesen.wordpress.com/2016/08/25/how-many-x86-instructions-are-there/)]) available for the i386 architecture. Fortunately, the 20 most used instructions makes 90% of an application, so if learn those 20 instructions, you should be able to read most of the code.
 
-Unlike in ARM instructions, the size in memory for a single i386 instruction can very from 1 to 15 bytes (although most of instructions are between 1 and 5 bytes). When reading machine instructions, we (human) usually don't read directly what is stored in memory but rather its interpretation. For instance, the instruction `push 0x0`, which will basically push to the _stack_ the value `0x00000000` is `64 00` in memory. So while we (human) could technically remember that the value `64 00` is the instruction `push 0x0`, we are better at remembering meaningful word, that's why all machine instructions can be directly translated in __assembly__ (also known as __asm__). So assembly is a human readable language that represents machine machine instructions. More info about assembly in the chapter [assembly](assembly/).
+Unlike in ARM instructions, the size in memory for a single i386 instruction can very from 1 to 15 bytes (although most of instructions are between 1 and 5 bytes). When reading machine instructions, we (human) usually don't read directly what is stored in memory but rather its interpretation. For instance, the instruction `push 0x0`, which will basically push to the _stack_ the value `0x00000000` is `64 00` in memory. So while we (human) could technically remember that the value `64 00` is the instruction `push 0x0`, we are better at remembering meaningful word, that's why all machine instructions can be directly translated in __assembly__ (also known as __asm__). So assembly is a human readable language that represents machine machine instructions. More info about assembly in the chapter [assembly](/appsec101/assembly/).
 
 Instructions are stored one after another in memory, although not necessary in chronological execution since the execution flow can be redirected. There is not delimiters between instructions and instructions have variable length, so CPU knows where the next instruction is based on the current one being executed. For instance, it knows that if it reads the value `64`, this is a `push` instruction that takes only one argument (operand) that is one byte long so the total instruction is 2 bytes and therefore, the next instruction is located two bytes after the current one.
 
@@ -374,7 +374,7 @@ The 8 GPRs are:
 
 All registers can be accessed in 16-bit and 32-bit modes. In 16-bit mode, the register is identified by its two-letter abbreviation from the list above. In 32-bit mode, this two-letter abbreviation is prefixed with an `E` (extended). For example, `EAX` is the accumulator register as a 32-bit value. It is also possible to address the first four registers (`AX`, `CX`, `DX` and `BX`) in their size of 16-bit as two 8-bit halves. The least significant byte (LSB), or low half, is identified by replacing the `X` with an `L`. The most significant byte (MSB), or high half, uses an `H` instead. For example, `CL` is the least-significant bits (LSB) of the counter register (`CX`), whereas `CH` is its most-significant bits (MSB). [[17](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#x86_Architecture)].
 
-![Global-Purpose Registers](resources/images/gpr.png)
+![Global-Purpose Registers](/appsec101/resources/images/gpr.png)
 
 ### Instruction Pointer
 
@@ -384,7 +384,7 @@ The __I__​nstruction __P__​ointer (EIP) register contains the address of the
 
 Initially called FLAGS on 16-bit architecture, then later EFLAGS on 32-bit architecture, the flags register is a special register where each bit represent a boolean value for a specific flag. Flags are automatically set by the CPU after specific operations.
 
-![EFLAGS](resources/images/eflags.png)
+![EFLAGS](/appsec101/resources/images/eflags.png)
 
 > __Note__: _Res_ flag are reserved for future use.
 
@@ -397,7 +397,7 @@ The most important flags relevant for this course are:
 * __T__​rap __F__​lag (TF): indicates whether the CPU is in single-step mode (TF = `1`) or not (TF = `0`). The single-step mode is used to debug applications. When set, the CPU will execute one instruction and then stop so that you can examine the memory and registers between each instructions. This flag is used by debugger tools such as GDB, which will be covered in the next chapter [lab](lab/).
 * __O__​verflow __F__​lag (OF): indicate whether an arithmetic overflow has occurred in the last operation operation. An overflow happens when two operands are added and the sign bit (most-significant bit) is flipped. If the expected result is a signed integer, the next operation will see the result as a negative number.
 
-Remember the _ALU_ in chapter [CPU](cpu/)? Well _CF_, _PF_, _ZF_, _SF_ and _OF_ are part of the _status output_.
+Remember the _ALU_ in chapter [CPU](/appsec101/cpu/)? Well _CF_, _PF_, _ZF_, _SF_ and _OF_ are part of the _status output_.
 
 
 * [[1](https://www.kingston.com/en/community/articledetail/articleid/29685)] https://www.kingston.com/en/community/articledetail/articleid/29685
@@ -433,5 +433,5 @@ Remember the _ALU_ in chapter [CPU](cpu/)? Well _CF_, _PF_, _ZF_, _SF_ and _OF_ 
 * [borrow](http://mathworld.wolfram.com/Borrow.html) http://mathworld.wolfram.com/Borrow.html
 
 
-[<< Central Processing Unit](cpu/){: .btn .btn-outline }
-[Lab setup >>](lab/){: .btn .btn-outline }
+[<< Central Processing Unit](/appsec101/cpu/){: .btn .btn-outline }
+[Lab setup >>](/appsec101/lab/){: .btn .btn-outline }
