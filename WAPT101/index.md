@@ -8,13 +8,13 @@ has_children: true
 Web Application Security 101
 ============================
 
-* [Introduction](https://beaujeant.github.io/WAPT101/introduction/)
+* [Introduction](introduction/)
 * [Lab setup](#)
   * Install
   * Structure
   * Troubleshooting
-* [Components for a web application](https://beaujeant.github.io/WAPT101/components/)
-* [HTTP protocol](https://beaujeant.github.io/WAPT101/http/)
+* [Components for a web application](components/)
+* [HTTP protocol](http/)
   * Communication client - server
   * HTTP request
   * HTTP response

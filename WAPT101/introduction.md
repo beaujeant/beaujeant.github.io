@@ -5,7 +5,7 @@ parent: Web Application Security 101
 nav_order: 1
 ---
 
-| << | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/components/) |
+[Components for a web application >>](/wapt101/components/){: .btn .btn-outline }
 
 Introduction
 ============
@@ -26,4 +26,4 @@ A __web application__, also known as __web app__, is a client–server software 
 
 A __security vulnerability__ is a weakness which allows an attacker to reduce a system's information assurance [[source](https://en.wikipedia.org/wiki/Vulnerability_%28computing%29)]. Typically, a vulnerability will allow an attacker to compromise the __C__​onfidentiality and/or the __I__​ntegrity and/or the __A__​vailability of a system, hence the [CIA](https://en.wikipedia.org/wiki/Information_security#Key_concepts) concept in IT security.
 
-| << | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/components/) |
+[Components for a web application >>](/wapt101/components/){: .btn .btn-outline }

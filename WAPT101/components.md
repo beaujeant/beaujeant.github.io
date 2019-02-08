@@ -5,7 +5,8 @@ parent: Web Application Security 101
 nav_order: 2
 ---
 
-| [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |
+[<< Introduction](/wapt101/introduction/){: .btn .btn-outline }
+[HTTP protocol >>](/wapt101/http/){: .btn .btn-outline }
 
 Components for a web application
 ================================
@@ -47,4 +48,5 @@ Most of the time, the user go on web server to view web pages. Those pages are w
 
 > Note: JavaScript is only meant to improve the user experience, never for security reason.
 
-| [<<](https://beaujeant.github.io/WAPT101/introduction/) | [Table of content](https://beaujeant.github.io/WAPT101/) | [>>](https://beaujeant.github.io/WAPT101/http/) |
+[<< Introduction](/wapt101/introduction/){: .btn .btn-outline }
+[HTTP protocol >>](/wapt101/http/){: .btn .btn-outline }

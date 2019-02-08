@@ -5,7 +5,7 @@ parent: Web Application Security 101
 nav_order: 3
 ---
 
-| [<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >> |
+[<< Components for a web application](/wapt101/components/){: .btn .btn-outline }
 
 HTTP protocol
 =============
@@ -605,4 +605,4 @@ __LAB: Delete a div to read a document__
 
 __LAB: Find password by executing a specific function__
 
-| [<<](https://beaujeant.github.io/WAPT101/components/) | [Table of content](https://beaujeant.github.io/WAPT101/) | >> |
+[<< Components for a web application](/wapt101/components/){: .btn .btn-outline }
