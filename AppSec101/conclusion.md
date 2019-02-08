@@ -1,4 +1,11 @@
-Exerices
+---
+permalink: /appsec101/conclusion/
+title: Conclusion
+parent: Application Security 101
+nav_exclude: true
+---
+
+Exercise
 --------
 
 https://microcorruption.com/login

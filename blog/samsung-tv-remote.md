@@ -1,3 +1,9 @@
+---
+permalink: /blog/ir-remote/
+title: Building your own SAMSUNG Service remote
+nav_exclude: true
+---
+
 Building your own SAMSUNG Service remote
 ========================================
 

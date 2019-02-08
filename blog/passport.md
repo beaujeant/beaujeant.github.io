@@ -1,3 +1,9 @@
+---
+permalink: /blog/passport/
+title: Read your passport
+nav_exclude: true
+---
+
 Read your passport
 ==================
 
