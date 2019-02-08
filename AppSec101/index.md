@@ -23,16 +23,17 @@ Application Security 101
   * Operating system
   * Tools
 * [Programming](programming/)
-  * Arguments and variables
-  * Dynamic memory allocation
-  * Import table
+  * Variables
+  * Branching
+  * Loop
+  * Functions
   * Common functions
   * Compiler optimization
 * [Assembly](assembly/)
-  * Instruction
-  * Registers
-  * Memory
-  * Stack
+  * Instructions
+  * Variables
+  * Branching
+  * Loop
   * Calling function
   * Calling convention
 * Buffer overflow

@@ -2,11 +2,12 @@
 permalink: /appsec101/conclusion/
 title: Conclusion
 parent: Application Security 101
+nav_order: 11
 nav_exclude: true
 ---
 
-Exercise
---------
+Exercises
+---------
 
 https://microcorruption.com/login
 http://exploit-exercises.lains.me
