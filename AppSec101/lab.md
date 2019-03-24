@@ -6,7 +6,7 @@ nav_order: 4
 ---
 
 [<< Memory](/appsec101/memory/){: .btn .btn-outline }
-[Assembly >>](/appsec101/assembly/){: .btn .btn-outline }
+[Programming >>](/appsec101/programming/){: .btn .btn-outline }
 
 Lab environment
 ===============
