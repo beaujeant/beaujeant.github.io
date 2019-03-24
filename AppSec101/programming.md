@@ -11,7 +11,7 @@ nav_order: 5
 Programming
 ===========
 
-[Learning C](https://www.learn-c.org/) or programming in general is beyond the scope of this course. You are actually expected to understand C and the main concepts of programming to follow this course. This chapter is just a reminder and allow me to have reference to some concepts later in this course. The chapter [assembly](/appsec101/assemby/) is meant to match this chapter so that you can see the transformation from C to assembly.
+[Learning C](https://www.learn-c.org/), or programming in general, is beyond the scope of this course. You are actually expected to understand C and the main concepts of programming to follow this course. This chapter is just a reminder and allows me to have reference to some concepts later in this course. The chapter [assembly](/appsec101/assemby/) is meant to match this chapter so that you can see the transformation from C to assembly.
 
 Hello world!
 ------------
@@ -34,9 +34,9 @@ gcc hello.c -o hello
 ./hello
 ```
 
-You should see in you terminal below `./hello` the text `Hello World`. 
+You should see in your terminal below `./hello` the text `Hello World`. 
 
-Let's analyse the source code now. The first line, i.e. `#include <stdio.h>`, tells `gcc` to copy the content of the file `stdio.h` and paste it in `hello.c` before it start compiling the code. `stdio.h` is a _header file_ that _defines_ a few variables, macros and functions related to input/ouptut, such as `printf()`. _Defining_ doesn't means that the source code for `printf()` is in `stdio.h`. Instead, we only have its _prototype_. We will see later in the sub-chapter (functions)[#Functions] what a prototype is.
+Let's analyze the source code now. The first line, i.e. `#include <stdio.h>`, tells `gcc` to copy the content of the file `stdio.h` and paste it in `hello.c` before it start compiling the code. `stdio.h` is a _header file_ that _defines_ a few variables, macros and functions related to input/ouptut, such as `printf()`. _Defining_ doesn't mean that the source code for `printf()` is in `stdio.h`. Instead, we only have its _prototype_. We will see later in the sub-chapter (functions)[#Functions] what a prototype is.
 
 On the third line, we have `void main ()`, this basically declare the function `main`. This line tells that the function `main` doesn't return any value (`void`) and take no arguments (`()`). The function is delimited with the curly bracket (on line 4 and 6).
 
@@ -65,7 +65,7 @@ void main ()
 
 The `main` function is a bit special as it is called by the operating system whenever the program is run. If you remember in chapter [Memory](/appsec101/memory/) - [ELF/PE file](/appsec101/memory/#ELF/PE%20file), the PE file contains the address where to start once the application is loaded in memory known as the _entry point_. The _entry point_ contains the address of the function `_start`. Unless explicitly written otherwise in your code, the function `_start` is responsible for setting up some memories (including the program arguments and the environment variables) then calls `main`.
 
-This means simply writting a function in your code is not enough to execute it. This function needs to be called somewhere. Either directly in `main`, or in a function called in main (or function called from a function called... in main).
+This means simply writing a function in your code is not enough to execute it. This function needs to be called somewhere. Either directly in `main`, or in a function called in main (or function called from a function called... in main).
 
 Finally, on the 5th line, we have the content of the function `main`, i.e. `printf("Hello World!");`. This call the function `printf` with one argument, the string `Hello World!`. The function `printf` will writes the string (the argument) to the standard output (in this case, the terminal). As explained in chapter [Memory](/appsec101/memory/) - [ELF/PE file](/appsec101/memory/#ELF/PE%20file), the code for the function `printf` is actually in the library `libc.so`, which is imported by default when compiling with `gcc`. Therefore, there is no need to write the code `printf`.
 
@@ -73,7 +73,7 @@ Finally, on the 5th line, we have the content of the function `main`, i.e. `prin
 Comments
 --------
 
-Developers can add notes in their code that will be ignore by the compiler. Comments are typically used to:
+Developers can add notes in their code that will be ignored by the compiler. Comments are typically used to:
 
 * Explain what the code is doing
 * Explain how to use a function
@@ -117,7 +117,7 @@ printf("Hello World");   // This is a comment
 Variables
 ---------
 
-People create programs to automate and fasten the processing of data. In computer science, everything is about manipulating data. Data is located in memory, which means for the CPU to manipulate the data, you need to provide the address in memory where the data is located. When writing code, it would be very confusing and obscure to use directly memory addresses (or offsets) when storing and manipulating data. Instead, when programming in C, we use __variables__, a kind of _aliases_ for a memory locations. Variable allows developer to have meaningful name to identify/locate data and simplify the memory allocation.
+People create programs to automate and fasten the processing of data. In computer science, everything is about manipulating data. Data is located in memory, which means for the CPU to manipulate the data, you need to provide the address in memory where the data is located. When writing code, it would be very confusing and obscure to use direct memory addresses (or offsets) when storing and manipulating data. Instead, when programming in C, we use __variables__, a kind of _aliases_ for memory locations. Variable allows developers to have meaningful name to identify/locate data and simplify the memory allocation.
 
 Before a variable is used, it has to be __declared__. The syntax for declaring a variable is the following: `<type> <variable name>;`. For instance, if you want to declare an _integer_ with the name _number_, you simply need to type:
 
@@ -157,8 +157,8 @@ char string[11];
 
 Declaring a variable tells the compiler (the tool responsible for the translation from C to machine instructions) what type of data the variable is expected to handle. With this information, the compiler will do the following:
 
-* Before compiling, it will verify in the code if the data stored in the variable correspond to the type used when declared
-* When using array, it will know the right offset in memory between the elements
+* Before compiling, it will verify in the code if the data stored in the variable corresponds to the type used when declared
+* When using arrays, it will know the right offset in memory between the elements
 * It will write instructions to allocate the appropriate amount of space in memory based on the type
 * Select the right machine instructions based on the type
 
@@ -235,7 +235,7 @@ The above assembly instruction allocates 4 bytes in the stack. `ESP` points at t
 
 ### Assigning value
 
-Once the variable declared, we can assign data and manipulate it. To assign a value to the variable, you simply need to the use the symbol `=`:
+Once the variable declared, we can assign data and manipulate it. To assign a value to the variable, you simply need to use the symbol `=`:
 
 ```
 int number;
@@ -265,9 +265,9 @@ Now that the variables are declared and set, we can start manipulating them.
 
 ### Pointer
 
-We mentioned at the beginning of this sub-chatper that variable are meant to be some sort of abstraction layer so that we don't have to deal with memory addresses and offsets and instead we can use meaningful name to store, move and process data. However, sometime, it could be interesting to actually know and manipulate the memory address of a variable. One reason will be explain later in sub-chapter [function arguments](#Function%20arguments).
+We mentioned at the beginning of this sub-chapter that variables are meant to be some sort of abstraction layer so that we don't have to deal with memory addresses and offsets and instead we can use a meaningful name to store, move and process data. However, sometime, it could be interesting to actually know and manipulate the memory address of a variable. One reason will be explain later in sub-chapter [function arguments](#Function%20arguments).
 
-In order to know the address in memory where the variable is stored, you can use the symbol `&` right in front of the variable name, e.g. `&number`. You can also create variables that are meant to store memory address. Thos variables are called _pointer_ and can be declared as follow: `<type> *<variable name>`. For instance, if we want to create a pointer `pointer` that will store a integer, we will have the following line:
+In order to know the address in memory where the variable is stored, you can use the symbol `&` right in front of the variable name, e.g. `&number`. You can also create variables that are meant to store a memory address. Those variables are called _pointer_ and can be declared as follow: `<type> *<variable name>`. For instance, if we want to create a pointer `pointer` that will store an integer, we will have the following line:
 
 
 ```
@@ -283,7 +283,7 @@ int *pointer;
 pointer = &a;
 ```
 
-Now, if we modify the variable `a`, the address will remains the same, but the stored content will change:
+Now, if we modify the variable `a`, the address will remain the same, but the stored content will change:
 
 ```
 int a, b;
@@ -309,13 +309,13 @@ printf("%d", *pointer); // Print "14"
 
 When using the pointer name only, we get the memory address stored in the pointer variable. Whenever we use the `*` in front of the mail, we get the value located at the memory address stored in the pointer variable.
 
-As you can see in our last example, whenever we did `b = a;`, we copied the content stored in the variable `a` and stored into the variable `b`. We did not copy the address. So, later, whenver the variable `a` is modified, `b` still has the old value. 
+As you can see in our last example, whenever we did `b = a;`, we copied the content stored in the variable `a` and stored into the variable `b`. We did not copy the address. So, later, whenever the variable `a` is modified, `b` still has the old value. 
 
 
 Branching
 ---------
 
-When programming, you will most likely want at some point to verify or test some variables and do something accordingly. For instance, verifying if the password entered by the user is correct or verify if a file exist. These can be done thanks to __branching__. Branching is whenever the program has to choose between two (or more) branches based on one (or more) conditions. The most common form of branch is the __if__/__else__ statements:
+When programming, you will most likely want at some point to verify or test some variables and do something accordingly. For instance, verifying if the password entered by the user is correct or verify if a file exists. These can be done thanks to __branching__. Branching is whenever the program has to choose between two (or more) branches based on one (or more) conditions. The most common form of branches is the __if__/__else__ statements:
 
 ```
 if( pin_code == 1234 )
@@ -334,7 +334,7 @@ In this example, the condition is `pin_code == 1234`, which verifies whether the
 
 You can have more than one condition concatenated with the operator `&&` (i.e. _AND_) or `||` (i.e. _OR_). With `&&`, both condition must be true, while when using `||`, either or both must be true.
 
-The result of a condition is always seen as a boolean in the __if__ statement. So the condition could simply be a single variable. If the variable is `0`, the condition will be seen as `false`, any other value will be seen as `true`. Condition can also be a comparison as seen earlier:
+The result of a condition is always seen as a boolean in the __if__ statement. So the condition could simply be a single variable. If the variable is `0`, the condition will be seen as `false`, any other value will be seen as `true`. Conditions can also be a comparison as seen earlier:
 
 * `==`: returns `true` if both elements are equal
 * `!=`: returns `true` if both elements are different
@@ -369,7 +369,7 @@ table[99] = 0;
 table[100] = 0;
 ```
 
-In this example, you would have a long repetitive list of instructions. If you suddenly want to initialize the array with the value `2` instead of `0`, you would have to change 100 lines. Furthermore, what if you don't know the size of the array and this depend on the user input? You wouldn'T be able to predict the size of the array and write the correct amount of line. Instead, you could use the `for`, the `while` or the `do-while` loop. Both loops takes one or more conditions (like `if/else`). The condition dictate whether the loop should reiterate or not.
+In this example, you would have a long repetitive list of instructions. If you suddenly want to initialize the array with the value `2` instead of `0`, you would have to change 100 lines. Furthermore, what if you don't know the size of the array and this depends on the user input? You wouldn't be able to predict the size of the array and write the correct amount of line. Instead, you could use the `for`, the `while` or the `do-while` loop. Both loops take one or more conditions (like `if/else`). The condition dictates whether the loop should reiterate or not.
 
 ```
 int table[100];
@@ -382,7 +382,7 @@ while( i < 100 )
 }
 ```
 
-In line 1, we declare an array of 100 integers. In line two, we declare the integer `i`, which will be used later as a counter for the loop. In line 4, we have the beginning of the loop with the condition within the parentheses, then between line 5 and 8 (the curly brackets), we have the code to execute at each iteration. In line 6, we have the array initialized, where the counter is used as index. Finally in line 7, we have the counter incremented. Whenever the program reaches the end of the loop, it will check the condition and check whether it should go back at the beginning of the it (line 6).
+In line 1, we declare an array of 100 integers. In line two, we declare the integer `i`, which will be used later as a counter for the loop. In line 4, we have the beginning of the loop with the condition within the parentheses, then between line 5 and 8 (the curly brackets), we have the code to execute at each iteration. In line 6, we have the array initialized, where the counter is used as an index. Finally, in line 7, we have the counter incremented. Whenever the program reaches the end of the loop, it will check the condition and check whether it should go back at the beginning of it (line 6).
 
 The structure of a `for` loop allows you to condense a little bit the code that manages the loop variable (in this case, the variable `i`):
 
@@ -395,7 +395,7 @@ for( int i = 0; i < 100; i = i + 1)
 }
 ```
 
-As you can see, the condition of the `for` loop is split in 3 parts (separated with semi-colon):
+As you can see, the condition of the `for` loop is split into 3 parts (separated with semi-colons):
 
 * Declaration and assignment of the variable: `int i = 0`
 * Condition to match in order to continue the loop: `i < 100`
@@ -436,11 +436,11 @@ lowest = january_temperature[0];
 
 for ( day = 1; day < 31; day++ ) 
 {
-	if ( highest < january_temperature[day] )
-	    highest = january_temperature[day];
+    if ( highest < january_temperature[day] )
+        highest = january_temperature[day];
 
     if ( lowest > january_temperature[day] )
-	    lowest = january_temperature[day];
+        lowest = january_temperature[day];
 }
 
 printf( "Highest temperature: %d", highest );
@@ -456,11 +456,11 @@ lowest = february_temperature[0];
 
 for ( day = 1; day < 31; day++ ) 
 {
-	if ( highest < february_temperature[day] )
-	    highest = february[day];
+    if ( highest < february_temperature[day] )
+        highest = february[day];
 
     if ( lowest > february_temperature[day] )
-	    lowest = february_temperature[day];
+        lowest = february_temperature[day];
 }
 
 printf( "Highest temperature: %d", highest );
@@ -474,9 +474,9 @@ printf( "Lowest temperature: %d", lowest );
 
 > __Note__: We will explain later in this chapter how `printf` works.
 
-In this example, we have a set of instructions that is meant to find the highest and lowest value in an array and print the result in the terminal. Instead of always re-writting the block of code, we could create a function that re-use the instructions then whenever we want to execute those blocks of instructions, we simply need to call the function by its defined name. 
+In this example, we have a set of instructions that are meant to find the highest and lowest value in an array and print the result in the terminal. Instead of always re-writing the block of code, we could create a function that re-uses the instructions then whenever we want to execute those blocks of instructions, we simply need to call the function by its defined name. 
 
-A function typically takes 0, one or more inputs, process data, then returns 0 or one output. A function is define by its header, which contains the type of the returned value, the name of the function, then the list of expected arguments:
+A function typically takes 0, one or more inputs, process data, then returns 0 or one output. A function is defined by its header, which contains the type of the returned value, the name of the function, then the list of expected arguments:
 
 ```
 void get_highest_and_lowest_temperature( int month[], int size_of_array )
@@ -495,11 +495,11 @@ void get_highest_and_lowest_temperature( int month[], int days_in_month )
 
     for ( int day = 1; day < days_in_month; day++ ) 
     {
-	    if ( highest < month[day] )
-	        highest = month[day];
+        if ( highest < month[day] )
+            highest = month[day];
 
         if ( lowest > month[day] )
-	        lowest = month[day];
+            lowest = month[day];
     }
 
     printf( "Highest temperature: %d \n", highest );
@@ -519,11 +519,11 @@ void get_highest_and_lowest_temperature( int month[], int days_in_month )
 
     for ( int day = 1; day < days_in_month; day++ ) 
     {
-	    if ( highest < month[day] )
-	        highest = month[day];
+        if ( highest < month[day] )
+            highest = month[day];
 
         if ( lowest > month[day] )
-	        lowest = month[day];
+            lowest = month[day];
     }
 
     printf( "Highest temperature: %d \n", highest );
@@ -568,7 +568,7 @@ int add( int a, int b )
 }
 ```
 
-We created the function `add` that takes two arguments (`a` and `b`), addition both numbers and returns the result. Here is how we can call that function and save the returned value:
+We created the function `add` that takes two arguments (`a` and `b`), add both numbers and returns the result. Here is how we can call that function and save the returned value:
 
 ```
 #include <stdio.h>
@@ -596,7 +596,7 @@ Once compiled and executed, the program will simply print `Result: 12`.
 
 ### Function arguments
 
-Functions can take 0, one or multiple arugments. These are meant to send data from the callee (the function calling another function) to the called function. Unless excplicitly declared outside all functions, a variable can be used only in the function where it has been declared. So this means the following won't work:
+Functions can take 0, one or multiple arguments. These are meant to send data from the callee (the function calling another function) to the called function. Unless explicitly declared outside all functions, a variable can be used only in the function where it has been declared. So this means the following won't work:
 
 ```
 #include <stdio.h>
@@ -648,7 +648,7 @@ void main ()
 
 > __Note__: Variables declared outside all functions are called _global_ variable.
 
-Another interesting – and maybe counter intuitive behaviour – is that whenever you send a variable as argument, you actually send a copy of its content rather than the variable itself. This means if a function modifies the value of an argument, the change will take place only within that function:
+Another interesting – and maybe counterintuitive behavior – is that whenever you send a variable as an argument, you actually send a copy of its content rather than the variable itself. This means if a function modifies the value of an argument, the change will take place only within that function:
 
 ```
 #include <stdio.h>
@@ -682,13 +682,13 @@ b: 7
 c: 12
 ```
 
-As you can see, although the variable `a` in the function `add` has changed, the variable `a` in `main` remains the same. This is because `a` from `add` only receive a copy of the value from `a` in main and both `a` variables only exist withing the function where they have been declared. If we want the changes to impact a variable declared in a different function (which is not a global variable), we need to send a pointer to that variable. In this case, we don't send a copy of the content, but the address in memory where the varaible is located. In this case, when we do changes, since we directly edit the value located at the same memory location, the changes will remains even after the function returns.
+As you can see, although the variable `a` in the function `add` has changed, the variable `a` in `main` remains the same. This is because `a` from `add` only receive a copy of the value from `a` in main and both `a` variables only exist within the function where they have been declared. If we want the changes to impact a variable declared in a different function (which is not a global variable), we need to send a pointer to that variable. In this case, we don't send a copy of the content, but the address in memory where the variable is located. In this case, when we change the content, since we directly edit the value located at the same memory location, the changes will remain even after the function returns.
 
 ### Prototype
 
-If you remember well, we mentioned at beginning of this chapter that the included file `stdio.h` at the beginning of the `Hello World!` program contains the prototype for the function `printf`. A function prototype declares the function name, its parameters, and its return type to the rest of the program. It is used to tell the compiler what argument(s) is expected and what type is returned. Since the code for `printf` is not located in the program source code, without the prototype, the compiler will not be able to determine whether `printf` is expecting a string as first parameter, and therefore, it won't be able to flag an error if the programmer used the function in a wrong way. 
+If you remember well, we mentioned at the beginning of this chapter that the included file `stdio.h` at the beginning of the `Hello World!` program contains the prototype for the function `printf`. A function prototype declares the function name, its parameters, and its return type to the rest of the program. It is used to tell the compiler what argument(s) is expected and what type is returned. Since the code for `printf` is not located in the program source code, without the prototype, the compiler will not be able to determine whether `printf` is expecting a string as the first parameter, and therefore, it won't be able to flag an error if the programmer used the function in a wrong way. 
 
-Function prototype are also used whenever a call to a function happen before (in the code) the function is declared. In this case, the protype of the function can be placed at the beginning of the source code:
+Function prototypes are also used whenever a call to a function happen before (in the code) the function is declared. In this case, the prototype of the function can be placed at the beginning of the source code:
 
 ```
 #include <stdio.h>
@@ -721,7 +721,7 @@ Now that we have discussed the pointer and function prototype, we can talk about
 ./program-name
 ```
 
-Sometimes the program can take arguments, like for instance the linux command `cp` (copy) which accepts two arguments, the first one being the path to the file we want to copy and the second arguments being the path where we want to copy the file. Whenever you send arguments to a program, it will will be available through an array of pointer.
+Sometimes the program can take arguments, like for instance the Linux command `cp` (copy) which accepts two arguments, the first one being the path to the file we want to copy and the second arguments being the path where we want to copy the file. Whenever you send arguments to a program, it will be available through an array of pointer.
 
 Here is the actual declaration of `main`:
 
@@ -731,10 +731,10 @@ int main(int argc, char *argv[]);
 
 The function `main` is usually expected to return an _exit status_ (`0` if the program completed successfully) and it takes two arguments: 
 
-* `argc`: an integer which contains the amount of arguments sent
+* `argc`: an integer which contains the number of arguments sent
 *  `argv`: an array of `char` pointer which are the actual arguments sent
 
-We've seen earlier in chapter [CPU](/appsec101/cpu/), strings are actualy an array of `char` terminated with a NULL character (`0x00`). And as we've seen in this chapter, whenever we use the name of an array without bracket, this is actually a pointer to the first element of that array. Whenever we deal with a string, we usually send the pointer and not a single element of the array. So the argument `char *argv[]` can be considered as an array of strings, where `argv[0]` is the first argument, `argv[1]` the second, etc.
+We've seen earlier in chapter [CPU](/appsec101/cpu/), strings are actually an array of `char` terminated with a NULL character (`0x00`). And as we've seen in this chapter, whenever we use the name of an array without brackets, this is actually a pointer to the first element of that array. Whenever we deal with a string, we usually send the pointer and not a single element of the array. So the argument `char *argv[]` can be considered as an array of strings, where `argv[0]` is the first argument, `argv[1]` the second, etc.
 
 Here is an example to print all program arguments:
 
@@ -770,7 +770,7 @@ The following functions are all part of the default `libc.so` library and are co
 
 ### printf
 
-We've already used this function earlier in some examples. We know it is meant to print text in the terminal (standard output), but let's  have a closer look at it.
+We've already used this function earlier in some examples. We know it is meant to print text in the terminal (standard output), but let's have a closer look at it.
 
 Unlike most functions, `printf` can take an _unlimited_ amount of argument. It expects at least one argument, the _format string_. The _format string_ is basically what `printf` will _print_ in the terminal. 
 
@@ -778,7 +778,7 @@ Unlike most functions, `printf` can take an _unlimited_ amount of argument. It e
 printf("Hello World!"); // Hello World!
 ```
 
-Whenever you want to print a variable, within that text, you can add a _format specifier_ in the _format string_. The function `printf` will then replace the _format specifier_ with the corresponding value sent as argument to the function. The _format specifier_ has the following structure: `%[flags][width][.precision][length]specifier`. 
+Whenever you want to print a variable, within that text, you can add a _format specifier_ in the _format string_. The function `printf` will then replace the _format specifier_ with the corresponding value sent as an argument to the function. The _format specifier_ has the following structure: `%[flags][width][.precision][length]specifier`. 
 
 > __Note__: Options in brackets (`[` `]`) are optional.
 
@@ -824,9 +824,9 @@ printf("Variable c (int): %X \n", c);       // Variable c (int): 61
 printf("Pointer to variable c: %p \n", &c); //Pointer to variable c: 0x--------
 ```
 
-> __Note__: The backslash n (`\n`) is meant to go to next line.
+> __Note__: The backslash n (`\n`) is meant to go to the next line.
 
-So far we've printed only one variable, but `printf` can of course print more than one. For this, you simple need to add the variable in the argument of function and add the appropriate _specifier_ in the _format string_. The first _format specifier_ will correspond to the second argument, the second _format specificer_ will correspond to the third one, ...
+So far we've printed only one variable, but `printf` can, of course, print more than one. For this, you simply need to add the variable in the argument of the function and add the appropriate _specifier_ in the _format string_. The first _format specifier_ will correspond to the second argument, the second _format specifier_ will correspond to the third one, ...
 
 ```
 int x = 42;
@@ -838,7 +838,7 @@ res = x + y;
 printf("%d + %d = %d \n", x, y, res); // 42 + 1337 = 1379
 ```
 
-Among all _specifier_, there is one particular: `n`. Unlike the other _specifier_, `n` is not meant to print something in the terminal but instead, it writes the amount of characters written so far at a given address.
+Among all _specifier_, there is one particular: `n`. Unlike the other _specifier_, `n` is not meant to print something in the terminal but instead, it writes the number of characters written so far at a given address.
 
 ```
 int i;
@@ -872,7 +872,7 @@ The _format specifier_ can also contain the following optional sub-specifiers:
 
 For this workshop, we are only interested in the _width_ sub-specifier. If you want more information about the other sub-specifier, you can read the [printf reference](http://www.cplusplus.com/reference/cstdio/printf/).
 
-By default, printf will print the minimum amount of character required to display the variable. For instance, the integer `1234`, althougt it's stored in a 32-bit variable, if we want to print it as hexadecimal, we won't have `000004D2`, but only `4D2`:
+By default, printf will print the minimum amount of character required to display the variable. For instance, the integer `1234`, although it's stored in a 32-bit variable, if we want to print it as hexadecimal, we won't have `000004D2`, but only `4D2`:
 
 ```
 int n = 1234;
@@ -888,7 +888,7 @@ int n = 1234;
 printf("%d in hex: %8X\n", n, n); // 1234 in hex:      4D2
 ```
 
-By default, the padding is a space (` `). So here in this case, the variable `1234` was printed with 5 x space and 3 x hexadecimal values. If you want to pad it with `0`'s, you can use the _flag_ sub-specifier `0`:
+By default, the padding is a space (` `). So here, in this case, the variable `1234` was printed with 5 x space and 3 x hexadecimal values. If you want to pad it with `0`'s, you can use the _flag_ sub-specifier `0`:
 
 ```
 int n = 1234;
@@ -921,7 +921,7 @@ printf("%2$c %1$c %3$c %3$c %4$c \n", e, h, l, o); // H E L L O
 
 We've seen how to print (output) data with `printf`, now we will see how to get (input) data from the user with the function `scanf`. The first argument for `scanf` is also a _format string_. In this case, the _format string_ tells how we want to cast the user input. The _format string_ usually contains a single _format specifier_. The `scanf` _format specifier_ has a similar structure as `printf`: `%[*][width][length]specifier`.
 
-For this workshop, we will only use the _format specifier_ without option, i.e. `%specifier`. Here is a list of _specifiers_ we will use in our examples:
+For this workshop, we will only use the _format specifier_ without options, i.e. `%specifier`. Here is a list of _specifiers_ we will use in our examples:
 
 
 | specifier | Description | Characters extracted |
@@ -929,7 +929,7 @@ For this workshop, we will only use the _format specifier_ without option, i.e. 
 | i | Integer | Any number of digits, optionally preceded by a sign (+ or -). Decimal digits assumed by default (0-9), but a 0 prefix introduces octal digits (0-7), and 0x hexadecimal digits (0-f). Signed argument.|
 | c | Character | The next character. If a width other than 1 is specified, the function reads exactly width characters and stores them in the successive locations of the array passed as argument. No null character is appended at the end.
 | s | String of characters | Any number of non-whitespace characters, stopping at the first whitespace character found. A terminating null character is automatically added at the end of the stored sequence. |
-| p | Pointer address | A sequence of characters representing a pointer. The particular format used depends on the system and library implementation, but it is the same as the one used to format %p in fprintf. |
+| p | Pointer address | A sequence of characters representing a pointer. The particular format used depends on the system and library implementation, but it is the same as the one used to format %p in `printf`. |
 
 ```
 #include <stdio.h>
@@ -941,7 +941,7 @@ void main()
     char b;
     char c[100]; 
 
-	scanf("%d", &a);
+    scanf("%d", &a);
     scanf(" %c", &b);
     scanf(" %s", c);
 
@@ -952,13 +952,13 @@ void main()
 }
 ```
 
-> __Note__: At the first `scanf` we enter a number in the terminal. In order to "validate" the number, we press `<enter>`. However, this `<enter>` is also sent to `scanf` as `\n`, which doesn't match the _format specifier_, so `scanf` keep it in the buffer. So next time `scanf` is called, the first caracter received will be that `\n`. In order to discard that newline character, we added a whitespace in our _format strings_ of the following `scanf`. This whitespace tells `scanf` to ignore any "whitespace" element, i.e. space, tabulation and newline.
+> __Note__: At the first `scanf` we enter a number in the terminal. In order to "validate" the number, we press `<enter>`. However, this `<enter>` is also sent to `scanf` as `\n`, which doesn't match the _format specifier_, so `scanf` keep it in the buffer. So next time `scanf` is called, the first character received will be that `\n`. In order to discard that newline character, we added a whitespace in our _format strings_ of the following `scanf`. This whitespace tells `scanf` to ignore any "whitespace" element, i.e. space, tabulation, and newline.
 
 That's all we need to know about `scanf` for this workshop. If you want more information about `scanf`, you can read the [scanf reference](http://www.cplusplus.com/reference/cstdio/scanf/).
 
 ### strcpy
 
-Now that we know how to read and print strings, let's see how to manipulate them. The function `strcpy` is meant to copy string from one address to another. The function takes two arguments, the _destination_ (first) and the _source_ (second). Both are pointer to a string (i.e. array of `char`). `strcpy` copies one by one all character from _source_ to _destination_ until it reaches the `NULL` (`0x00`) character that terminates the _source_ string.
+Now that we know how to read and print strings, let's see how to manipulate them. The function `strcpy` is meant to copy a string from one address to another. The function takes two arguments, the _destination_ (first) and the _source_ (second). Both are pointers to a string (i.e. array of `char`). `strcpy` copies one by one all character from _source_ to _destination_ until it reaches the `NULL` (`0x00`) character that terminates the _source_ string.
 
 ```
 #include <stdio.h>
@@ -1032,13 +1032,13 @@ void main()
 }
 ```
 
-> __Note__: The prototype of the function `malloc` is located in the _header file_ `stdlib.h`, so you need to `#include` it first at the begining of your code.
+> __Note__: The prototype of the function `malloc` is located in the _header file_ `stdlib.h`, so you need to `#include` it first at the beginning of your code.
 
 Here again, that's pretty much it. If you want further information, you can read the [malloc reference](http://www.cplusplus.com/reference/cstdlib/malloc/).
 
 ### free
 
-The function `free` was also covered in chapter [Memory](/appsec101/memory/) - [Heap](/appsec101/memory/#heap). `free` is used whenever we no longer need the dynamically allocated memory block. It _releases_ so that it can be re-use for another dynamically allocated memory. The function takes as argument a pointer to a dynmically allocated memory block and returns nothing.
+The function `free` was also covered in chapter [Memory](/appsec101/memory/) - [Heap](/appsec101/memory/#heap). `free` is used whenever we no longer need the dynamically allocated memory block. It _releases_ so that it can be re-used for another dynamically allocated memory. The function takes as argument a pointer to a dynamically allocated memory block and returns nothing.
 
 ```
 #include <stdio.h>
@@ -1053,11 +1053,11 @@ void main()
     int *pointer;
     int tmp;
 
-    // see previous example
+    // see the previous example
 
     pointer = malloc (amount * 4); // Integer are 4 bytes
 
-    // see pevious example
+    // see the previous example
 
     free(pointer);
 

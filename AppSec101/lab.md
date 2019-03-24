@@ -13,7 +13,7 @@ Lab environment
 
 In this course, we will do a little bit of _reversing_, _debugging_ and _compiling_.
 
-__Reversing__, short for __reverse engineering__, is the process of reading machine language instructions and making sense out of it. The process could result in the translation of instructions into a higher-level language (usually pseudo-code). To help us in this task, we will use the built-in command-line debugger __GDB__ (see below). Many disassembler are much better than GDB, such as [IDA](https://www.hex-rays.com/products/ida/support/download_freeware.shtml), however, for what we need from it, GDB will be sufficient.
+__Reversing__, short for __reverse engineering__, is the process of reading machine language instructions and making sense out of it. The process could result in the translation of instructions into a higher-level language (usually pseudo-code). To help us in this task, we will use the built-in command-line debugger __GDB__ (see below). Many disassemblers are much better than GDB, such as [IDA](https://www.hex-rays.com/products/ida/support/download_freeware.shtml), however, for what we need from it, GDB will be sufficient.
 
 In the context of this course, __Debugging__ means analyzing the binary application while it is running thanks to a _debugger_. A _debugger_ allows you to set _breakpoints_ in the debugged running application. A _breakpoint_ can be set on one or several instructions. Once the instruction with the breakpoint is reached and is about to be processed by the CPU, the application will pause the program. While being paused, the analyst can read and edit instructions, the memory and _registers_ (see more about registers in chapter [CPU](/appsec101/cpu/)). In this course, we will use __GDB__ (see below).
 
@@ -25,7 +25,7 @@ Operating System
 
 For this course, we decided to use the standard __Ubuntu 32-bit Desktop__ distribution. We could have found a much lighter Operating System (OS) which would have been sufficient for what we need, however, we thought this would be easier to install configure and maintain. Furthermore, Ubuntu is free and widely used, so there is a high chance you already encountered and used it, so you should feel already comfortable with it.
 
-As mentioned in the [introduction](/appsec101/introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 application on 64-bit operating systems, using a 32-bit OS will reduce the dependency and environment complexity.
+As mentioned in the [introduction](/appsec101/introduction/), this course cover 32-bit only. Although it is possible to compile, run and debug x386 applications on 64-bit operating systems, using a 32-bit OS will reduce the dependencies and environment complexity.
 
 ### Download
 
@@ -35,14 +35,14 @@ Download [Ubuntu 16.04.5 Desktop 32-bit](http://releases.ubuntu.com/16.04/ubuntu
 
 ### VM deployment
 
- You can either run Linux natively on you hardware or in a virtual environment. If you have Linux already installed on your computer, you can skip this part.
+ You can either run Linux natively on your hardware or in a virtual environment. If you have Linux already installed on your computer, you can skip this part.
 
-In order to keep this course free, we recommend to use [VirtualBox](https://www.virtualbox.org) as virtual environment. Once the ISO downloaded and VirtualBox installed, you can follow this [tutorial](https://medium.com/@tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0). The given specs are sufficient, i.e.:
+In order to keep this course free, we recommend using [VirtualBox](https://www.virtualbox.org) as your virtual environment. Once the ISO downloaded and VirtualBox installed, you can follow this [tutorial](https://medium.com/@tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0). The given specs are sufficient, i.e.:
 
 * 1024 Mb RAM
 * 10 Gb Hard disk (VDI - Dynamically allocated)
 
-> __Note__: during the Ubuntu installation, make sure you select the right keyboard (use "Detect keyboard layout"). For the rest, you can choose whatever name, username, password and language.
+> __Note__: during the Ubuntu installation, make sure you select the right keyboard (use "Detect keyboard layout"). For the rest, you can choose whatever name, username, password, and language.
 
 Once the VM deployed, you can remove all links from the launcher (left panel) and add "Terminal". This will be the only tool you will need for this course. Now that you have your VM ready, the first thing to do is to update your Linux. Type the following command in Terminal:
 
@@ -52,7 +52,7 @@ sudo apt-get upgrade
 sudo apt-get install virtualbox-guest-additions-iso
 ```
 
-Now, let's install the VirtualBox Guest Addition. This will allow you to copy/past from the host to the VM, which will come handy to copy source code for instance. For this, you simply need to go in the VirtualBox menu "Devices" and select "Install Guest Additions CD image...". Then, you just need to follow the instructions. At the end of the process, go in the VirtualBox menu "Machine" and select "Settings...". In the tab "General" > "Advanced", set the "Shared Clipboard" value to "Bidirectional". You now should be able to copy/paste from the VM to you host and vice-vera.
+Now, let's install the VirtualBox Guest Addition. This will allow you to copy/paste from the host to the VM, which will come handy to copy the source code for instance. For this, you simply need to go in the VirtualBox menu "Devices" and select "Install Guest Additions CD image...". Then, you just need to follow the instructions. At the end of the process, go in the VirtualBox menu "Machine" and select "Settings...". In the tab "General" > "Advanced", set the "Shared Clipboard" value to "Bidirectional". You now should be able to copy/paste from the VM to your host and vice-versa.
 
 ## Tools
 
@@ -60,7 +60,7 @@ For this course, we only need 2 tools: __GDB__ and __GCC__. Both tools are alrea
 
 ### GCC
 
-Let's compile our first C code for this course. Use you favorite text editor and create the following `mul.c` file:
+Let's compile our first C code for this course. Use your favorite text editor and create the following `mul.c` file:
 
 ```
 #include <stdio.h>
@@ -115,7 +115,7 @@ int mul(int x, int y)
 }
 ```
 
-Learning C is beyond the scope of this course, so we assume you understand what this code does, but just to make sure we are on the same page: it multiplies `4` by `3` by using only the addition operation then it prints the result .
+Learning C is beyond the scope of this course, so we assume you understand what this code does, but just to make sure we are on the same page: it multiplies `4` by `3` by using only the addition operation then it prints the result.
 
 Now, in order to compile this code, you simply need to execute the following command:
 
@@ -123,7 +123,7 @@ Now, in order to compile this code, you simply need to execute the following com
 gcc mul.c -o mul
 ```
 
-This will compile `mul.c` and create the binary application `mul`. Now, in order to run application, you simply need to execute the following command:
+This will compile `mul.c` and create the binary application `mul`. Now, in order to run the application, you simply need to execute the following command:
 
 ```
 ./mul
@@ -131,7 +131,7 @@ This will compile `mul.c` and create the binary application `mul`. Now, in order
 
 ### GDB
 
-As mentioned earlier, `GDB` is a debugger. The main feature of a debugger is to set breakpoint and read memory and registers. Let's debug our first application:
+As mentioned earlier, `GDB` is a debugger. The main feature of a debugger is to set breakpoints and read memory areas and registers. Let's debug our first application:
 
 ```
 gdb mul -q
@@ -144,32 +144,32 @@ Now, we want to disassemble the `main()` function to look at the listing of inst
 ```
 (gdb) disassemble main
 Dump of assembler code for function main:
-   0x0804840b <+0>:	lea    0x4(%esp),%ecx
-   0x0804840f <+4>:	and    $0xfffffff0,%esp
-   0x08048412 <+7>:	pushl  -0x4(%ecx)
-   0x08048415 <+10>:	push   %ebp
-   0x08048416 <+11>:	mov    %esp,%ebp
-   0x08048418 <+13>:	push   %ecx
-   0x08048419 <+14>:	sub    $0x14,%esp
-   0x0804841c <+17>:	movl   $0x4,-0x14(%ebp)
-   0x08048423 <+24>:	movl   $0x3,-0x10(%ebp)
-   0x0804842a <+31>:	sub    $0x8,%esp
-   0x0804842d <+34>:	pushl  -0x10(%ebp)
-   0x08048430 <+37>:	pushl  -0x14(%ebp)
-   0x08048433 <+40>:	call   0x8048483 <mul>
-   0x08048438 <+45>:	add    $0x10,%esp
-   0x0804843b <+48>:	mov    %eax,-0xc(%ebp)
-   0x0804843e <+51>:	pushl  -0xc(%ebp)
-   0x08048441 <+54>:	pushl  -0x10(%ebp)
-   0x08048444 <+57>:	pushl  -0x14(%ebp)
-   0x08048447 <+60>:	push   $0x8048550
-   0x0804844c <+65>:	call   0x80482e0 <printf@plt>
-   0x08048451 <+70>:	add    $0x10,%esp
-   0x08048454 <+73>:	mov    $0x0,%eax
-   0x08048459 <+78>:	mov    -0x4(%ebp),%ecx
-   0x0804845c <+81>:	leave  
-   0x0804845d <+82>:	lea    -0x4(%ecx),%esp
-   0x08048460 <+85>:	ret    
+   0x0804840b <+0>:    lea    0x4(%esp),%ecx
+   0x0804840f <+4>:    and    $0xfffffff0,%esp
+   0x08048412 <+7>:    pushl  -0x4(%ecx)
+   0x08048415 <+10>:    push   %ebp
+   0x08048416 <+11>:    mov    %esp,%ebp
+   0x08048418 <+13>:    push   %ecx
+   0x08048419 <+14>:    sub    $0x14,%esp
+   0x0804841c <+17>:    movl   $0x4,-0x14(%ebp)
+   0x08048423 <+24>:    movl   $0x3,-0x10(%ebp)
+   0x0804842a <+31>:    sub    $0x8,%esp
+   0x0804842d <+34>:    pushl  -0x10(%ebp)
+   0x08048430 <+37>:    pushl  -0x14(%ebp)
+   0x08048433 <+40>:    call   0x8048483 <mul>
+   0x08048438 <+45>:    add    $0x10,%esp
+   0x0804843b <+48>:    mov    %eax,-0xc(%ebp)
+   0x0804843e <+51>:    pushl  -0xc(%ebp)
+   0x08048441 <+54>:    pushl  -0x10(%ebp)
+   0x08048444 <+57>:    pushl  -0x14(%ebp)
+   0x08048447 <+60>:    push   $0x8048550
+   0x0804844c <+65>:    call   0x80482e0 <printf@plt>
+   0x08048451 <+70>:    add    $0x10,%esp
+   0x08048454 <+73>:    mov    $0x0,%eax
+   0x08048459 <+78>:    mov    -0x4(%ebp),%ecx
+   0x0804845c <+81>:    leave  
+   0x0804845d <+82>:    lea    -0x4(%ecx),%esp
+   0x08048460 <+85>:    ret    
 End of assembler dump.
 ```
 
@@ -181,7 +181,7 @@ If your resolution is not big enough, it is possible that `GDB` prints the follo
 
 In this case, you simply need to type `ENTER` to see the rest of the disassembled code.
 
-As explained in the [CPU](/appsec101/cpu/) and [memory](/appsec101/memory/) chapters, machine code instructions are basically a group of binary values that signify a specific instruction for the CPU. E.g. `b8 00 00 00 00` means moving `0x00000000` in the register `EAX`. However, it is usually easier for human to read pseudo-english rather than hexadecimal value, therefore disassembler translate the binary values (opcodes) in human readable code. Here in this case, `b8 00 00 00 00` is translated as `mov $0x0, %eax` (see instruction at the address `0x08048454`). This representation is the AT&T syntax. However, it exists different ways to represent opcodes, the most known one being "Intel". In Intel syntax, `b8 00 00 00 00` is translated as `mov eax, 0x0`. I think the Intel syntax is easier to read than AT&T, therefore this course will be using Intel syntax. To change the syntax in GDB, you can run the following command:
+As explained in the [CPU](/appsec101/cpu/) and [memory](/appsec101/memory/) chapters, machine code instructions are basically a group of binary values that signify a specific instruction for the CPU. E.g. `b8 00 00 00 00` means moving `0x00000000` in the register `EAX`. However, it is usually easier for humans to read pseudo-English rather than hexadecimal value, therefore disassembler translates the binary values (opcodes) in human-readable code. Here in this case, `b8 00 00 00 00` is translated as `mov $0x0, %eax` (see instruction at the address `0x08048454`). This representation is the AT&T syntax. However, it exists different ways to represent opcodes, the most known one being "Intel". In Intel syntax, `b8 00 00 00 00` is translated as `mov eax, 0x0`. I think the Intel syntax is easier to read than AT&T, therefore this course will be using Intel syntax. To change the syntax in GDB, you can run the following command:
 
 ```
 (gdb) set disassembly-flavor intel
@@ -192,32 +192,32 @@ The disassembly will not look like this:
 ```
 (gdb) disassemble main
 Dump of assembler code for function main:
-   0x0804840b <+0>:	lea    ecx,[esp+0x4]
-   0x0804840f <+4>:	and    esp,0xfffffff0
-   0x08048412 <+7>:	push   DWORD PTR [ecx-0x4]
-   0x08048415 <+10>:	push   ebp
-   0x08048416 <+11>:	mov    ebp,esp
-   0x08048418 <+13>:	push   ecx
-   0x08048419 <+14>:	sub    esp,0x14
-   0x0804841c <+17>:	mov    DWORD PTR [ebp-0x14],0x4
-   0x08048423 <+24>:	mov    DWORD PTR [ebp-0x10],0x3
-   0x0804842a <+31>:	sub    esp,0x8
-   0x0804842d <+34>:	push   DWORD PTR [ebp-0x10]
-   0x08048430 <+37>:	push   DWORD PTR [ebp-0x14]
-   0x08048433 <+40>:	call   0x8048483 <mul>
-   0x08048438 <+45>:	add    esp,0x10
-   0x0804843b <+48>:	mov    DWORD PTR [ebp-0xc],eax
-   0x0804843e <+51>:	push   DWORD PTR [ebp-0xc]
-   0x08048441 <+54>:	push   DWORD PTR [ebp-0x10]
-   0x08048444 <+57>:	push   DWORD PTR [ebp-0x14]
-   0x08048447 <+60>:	push   0x8048550
-   0x0804844c <+65>:	call   0x80482e0 <printf@plt>
-   0x08048451 <+70>:	add    esp,0x10
-   0x08048454 <+73>:	mov    eax,0x0
-   0x08048459 <+78>:	mov    ecx,DWORD PTR [ebp-0x4]
-   0x0804845c <+81>:	leave  
-   0x0804845d <+82>:	lea    esp,[ecx-0x4]
-   0x08048460 <+85>:	ret    
+   0x0804840b <+0>:    lea    ecx,[esp+0x4]
+   0x0804840f <+4>:    and    esp,0xfffffff0
+   0x08048412 <+7>:    push   DWORD PTR [ecx-0x4]
+   0x08048415 <+10>:    push   ebp
+   0x08048416 <+11>:    mov    ebp,esp
+   0x08048418 <+13>:    push   ecx
+   0x08048419 <+14>:    sub    esp,0x14
+   0x0804841c <+17>:    mov    DWORD PTR [ebp-0x14],0x4
+   0x08048423 <+24>:    mov    DWORD PTR [ebp-0x10],0x3
+   0x0804842a <+31>:    sub    esp,0x8
+   0x0804842d <+34>:    push   DWORD PTR [ebp-0x10]
+   0x08048430 <+37>:    push   DWORD PTR [ebp-0x14]
+   0x08048433 <+40>:    call   0x8048483 <mul>
+   0x08048438 <+45>:    add    esp,0x10
+   0x0804843b <+48>:    mov    DWORD PTR [ebp-0xc],eax
+   0x0804843e <+51>:    push   DWORD PTR [ebp-0xc]
+   0x08048441 <+54>:    push   DWORD PTR [ebp-0x10]
+   0x08048444 <+57>:    push   DWORD PTR [ebp-0x14]
+   0x08048447 <+60>:    push   0x8048550
+   0x0804844c <+65>:    call   0x80482e0 <printf@plt>
+   0x08048451 <+70>:    add    esp,0x10
+   0x08048454 <+73>:    mov    eax,0x0
+   0x08048459 <+78>:    mov    ecx,DWORD PTR [ebp-0x4]
+   0x0804845c <+81>:    leave  
+   0x0804845d <+82>:    lea    esp,[ecx-0x4]
+   0x08048460 <+85>:    ret    
 End of assembler dump.
 ```
 
@@ -242,22 +242,22 @@ As you can see, at this stage, the application already did the multiplication an
 
 ```
 (gdb) info registers
-eax            0xb	11
-ecx            0x7ffffff5	2147483637
-edx            0xb7fbc870	-1208235920
-ebx            0x0	0
-esp            0xbfffef20	0xbfffef20
-ebp            0xbfffef38	0xbfffef38
-esi            0xb7fbb000	-1208242176
-edi            0xb7fbb000	-1208242176
-eip            0x8048454	0x8048454 <main+73>
-eflags         0x282	[ SF IF ]
-cs             0x73	115
-ss             0x7b	123
-ds             0x7b	123
-es             0x7b	123
-fs             0x0	0
-gs             0x33	51
+eax            0xb    11
+ecx            0x7ffffff5    2147483637
+edx            0xb7fbc870    -1208235920
+ebx            0x0    0
+esp            0xbfffef20    0xbfffef20
+ebp            0xbfffef38    0xbfffef38
+esi            0xb7fbb000    -1208242176
+edi            0xb7fbb000    -1208242176
+eip            0x8048454    0x8048454 <main+73>
+eflags         0x282    [ SF IF ]
+cs             0x73    115
+ss             0x7b    123
+ds             0x7b    123
+es             0x7b    123
+fs             0x0    0
+gs             0x33    51
 ```
 
 To read memory locations, including instructions (since instruction are located in memory), you can use the command `x` (for e__X__amine). The command `x` has the following format:
@@ -281,21 +281,21 @@ We now have reached the breakpoint located at `0x8048454`. So if we use the comm
 
 ```
 (gdb) x/i 0x8048454
-=> 0x8048454 <main+73>:	mov    eax,0x0
+=> 0x8048454 <main+73>:    mov    eax,0x0
 ```
 
 Now, if we want to see the opcode instead of the instruction, we have to change the format from `i` (machine instruction) to `x` (hexadecimal representation). Furthermore, it would be more readable to print the opcode byte by byte, instead of a full word (4 bytes), which is the default unit size, so we will use the unit size `b`. Lastly, the instruction `mov eax, 0x0` is 5 bytes long, therefore, the repeat counter should be set to `5`:
 
 ```
 (gdb) x/5xb 0x8048454
-0x8048454 <main+73>:	0xb8	0x00	0x00	0x00	0x00
+0x8048454 <main+73>:    0xb8    0x00    0x00    0x00    0x00
 ```
 
-> __Note__: Unlike ARM, x386 instruction length is variable, so we first need to read the first byte to know how long will be the instruction in opcode. For instance, `0xb8` means move the next 4 bytes (word) in EAX. So the entire instruction is 1 byte (`0xb8`) + 4 bytes (value to copy in EAX) = 5 bytes. Whilst `0x89` means moving the value of a register into another register. The following byte will indicate which is the source register and the destination register. For instance `0xc8` would means source is ECX and destination is EAX, which means `89 c8` means `mov eax, ecx`. So the entire instruction is 1 byte (`0x89`) + 1 byte (source/destination register) = 2 bytes.
+> __Note__: Unlike ARM, x386 instruction length is variable, so we first need to read the first byte to know how long will be the instruction in opcode. For instance, `0xb8` means "move the next 4 bytes (word) in EAX". So the entire instruction is 1 byte (`0xb8`) + 4 bytes (value to copy in EAX) = 5 bytes. Whilst `0x89` means moving the value of a register into another register. The following byte will indicate which is the source register and the destination register. For instance `0xc8` indicates that the source is ECX and destination is EAX". If we put the pieces together, `89 c8` means `mov eax, ecx`. So the entire instruction is 1 byte (`0x89`) + 1 byte (source/destination register) = 2 bytes.
 
 Now that we know how to read memory, let's navigate through the instructions. The four most important commands to remember are `run`, `continue`, `nexti` and `stepi`:
 
-* `run` will start the application. It is recommended to set breakpoint before executing the command `run` otherwise, it will just execute the application and you might not have the time to pause it to investigate the memory, registers and instructions. You can add arguments after the command. For instance, if our application `mul` was expecting a number as argument, we could have executed the command `run 123`.
+* `run` will start the application. It is recommended to set breakpoint before executing the command `run` otherwise, it will just execute the application and you might not have the time to pause it to investigate the memory, registers, and instructions. You can add arguments after the command. For instance, if our application `mul` was expecting a number as argument, we could have executed the command `run 123`.
 * `continue` resume the program execution. So once you reached a breakpoint and you want to resume the execution until the next breakpoint or the end of the program, you can use the command `continue`.
 * `nexti`, short for _next instruction_, execute one machine instruction, but if it is a function call, proceed until the function returns.
 * `stepi`, short for _step instruction_, execute one machine instruction, then stop and return to the debugger.
@@ -330,10 +330,10 @@ Now let's have a look at the next 4 instructions. Instead of retyping the addres
 
 ```
 (gdb) x/4i $eip
-=> 0x8048483 <mul>:	push   ebp
-   0x8048484 <mul+1>:	mov    ebp,esp
-   0x8048486 <mul+3>:	sub    esp,0x10
-   0x8048489 <mul+6>:	mov    eax,DWORD PTR [ebp+0x8]
+=> 0x8048483 <mul>:    push   ebp
+   0x8048484 <mul+1>:    mov    ebp,esp
+   0x8048486 <mul+3>:    sub    esp,0x10
+   0x8048489 <mul+6>:    mov    eax,DWORD PTR [ebp+0x8]
 ```
 
 We can now use either `stepi` or `nexti` to execute the current instruction and move to the next one:
@@ -374,41 +374,41 @@ Continuing.
 
 Breakpoint 1, 0x08048454 in main ()
 (gdb) info registers
-eax            0xb	11
-ecx            0x7ffffff5	2147483637
-edx            0xb7fbc870	-1208235920
-ebx            0x0	0
-esp            0xbfffef20	0xbfffef20
-ebp            0xbfffef38	0xbfffef38
-esi            0xb7fbb000	-1208242176
-edi            0xb7fbb000	-1208242176
-eip            0x8048454	0x8048454 <main+73>
-eflags         0x282	[ SF IF ]
-cs             0x73	115
-ss             0x7b	123
-ds             0x7b	123
-es             0x7b	123
-fs             0x0	0
-gs             0x33	51
+eax            0xb    11
+ecx            0x7ffffff5    2147483637
+edx            0xb7fbc870    -1208235920
+ebx            0x0    0
+esp            0xbfffef20    0xbfffef20
+ebp            0xbfffef38    0xbfffef38
+esi            0xb7fbb000    -1208242176
+edi            0xb7fbb000    -1208242176
+eip            0x8048454    0x8048454 <main+73>
+eflags         0x282    [ SF IF ]
+cs             0x73    115
+ss             0x7b    123
+ds             0x7b    123
+es             0x7b    123
+fs             0x0    0
+gs             0x33    51
 (gdb) nexti
 0x08048459 in main ()
 (gdb) info registers
-eax            0x0	0
-ecx            0x7ffffff5	2147483637
-edx            0xb7fbc870	-1208235920
-ebx            0x0	0
-esp            0xbfffef20	0xbfffef20
-ebp            0xbfffef38	0xbfffef38
-esi            0xb7fbb000	-1208242176
-edi            0xb7fbb000	-1208242176
-eip            0x8048459	0x8048459 <main+78>
-eflags         0x282	[ SF IF ]
-cs             0x73	115
-ss             0x7b	123
-ds             0x7b	123
-es             0x7b	123
-fs             0x0	0
-gs             0x33	51
+eax            0x0    0
+ecx            0x7ffffff5    2147483637
+edx            0xb7fbc870    -1208235920
+ebx            0x0    0
+esp            0xbfffef20    0xbfffef20
+ebp            0xbfffef38    0xbfffef38
+esi            0xb7fbb000    -1208242176
+edi            0xb7fbb000    -1208242176
+eip            0x8048459    0x8048459 <main+78>
+eflags         0x282    [ SF IF ]
+cs             0x73    115
+ss             0x7b    123
+ds             0x7b    123
+es             0x7b    123
+fs             0x0    0
+gs             0x33    51
 ```
 
 > __Note__: You can print a single register by using `print $reg`, for instance `print $eax`.
@@ -419,11 +419,11 @@ Finally, let's have a look at the breakpoints we have set with the command `info
 (gdb) info breakpoints
 Num     Type           Disp Enb Address    What
 1       breakpoint     keep y   0x08048454 <main+73>
-	breakpoint already hit 1 time
+    breakpoint already hit 1 time
 2       breakpoint     keep y   0x08048433 <main+40>
-	breakpoint already hit 1 time
+    breakpoint already hit 1 time
 3       breakpoint     keep y   0x0804844c <main+65>
-	breakpoint already hit 1 time
+    breakpoint already hit 1 time
 ```
 
 Let say you want to delete the breakpoint at the instruction `mov eax,0x0`. You simply need to execute the command `delete` together with the breakpoint index number (`Num`). In this case, the index is `1` (the instruction `mov eax,0x0` is located at the address `0x08048454`):
@@ -433,9 +433,9 @@ Let say you want to delete the breakpoint at the instruction `mov eax,0x0`. You 
 (gdb) info breakpoints
 Num     Type           Disp Enb Address    What
 2       breakpoint     keep y   0x08048433 <main+40>
-	breakpoint already hit 1 time
+    breakpoint already hit 1 time
 3       breakpoint     keep y   0x0804844c <main+65>
-	breakpoint already hit 1 time
+    breakpoint already hit 1 time
 ```
 
 That's enough commands for this chapter, I would recommend to play around the application, setting breakpoint, read memory/registers, navigate through the instructions. Once done, you can quit `GDB` with the following command:
@@ -444,7 +444,7 @@ That's enough commands for this chapter, I would recommend to play around the ap
 (gdb) quit
 A debugging session is active.
 
-	Inferior 1 [process 2674] will be killed.
+    Inferior 1 [process 2674] will be killed.
 
 Quit anyway? (y or n) y
 ```

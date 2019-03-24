@@ -11,7 +11,7 @@ nav_order: 2
 Central Processing Unit
 =======================
 
-Computer technology is everywhere: whenever you browse the internet, read your mail, watch a movie, give a call to you family, drive your car, everywhere. Computer, and digital technology in general, are meant to process data in a very fast manner. The brain of this technology is the __C__​entral __P__​rocessing __U__​nit (CPU).
+Computer technology is everywhere: whenever you browse the internet, read your mail, watch a movie, give a call to your family, drive your car, everywhere. Computer, and digital technology in general are meant to process data in a very fast manner. The brain of this technology is the __C__​entral __P__​rocessing __U__​nit (CPU).
 
 
 CPU structure
@@ -19,15 +19,15 @@ CPU structure
 
  The CPU is the elements responsible for the computer's operations. Operations can be arithmetic calculation (such as _additions_ or _division_) or logic operations (such as _AND_ or _OR_). Operations are executed by the __arithmetic unit__.
 
-Operations have one or two parameters – also known as operands (e.g. `5 + 2` has two parameters: `5` and `2`). In order to execute operations, the CPU needs to get (read) the parameters and store the results somewhere. This is why a part of the CPU (the __control unit__) is responsible for retrieving and saving data in the memory. The data processed and saved can be many things (e.g. an image, a music, a word document, the amount of health point your game character has left), but it will always be _binary_ data – meaning bunch of 1s and 0s.
+Operations have one or two parameters – also known as operands (e.g. `5 + 2` has two parameters: `5` and `2`). In order to execute operations, the CPU needs to get (read) the parameters and store the results somewhere. This is why a part of the CPU (the __control unit__) is responsible for retrieving and saving data in the memory. The data processed and saved can be many things (e.g. an image, a music file, a word document, the amount of health point your game character has left), but it will always be _binary_ data – meaning a bunch of 1s and 0s.
 
-Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensors). Once the operation done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
+Operation parameter(s) sometimes might come from __inputs__ (e.g. the keyboard, the mouse or a temperature sensor). Once the operation is done, we usually want to __output__ the final result somewhere (e.g. print it on the screen, play the music on speakers or send it to the network). The __control unit__ is responsible for dealing with inputs and output (I/O).
 
 ![CPU-Memory-I/O](resources/images/cpu-memory-io.png)
 
-As you can see, the __control unit__ is doing a lot in the CPU. It orchestrates the four elements (i.e. memory, arithmetic unit, input and output) and route the data across them. The control unit doesn't magically work on its own. It needs instructions to follow. Instruction such as "take the value located here in memory and send it to the arithmetic unit to execute the following operation". Those sequences of instruction is the program itself. Whenever a programmers compiles code, they actually create a binary application that contains a list of CPU instructions that the control unit will execute. When the program is running, instructions are loaded in memory and read by the control unit. Once executed, the control unit will look at the instruction located right after in memory – unless the instruction executed redirected the execution flow somewhere else (with a jump for instance).
+As you can see, the __control unit__ is doing a lot in the CPU. It orchestrates the four elements (i.e. memory, the arithmetic unit, input, and output) and routes the data across them. The control unit doesn't magically work on its own. It needs instructions to follow. Instructions such as "take the value located here in memory and send it to the arithmetic unit to execute the following operation". Those sequences of instruction are the program itself. Whenever a programmer compiles code, they actually create a binary application that contains a list of CPU instructions that the control unit will execute. When the program is running, instructions are loaded in memory and read by the control unit. Once executed, the control unit will look at the instruction located right after in memory – unless the instruction executed redirected the execution flow somewhere else (with a jump for instance).
 
-Now, lets focus on the __arithmetic unit__ and its principal component: the __A__​rithmentic __L__​ogic __U__​nit (ALU). ALU can be represented as follow:
+Now, let's focus on the __arithmetic unit__ and its principal component: the __A__​rithmentic __L__​ogic __U__​nit (ALU). ALU can be represented as follow:
 
 ![ALU](resources/images/alu.png)
 
@@ -37,7 +37,7 @@ It has four inputs (_input A_, _input B_, _command_ and the _status_) and two ou
 * _Status_ is the _status output_ from the previous operation.
 * _Input A_ and _input B_ are the parameters of the operation.
 * _Output_ is the result of the operation.
-* _Status output_ indicates how the operation went. It could have several meaning depending on the operation execute. For instance, with a subtraction, the _status output_ can tell whether the _output_ value is positive or negative. The _status output_ is important as it is used for taking decision.
+* _Status output_ indicates how the operation went. It could have several meanings depending on the operation executed. For instance, with subtraction, the _status output_ can tell whether the _output_ value is positive or negative. The _status output_ is important as it is used for taking a decision.
 
 For instance, the `9 + 33` would represented as follow:
 
@@ -45,15 +45,15 @@ For instance, the `9 + 33` would represented as follow:
 
 > __Note__: The input _status_ has been removed because it was not relevant in this example.
 
-We've seen earlier, the  control unit read instructions and coordinate the memory, input/output and arithmetic unit accordingly. But it also takes decision based on operation output (and status output). For instance, let's consider an online transaction. Before executing the transaction, the bank server will first subtract the amount of the transaction to the current account balance. If the subtraction (which took place in the ALU) returns a negative value (indicated by the _status output_), this would means the user doesn't have enough money for the transaction, and thus when the _control unit_ reads the instructions "go to _cancel transaction_ if negative otherwise proceed with transaction" it will be able to will take the right decision.
+We've seen earlier, the control unit read instructions and coordinate the memory, input/output, and arithmetic unit accordingly. But it also takes decisions based on operation output (and status output). For instance, let's consider an online transaction. Before executing the transaction, the bank server will first subtract the amount of the transaction to the current account balance. If the subtraction (which took place in the ALU) returns a negative value (indicated by the _status output_), this would mean the user doesn't have enough money for the transaction, and thus when the _control unit_ reads the instructions "go to _cancel transaction_ if negative otherwise proceed with transaction" it will be able to will take the right decision.
 
-So in summary, the CPU is the brain of the computer. It reads and executes instructions from a program. The instruction tells the __control unit__ how to coordinate with the different connected elements, i.e. __arithmetic unit__, __memory__, __input__ and __output__. It fetches data from memory, execute operation with the __ALU__, saves data in the memory and interact with the input/output. Based on the operation executed, the __control unit__ can take decision that will alter the execution flow of the program.
+So in summary, the CPU is the brain of the computer. It reads and executes instructions from a program. The instruction tells the __control unit__ how to coordinate with the different connected elements, i.e. __arithmetic unit__, __memory__, __input__ and __output__. It fetches data from memory, executes operations with the __ALU__, saves data in the memory and interacts with the input/output. Based on the operation executed, the __control unit__ can take decisions that will alter the execution flow of the program.
 
 
 Data/information
 ----------------
 
-CPU are executing operation on data. As mentioned earlier, this data – which could also be called _information_ – could be anything, such as:
+CPU is executing operations on data. As mentioned earlier, this data – which could also be called _information_ – could be anything, such as:
 
 * Movie
 * Music
@@ -66,28 +66,28 @@ CPU are executing operation on data. As mentioned earlier, this data – which c
 * Health status
 * ...
 
-Humanity didn't wait computer for storing and processing such data. Civilization developed language to communicate between each other, the printing industry made it even easier to store and share knowledge, computer is just the next step that facilitate the transfer and the processing of that data, with the major benefit being the high increase of speed. Data can be stored, transferred, copied and processed at a very faster pace thanks to computer.
+Humanity didn't wait for computer to store and processing such data. Civilization developed language to communicate between each other, the printing industry made it even easier to store and share knowledge, computers are just the next step that facilitates the transfer and the processing of that data, with the major benefit being the high increase of speed. Data can be stored, transferred, copied and processed at a very faster pace thanks to computers.
 
-In order for the data to be processed by a computer, it needs to be converted in a format that computer can read. For instance, computer cannot process a picture from a [roll film](https://en.wikipedia.org/wiki/Roll_film), it first needs to convert the picture to a digital format, which means converting in a meaningful series of `1`s and `0`s. For this, the computer will need some electronic sensors that will isolate a small portion of the picture, one sensor will evaluate the percentage of red and send to the computer the digital value from 0 (no red) to 255 (100% red) in binary. Then it will do the same for the color green and blue. Once done, it will move to the portion right next to it, and continue until the entire picture has been scanned. The computer will then reconstruct the red/green/blue (R/G/B) portions together in a digital format so that the picture can be displayed, edited or copied.
+In order for the data to be processed by a computer, it needs to be converted in a format that the computer can read. For instance, computers cannot process a picture from a [roll film](https://en.wikipedia.org/wiki/Roll_film), it first needs to convert the picture to a digital format, which means converting in a meaningful series of `1`s and `0`s. For this, the computer will need some electronic sensors that will isolate a small portion of the picture, one sensor will evaluate the percentage of red and send to the computer the digital value from 0 (no red) to 255 (100% red) in binary. Then it will do the same for the color green and blue. Once done, it will move to the portion right next to it, and continue until the entire picture has been scanned. The computer will then reconstruct the red/green/blue (R/G/B) portions together in a digital format so that the picture can be displayed, edited or copied.
 
-> __Note__: There are many way to digitalized a picture, this was just a simplified example of how to do it.
+> __Note__: There are many ways to digitalized a picture, this was just a simplified example of how to do it.
 
-Digitalizing data often (but not necessary) involved loss of information. For instance, with our picture, the sensor isolated a small portion and evaluate the percentage of red/green/blue for that portion. But that portion itself also had a nuance of red/green/blue within it. So in order to be more accurate, the sensor should have taken smaller portions, however, the sensor itself is limited by its own capability. Depending on the quality and technology used, the sensor will be more or less accurate. As of now, we don't have color sensor with an atomic precision, which means we will loose precision and thus information in the digitalization of pictures.
+Digitalizing data often (but not necessary) involved loss of information. For instance, with our picture, the sensor isolated a small portion and evaluate the percentage of red/green/blue for that portion. But that portion itself also had a nuance of red/green/blue within it. So in order to be more accurate, the sensor should have taken smaller portions, however, the sensor itself is limited by its own capability. Depending on the quality and technology used, the sensor will be more or less accurate. As of now, we don't have a color sensor with atomic precision, which means we will lose precision and thus information in the digitalization of pictures.
 
-Not all digitalization processes induce loss of information. It depends on the nature of the collected information. For instance a text that is digitalized, if properly done, will not loose any information. For sure we won't have the color of the page, the grain of the paper, the smell of the book, the exact font used; but the text itself can be digitalized with 0% loss of information.
+Not all digitalization processes induce loss of information. It depends on the nature of the collected information. For instance, a text that is digitalized, if properly done, will not lose any information. For sure we won't have the color of the page, the grain of the paper, the smell of the book, the exact font used; but the text itself can be digitalized with 0% loss of information.
 
 
 Binary numeral system
 ---------------------
 
-Computer use electricity to store, transfer and process data. Data is basically electricity or magnetic charge. Some engineers tried initially to use voltage-levels to transmit different information, i.e. 0-1V = `0`, 1-3V = `1`, 3-5V = `2`, etc. [[1](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)] However, they noticed it was complicate to use such implementation. The two main reasons being:
+Computers use electricity to store, transfer and process data. Data is basically electricity or magnetic charge. Some engineers tried initially to use voltage-levels to transmit different information, i.e. 0-1V = `0`, 1-3V = `1`, 3-5V = `2`, etc. [[1](https://hashnode.com/post/why-do-computers-understand-only-0-and-1-logic-cj4zcejn100kuomwu3z70cjan)] However, they noticed it was complicate to use such implementation. The two main reasons being:
 
-* The design of ALU and logic operation are more complex
+* The design of ALU and logic operation is more complex
 * The technical complexity of generating a stable voltage
 
-Engineers decided to use a simpler binary implementation, i.e. ~0V = `0` and ~5V = `1`. When stored, for instance in a hard drive, data is represented in a form of magnetic polarity. One polarity = `0` and opposite = `1`. This is why, in the computer realm, everything is only `1`s and `0`s. So for instance if you want to execute the operation `5 + 2`, the ALU will receives `00000000000000000000000000000101` as the first input and `00000000000000000000000000000010` as the second input.
+Engineers decided to use a simpler binary implementation, i.e. ~0V = `0` and ~5V = `1`. When stored, for instance in a hard drive, data is represented in a form of magnetic polarity. One polarity = `0` and opposite = `1`. This is why, in the computer realm, everything is only `1`s and `0`s. So for instance, if you want to execute the operation `5 + 2`, the ALU will receive `00000000000000000000000000000101` as the first input and `00000000000000000000000000000010` as the second input.
 
-> __Note__: The ALU needs to receive input of a fix length. Here this example, we have a 32 bits ALU. This means the inputs are always 32 bits (one bit is a value that can be either 0 or 1) long and the output will also be 32 bit long.
+> __Note__: The ALU needs to receive input of a fixed length. Here this example, we have a 32 bits ALU. This means the inputs are always 32 bits (one bit is a value that can be either 0 or 1) long and the output will also be 32 bit long.
 
 The common numeral system we are using daily is the decimal system (also known as base 10). This means once we reached the 10th value, we increase by one the value positioned before. Here is an example:
 
@@ -115,7 +115,7 @@ Here, the value located at the 4th position is about to reach its 10th iteration
 | `0098`  |
 | `0099`  |
 
-Here, the value located at the 4th position is about the reach again its 10th iteration (since reset to 0). That means at the next iteration, we should increment the value at the 3rd position. However, the value at the 3rd position is also about to reach it's 10th incrementation, so this means we have to increment the value at the position before (i.e. 2nd position) and we reset the 3rd and 4th position.
+Here, the value located at the 4th position is about the reach again its 10th iteration (since reset to 0). That means at the next iteration, we should increment the value at the 3rd position. However, the value at the 3rd position is also about to reach its 10th incrementation, so this means we have to increment the value at the position before (i.e. 2nd position) and we reset the 3rd and 4th position.
 
 | Decimal |
 | :-----: |
@@ -157,7 +157,7 @@ Now we once again reached the 2nd iteration for the value located at the 4th pos
 | `1110` | `0014`  |
 | `1111` | `0015`  |
 
-In base 2, four binary values can represent a number from 0 to 15 (decimal), while in base 10, 4 decimal values can represent a number from 0 to 9999. This make it quite tedious to print values in binary, this is why when we want to represent binary value, we usually use the hexadecimal numeral system (base 16):
+In base 2, four binary values can represent a number from 0 to 15 (decimal), while in base 10, 4 decimal values can represent a number from 0 to 9999. This makes it quite tedious to print values in binary, this is why when we want to represent binary value, we usually use the hexadecimal numeral system (base 16):
 
 | Hexadecimal | Decimal |
 | :---------: | :-----: |
@@ -172,7 +172,7 @@ In base 2, four binary values can represent a number from 0 to 15 (decimal), whi
 |   `0008`    | `0008`  |
 |   `0009`    | `0009`  |
 
-So far, so good. While the base 10 will already increment the position before, we haven't reach the 16th iteration in the hexadecimal system so we can keep incrementing the value at the 4th position. However, we don't have a unique symbol to represent the number 10 (we use the [Arabic numerals](https://en.wikipedia.org/wiki/Arabic_numerals)), so we decided to re-use the latin letter `a` (could be uppercase or lowercase), 11 will be `a` and so on, up to 15 being `f`.
+So far, so good. While the base 10 will already increment the position before, we haven't reached the 16th iteration in the hexadecimal system so we can keep incrementing the value at the 4th position. However, we don't have a unique symbol to represent the number 10 (we use the [Arabic numerals](https://en.wikipedia.org/wiki/Arabic_numerals)), so we decided to re-use the Latin letter `a` (could be uppercase or lowercase), 11 will be `a` and so on, up to 15 being `f`.
 
 | Hexadecimal | Decimal |
 | :---------: | :-----: |
@@ -191,16 +191,16 @@ So far, so good. While the base 10 will already increment the position before, w
 |   `0101`    | `0257`  |
 |   `....`    | `....`  |
 
-So, why using base 16 and not 10 you may ask. Their are multiple reasons but the main ones are:
+So, why using base 16 and not 10 you may ask. There are multiple reasons but the main ones are:
 
-* It is easier to convert binary number in hexadecimal and the other way around. Four binary values can always be represented with one hexadecimal value. So this means if you want to convert from hexadecimal to binary, you first need to chunk the number character by character and convert them in their respective 4 binary values.
+* It is easier to convert a binary number in hexadecimal and the other way around. Four binary values can always be represented with one hexadecimal value. So this means if you want to convert from hexadecimal to binary, you first need to chunk the number character by character and convert them in their respective 4 binary values.
 * This is related to the first reason, but hexadecimal value aligns with its binary equivalent. For instance, the number 9 (decimal) is 1001 in binary. One symbol in decimal for four symbols in binary. Now the number 12 (decimal) is 1100 in binary. Two symbols in decimal but still four symbols in binary. Now 18 (decimal) is 10010 in binary. Two symbols in decimal and 5 in binary. All this long example to explain that there is not a direct correlation with the amount a symbol in decimal and binary. However, since both hexadecimal and binary are bases that are powers of 2, it all aligns. 1-4 symbols in binary will always be 1 symbol in hexadecimal. 5-8 symbols in binary will always be 2 symbols in hexadecimal, etc.
 
 ![Bin to Hex](resources/images/bin-hex.gif)
 
-This might not seems interesting at first sight, but with experience, you will notice hexadecimal comes handy.
+This might not seem interesting at first sight, but with experience, you will notice hexadecimal comes handy.
 
-> __Note__: Hex (short for hexadecimal) values are usually represented with a leading `0x`. For instance the binary `10100100` in hex would be `0xa4`.
+> __Note__: Hex (short for hexadecimal) values are usually represented with a leading `0x`. For instance, the binary `10100100` in hex would be `0xa4`.
 
 
 Data types
@@ -210,7 +210,7 @@ Now that we covered binary and hexadecimal, let's discuss data type. This course
 
 ![Data types](resources/images/data-types.png)
 
-> __Note__: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [[2](https://en.wikipedia.org/wiki/Bit_numbering)]
+> __Note__: In computing, the most significant bit (MSB, also called the high-order bit) is the bit position in a binary number having the greatest value. The MSB is sometimes referred to as the high-order bit or left-most bit due to the convention in the positional notation of writing more significant digits further to the left. Therefore, the least significant bit (LSB) is the bit position in a binary integer giving the units value, that is, determining whether the number is even or odd. [[2](https://en.wikipedia.org/wiki/Bit_numbering)]
 
 So this means a __double word__ (32 bits) can be represented in hexadecimal with 8 symbols. E.g. `00010010001101001010101111001101` = `1234abcd`.
 
@@ -222,7 +222,7 @@ Instructions are the operation read and executed by the CPU. This could be movin
 
 ### Integer
 
-An integer is a whole number (not fractional) that can be positive, negative or 0. Integer can be of different size, but the most used one is 32-bit integer (defined `int` in C). An integer can be defined as _signed_ or _unsigned_. `unsigned int` integer are only positive (or 0) an goes from 0 (`00000000000000000000000000000000`) to 4,294,967,295 (`11111111111111111111111111111111`). `signed int` can be positive, negative or 0. The most significant bit is used to determine whether the number is positive or negative (i.e. if the first bit is `0`, the integer is positive; if the first bit is `1`, the integer is negative). Integer will described in more details in chapter [Integer overflow](#).
+An integer is a whole number (not fractional) that can be positive, negative or 0. Integers can be of different size, but the most used one is 32-bit integer (defined `int` in C). An integer can be defined as _signed_ or _unsigned_. `unsigned int` integer are only positive (or 0) an goes from 0 (`00000000000000000000000000000000`) to 4,294,967,295 (`11111111111111111111111111111111`). `signed int` can be positive, negative or 0. The most significant bit is used to determine whether the number is positive or negative (i.e. if the first bit is `0`, the integer is positive; if the first bit is `1`, the integer is negative). Integers will described in more details in chapter [Integer overflow](#).
 
 ### Float
 
@@ -262,7 +262,7 @@ So for instance, the character `A` (uppercase) is `0x41` in hexadecimal and the 
 
 ### Array
 
-An array is basically a collection of variables of the same type. So for instance, an array of integer will simply be integers places one after each other in memory.
+An array is basically a collection of variables of the same type. So for instance, an array of integers will simply be integers places one after each other in memory.
 
 ### String
 
@@ -295,7 +295,7 @@ A boolean type can have one of two values, either `1` (`true`) or `0` (`false`).
 
 ### Variable pointer
 
-You cannot provide a variable name to the CPU, it will not understand where to find the value in memory. Instead, the CPU receive directly the address of the variable in memory. So that means whenever you ask the CPU to add the variable `a` with the variable `b`, you will need to provide to the CPU the instruction `add`, the address where the variable `a` is located in memory, and the address where the variable `b` is located in memory. Since this course covers only i386 (32-bit) architecture, memory addresses are always 32 bits long. Variable pointer can also point to an array or a structure variable that contains multiple variables a different types.
+You cannot provide a variable name to the CPU, it will not understand where to find the value in memory. Instead, the CPU receives directly the address of the variable in memory. So that means whenever you ask the CPU to add the variable `a` with the variable `b`, you will need to provide to the CPU the instruction `add`, the address where the variable `a` is located in memory, and the address where the variable `b` is located in memory. Since this course covers only i386 (32-bit) architecture, memory addresses are always 32 bits long. Variable pointers can also point to an array or a structure variable that contains multiple variables of different types.
 
 ### Function pointer
 
@@ -303,7 +303,7 @@ We will see more about it in chapters [memory](/appsec101/memory/) and [assembly
 
 ### Handle
 
-Unlike pointers, which are memory addresses, a handle is an abstraction of a reference which is managed externally; its opacity allows the referent to be relocated in memory by the system without invalidating the handle, which is impossible with pointers. Typical usage of handle are for _file descriptors_, _network sockets_, _database connections_, _registry key (Windows)__ and _process identifiers_. Let's take the example of an opened file, whenever you use `fopen("filename.ext", "r+");` (in C), the function will return a handle for that file. Next time the application will access (e.g. read) the file, it will send the handle (instead of the filename or an address in memory), and it will be up to the operating system to find the file based on the handle used as an index, access it and returns whatever the program requested. A pointer is usually an integer that is incremented each time a new handle is generated.
+Unlike pointers, which are memory addresses, a handle is an abstraction of a reference which is managed externally; its opacity allows the referent to be relocated in memory by the system without invalidating the handle, which is impossible with pointers. Typical usages of handles are for _file descriptors_, _network sockets_, _database connections_, _registry key (Windows)__, and _process identifiers_. Let's take the example of an opened file, whenever you use `fopen("filename.ext", "r+");` (in C), the function will return a handle for that file. Next time the application will access (e.g. read) the file, it will send the handle (instead of the filename or an address in memory), and it will be up to the operating system to find the file based on the handle used as an index, access it and returns whatever the program requested. A pointer is usually an integer that is incremented each time a new handle is generated.
 
 | Handle | Type        | Name                 |
 | :----: | ----------- | -------------------- |
@@ -313,18 +313,18 @@ Unlike pointers, which are memory addresses, a handle is an abstraction of a ref
 
 ### Binary object
 
-We've just seen that whenever an application open a file, it receive a handle instead of loading the file directly in memory. Accesses and changes to the actual file are done via the handle. However, in some case, it is necessary to have the file in memory. For instance Photoshop needs to load the picture in memory so that it can display it within the application interface and perform changes (changing luminosity, contrast, adding text/shape, etc). Once the modifications done, the user can save the picture. So the application use the handle to write the actual files with the pictures loaded in memory (so it overwrite the initial picture with the new one). In this example, the binary object was a picture, but it could be many other things: image, video, sound, excel document, text file, etc.
+We've just seen that whenever an application opens a file, it receive a handle instead of loading the file directly in memory. Accesses and changes to the actual file are done via the handle. However, in some case, it is necessary to have the file in memory. For instance, Photoshop needs to load the picture in memory so that it can display it within the application interface and perform changes (changing luminosity, contrast, adding text/shape, etc). Once the modifications are done, the user can save the picture. So the application uses the handle to write the actual files with the pictures loaded in memory (so it overwrite the initial picture with the new one). In this example, the binary object was a picture, but it could be many other things: image, video, sound, excel document, text file, etc.
 
 ### Mis-typed data
 
-Data in memory are pure binary. So if you run a program and start looking at the memory, there is not way you can know for sure the boundaries of all variables stored and their type. By this, I means once the application stored a variable in the memory, this variable has a meaning in the context of the function that uses it (e.g. an integer that represent the size of a file). The pointer to this variable will be saved somewhere and the next time the function will read the variable, it will expect a value that represent the size of a file. But what if for some reason, in the meantime, this value has been entirely or partially overwritten with a string, e.g. "BAD". This would means the variable, which initially contains the size of a file, has been overwritten with the value `0x42414400`.
+Data in memory are pure binary. So if you run a program and start looking at the memory, there is no way you can know for sure the boundaries of all variables stored and their type. By this, I mean once the application stored a variable in the memory, this variable has a meaning in the context of the function that uses it (e.g. an integer that represent the size of a file). The pointer to this variable will be saved somewhere and the next time the function will read the variable, it will expect a value that represents the size of a file. But what if for some reason, in the meantime, this value has been entirely or partially overwritten with a string, e.g. "BAD". This would mean the variable, which initially contains the size of a file, has been overwritten with the value `0x42414400`.
 
 | Byte  |    1   |    2   |    3   |    4   |
 | :---: | :----: | :----: | :----: | :----: |
 |  Hex  | `0x42` | `0x41` | `0x44` | `0x00` |
 | ASCII |  `B`   |  `A`   |  `D`   | `NULL` |
 
-Next time the function will access the variable, it will have no way to figure out the value has been overwritten and that the new value was initially a string. It will simply read it as an integer an proceed as if nothing happened.
+Next time the function will access the variable, it will have no way to figure out the value has been overwritten and that the new value was initially a string. It will simply read it as an integer and proceed as if nothing happened.
 
 > __Note__: Of course, the developer could add some additional checks to verify the integrity of the data, but by default, C program will not enforce it.
 
@@ -337,9 +337,9 @@ While this example could cause some functionality error, this might not be too d
 Logic operation
 ---------------
 
-We've seen that the CPU (actually the ALU) is executing mathematic operations. It receive the command (mathematical operation to execute) and the two inputs. Commands can be basics maths, such as addition or division but also _logic operations_. In fact, all math executed are based on _logic operation_, even a simple addition.
+We've seen that the CPU (actually the ALU) is executing mathematic operations. It receives the command (mathematical operation to execute) and the two inputs. Commands can be basics maths, such as addition or division but also _logic operations_. In fact, all mathematical operations executed are based on _logic operation_, even a simple addition.
 
-_Logic operations_ are mathematical operation in which the variable and result are boolean, i.e. either `true` (`1`) or `false` (`0`). The variable(s) are processes through a _gate_ which will execute a mathematical operation. The basic logic operations are: AND, OR, NOT. Based on those operations, other common operation can be built such as NAND, NOR and XOR.
+_Logic operations_ are mathematical operation in which the variable and result are boolean, i.e. either `true` (`1`) or `false` (`0`). The variable(s) are processed through a _gate_ which will execute a mathematical operation. The basic logic operations are: AND, OR, NOT. Based on those operations, other common operation can be built such as NAND, NOR, and XOR.
 
 ### AND operation
 
@@ -385,7 +385,7 @@ The _NOT_ operation only takes one argument and satisfies the following conditio
 | `0` |  `1`   |
 | `1` |  `0`   |
 
-Basically, the _NOT_ gate invert the value of a.
+Basically, the _NOT_ gate inverts the value of a.
 
 ### NAND operation
 
