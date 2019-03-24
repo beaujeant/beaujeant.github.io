@@ -5,8 +5,8 @@ parent: Application Security 101
 nav_order: 5
 ---
 
-[<< Assembly](/appsec101/lab/){: .btn .btn-outline }
-[Buffer overflow >>](/appsec101/assembly/){: .btn .btn-outline }
+[<< Lab environment](/appsec101/lab/){: .btn .btn-outline }
+[Assembly >>](/appsec101/assembly/){: .btn .btn-outline }
 
 Programming
 ===========
@@ -1078,5 +1078,5 @@ That's it for this big chapter about C programming. In the [next chapter](/appse
 * [Online compiler](https://www.tutorialspoint.com/compile_c_online.php) https://www.tutorialspoint.com/compile_c_online.php
 
 
-[<< Assembly](/appsec101/lab/){: .btn .btn-outline }
-[Buffer overflow >>](/appsec101/assembly/){: .btn .btn-outline }
+[<< Lab environment](/appsec101/lab/){: .btn .btn-outline }
+[Assembly >>](/appsec101/assembly/){: .btn .btn-outline }
