@@ -10,8 +10,11 @@ nav_order: 1
 Introduction
 ============
 
-
 This course will try to explain to you the most common vulnerabilities identified in binary applications, i.e. buffer overflow, use-after-free, format string and integer under/overflow.
+
+
+Content
+-------
 
 What will this course teach you?
 * Understanding the structure and purpose of the CPU and the memory
@@ -42,7 +45,7 @@ For the sake of simplicity, this course will only cover applications running on 
 
 
 Licence
-=======
+-------
 
 This course is licensed under the Apache Licence, Version 2.0.
 
@@ -50,13 +53,13 @@ This course is licensed under the Apache Licence, Version 2.0.
 
 
 About the author
-================
+----------------
 
 My name is Antonin Beaujeant ([@beaujeant](https://twitter.com/beaujeant)), I'm a security professional doing mostly penetration tests. I don't have extensive knowledge of binary security. Most of my experience in that area is coming from CTF and security challenges. There is already tons of information available for free on the internet, but I decided to create my own course nonetheless. The topic can be complex and overwhelming, so I wanted to create a course the way I wish I would have learned it. Everybody has its own preference for learning, e.g. reading, listening, visualizing, etc. This means the structure of this course might be odd and the way I explain things might not make sense to you. This is why I tried to add references as much as possible when suited so that you can get more information or read the same content with a different approach and style.
 
 
 How to contribute
-=================
+-----------------
 
 I'd be more than happy to hear your feedback for improvement in both _substance_ and _form_. If you see any, feel free to report it via the GitHub [issue page](https://github.com/beaujeant/beaujeant.github.io/issues) or via [pull requests](https://github.com/beaujeant/beaujeant.github.io/pulls). I'm not a native English speaker, so this means there are probably lots of typos, repetitions and weird turns of phrase. Furthermore, as mentioned previously, I'm not an expert in binary security, so the content of this course might be inaccurate or maybe even incorrect. While sometimes, I'm inaccurate on purpose for the sake of simplicity, I did my best to avoid any incorrect statement and/or explanation. I created that course for educational purpose and would feel terrible if it actually misinformed its audience instead. So I would really appreciate if you could help me identifying erroneous content and improve this course.
 

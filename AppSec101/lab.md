@@ -54,7 +54,9 @@ sudo apt-get install virtualbox-guest-additions-iso
 
 Now, let's install the VirtualBox Guest Addition. This will allow you to copy/paste from the host to the VM, which will come handy to copy the source code for instance. For this, you simply need to go in the VirtualBox menu "Devices" and select "Install Guest Additions CD image...". Then, you just need to follow the instructions. At the end of the process, go in the VirtualBox menu "Machine" and select "Settings...". In the tab "General" > "Advanced", set the "Shared Clipboard" value to "Bidirectional". You now should be able to copy/paste from the VM to your host and vice-versa.
 
-## Tools
+
+Tools
+-----
 
 For this course, we only need 2 tools: __GDB__ and __GCC__. Both tools are already pre-installed in Ubuntu Desktop.
 
