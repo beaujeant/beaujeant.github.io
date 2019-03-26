@@ -18,7 +18,7 @@ Hello world!
 
 Usually, when learning a new language, the first code we teach to students is the `Hello World!` program. The goal of this program is to display the text `Hello World!`. In C, the `Hello World!` program looks like this:
 
-```
+```C
 #include <stdio.h>
 
 void main ()
@@ -310,6 +310,25 @@ printf("%d", *pointer); // Print "14"
 When using the pointer name only, we get the memory address stored in the pointer variable. Whenever we use the `*` in front of the mail, we get the value located at the memory address stored in the pointer variable.
 
 As you can see in our last example, whenever we did `b = a;`, we copied the content stored in the variable `a` and stored into the variable `b`. We did not copy the address. So, later, whenever the variable `a` is modified, `b` still has the old value. 
+
+
+Math/Logic opertations
+----------------------
+
+C language has native mathematic and logic operation available straight out of the box without using additional functions. Here are some examples with the operants `int a = 7;` and `int b = 10`, where the result is stored in `int res`.
+
+* __add__: `res = a + b; // res = 17` 
+* __subtraction__: `res = a - b; // res = -3`
+* __multiplication__: `res = a * b; // res = 70`
+* __division__: `res = a / b; // res = 15`
+* __AND__: `res = a & b; // res = 2`
+* __OR__: `res = a | b; // res = 15`
+* __NOT__: `res = ~ a; // res = 15`
+* __XOR__: `res = a ^ b; // res = 15`
+* __left shift__: `res = a << b; // res = 15`
+* __right shift__: `res = a >> b; // res = 15`
+
+> __Note__: The division resulted in an incorrect value. This is because we are dividing integer numbers and save the value in an integer variable. 
 
 
 Branching
