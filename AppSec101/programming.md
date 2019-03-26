@@ -25,7 +25,7 @@ void main ()
 {
     printf("Hello World!");
 }
-```
+```{: .line-numbers }
 
 Let's try it! First, we create a new file `hello.c` with the code above, then execute the following two commands:
 
@@ -399,7 +399,7 @@ while( i < 100 )
     table[i] = 0;
     i = i + 1;
 }
-```
+```{: .btn .btn-outline }
 
 In line 1, we declare an array of 100 integers. In line two, we declare the integer `i`, which will be used later as a counter for the loop. In line 4, we have the beginning of the loop with the condition within the parentheses, then between line 5 and 8 (the curly brackets), we have the code to execute at each iteration. In line 6, we have the array initialized, where the counter is used as an index. Finally, in line 7, we have the counter incremented. Whenever the program reaches the end of the loop, it will check the condition and check whether it should go back at the beginning of it (line 6).
 
