@@ -64,7 +64,7 @@ For this course, we only need 2 tools: __GDB__ and __GCC__. Both tools are alrea
 
 Let's compile our first C code for this course. Use your favorite text editor and create the following `mul.c` file:
 
-```
+```C
 #include <stdio.h>
 
 int add(int, int);

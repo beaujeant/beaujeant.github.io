@@ -119,7 +119,7 @@ The stack is a region in memory where data is added or removed in a last-in-firs
 
 In order to have a better understanding of the stack, here is an example. Let's consider the following C code:
 
-```
+```C
 #include <stdio.h>
 
 int add(int, int);
@@ -239,7 +239,7 @@ A shared library used by multiple applications means the library is loaded only 
 
 The function `printf` for instance is located in the shared library `/lib/i386-linux-gnu/libc.so.6`. By default, GCC always includes the shared library `libc`, so there is no need to specify it when compiling. For instance, let's consider the following code `hello.c`:
 
-```
+```C
 #include <stdio.h>
 
 int main()
@@ -321,7 +321,7 @@ As mentioned earlier in the sub-chapter _ELF/PE file_, an application can have m
 
 The _.data_ section contains any global or static variables which have a pre-defined value and can be modified. That is any variables that are not defined within a function (and thus can be accessed from anywhere) or are defined in a function but are defined as `static` so they retain their address across subsequent calls. Examples, in C, include:
 
-```
+```C
 int val = 3;
 char string[] = "Hello World";
 ```

@@ -42,7 +42,7 @@ On the third line, we have `void main ()`, this basically declare the function `
 
 The syntax in C is quite flexible, i.e. the tabulation is purely aesthetic (unlike python) and the curly bracket could also be located on the same line as the function declaration:
 
-```
+```C
 void main () {
     printf("Hello World!");
 }
@@ -50,13 +50,13 @@ void main () {
 
 ... or everything in one line:
 
-```
+```C
 void main () { printf("Hello World!"); }
 ```
 
 ... or the way I prefer:
 
-```
+```C
 void main ()
 {
     printf("Hello World!");
@@ -82,7 +82,7 @@ Developers can add notes in their code that will be ignored by the compiler. Com
 
 Initially, comments in C always started with `/*` and ended with `*/` and could take place over multiple lines, e.g.:
 
-```
+```C
 /* 
  * Multiple
  * line
@@ -96,7 +96,7 @@ printf("Hello World!");
 
 Later, with the introduction of the C++ language, a new format of comment was used, the double slash comment `//`. Unlike the initial format, double slash can comment only one line each time:
 
-```
+```C
 // This is a comment
 
 printf("Hello World");
@@ -109,7 +109,7 @@ printf("Hello World");
 
 The comment can also be used at the end of a code line:
 
-```
+```C
 printf("Hello World");   // This is a comment
 ```
 
@@ -121,7 +121,7 @@ People create programs to automate and fasten the processing of data. In compute
 
 Before a variable is used, it has to be __declared__. The syntax for declaring a variable is the following: `<type> <variable name>;`. For instance, if you want to declare an _integer_ with the name _number_, you simply need to type:
 
-```
+```C
 int number;
 ```
 
@@ -131,7 +131,7 @@ You will find a list of the different types of variable in chapter [CPU](/appsec
 
 There is a limited set of types available for variables. However, you are still able to define your own custom type with `struct`. Let say for instance you want to create a variable that stores time (date + time):
 
-```
+```C
 struct Date
 {
    int year;
@@ -145,13 +145,13 @@ struct Date
 
 Now that the type `Date` is defined and initialized, we can declare variables (`today` for instance) as a `Date` variable:
 
-```
+```C
 struct Date today;
 ```
 
 It is also possible to declare arrays of a specific type. In this case, we just add `[<size>]` right after the name of the variable. For instance, the following line will declare an array of 11 characters:
 
-```
+```C
 char string[11];
 ```
 
@@ -166,7 +166,7 @@ Declaring a variable tells the compiler (the tool responsible for the translatio
 
 Let's consider the following code:
 
-```
+```C
 int number;
 number = "Hello";
 ```
@@ -180,7 +180,7 @@ warning: assignment makes integer from pointer without a cast [-Wint-conversion]
 
 Sometime, when possible, the compiler will fix automatically the problem:
 
-```
+```C
 int number;
 number = 3.2;
 ```
@@ -197,13 +197,13 @@ It automatically converted the float `3.2` into the integer (`0x3`) and copied i
 
 Declaring is also important for arrays. Elements in arrays are stored in memory one after the other. But each element takes a specific amount of space in memory depending on the type. For instance, let's consider the following array of 10 integers:
 
-```
+```C
 int array[10];
 ```
 
 Let say the beginning of the array is located at the address `0xbfffef00`. The first element (`array[0]`) will be located at `0xbfffef00`, the second element (`array[1]`) will be located at `0xbfffef08` (`0xbfffef00` + size of _one_ integer), the third element (`array[2]`) will be located at `0xbfffef10` (`0xbfffef00` + _two_ time the size of one integer), etc. Now, let's consider the following array of 10 characters:
 
-```
+```C
 char string[10];
 ```
 
@@ -221,7 +221,7 @@ So basically, the type in the declaration of an array is used to determine where
 
 Declaring a variable also tells how much space should be allocated in memory. So for instance, if you declare an integer, 4 bytes will be allocated in the stack:
 
-```
+```C
 int number;
 ```
 
@@ -237,14 +237,14 @@ The above assembly instruction allocates 4 bytes in the stack. `ESP` points at t
 
 Once the variable declared, we can assign data and manipulate it. To assign a value to the variable, you simply need to use the symbol `=`:
 
-```
+```C
 int number;
 number = 3;
 ```
 
 In a table, you will need to indicate the index (first element being `0`). So the following will set the value `L` at the third element of the array:
 
-```
+```C
 char string[11];
 string[2] = 'L';
 ```
@@ -253,7 +253,7 @@ string[2] = 'L';
 
 Assigning value on struct is slightly different. The two most common ways to set the variable is either by using `{}` with the value separated with a coma, or by using the sub-name separated with a `.`. Here is a mix of both:
 
-```
+```C
 struct Date today = { 2019, 1, 1, 0, 0, 0 };
 today.day = 17;
 today.hours = 15;
@@ -270,13 +270,13 @@ We mentioned at the beginning of this sub-chapter that variables are meant to be
 In order to know the address in memory where the variable is stored, you can use the symbol `&` right in front of the variable name, e.g. `&number`. You can also create variables that are meant to store a memory address. Those variables are called _pointer_ and can be declared as follow: `<type> *<variable name>`. For instance, if we want to create a pointer `pointer` that will store an integer, we will have the following line:
 
 
-```
+```C
 int *pointer;
 ```
 
 Then, here is how we assign a memory address to a pointer:
 
-```
+```C
 int a;
 int *pointer;
 
@@ -285,7 +285,7 @@ pointer = &a;
 
 Now, if we modify the variable `a`, the address will remain the same, but the stored content will change:
 
-```
+```C
 int a, b;
 int *pointer;
 
@@ -336,7 +336,7 @@ Branching
 
 When programming, you will most likely want at some point to verify or test some variables and do something accordingly. For instance, verifying if the password entered by the user is correct or verify if a file exists. These can be done thanks to __branching__. Branching is whenever the program has to choose between two (or more) branches based on one (or more) conditions. The most common form of branches is the __if__/__else__ statements:
 
-```
+```C
 if( pin_code == 1234 )
 {
     printf("PIN correct!");
@@ -364,7 +364,7 @@ The result of a condition is always seen as a boolean in the __if__ statement. S
 
 The boolean result can also be inverted with the operator `!` (i.e. _NOT_):
 
-```
+```C
 if( ! (pin_code == 1234) )
 {
     printf("Wrong PIN!");
@@ -377,7 +377,7 @@ Loop
 
 You may want at some point to repeat multiple times a succession of instructions. Let say you want to initialize a big array with `0`. You could do the following:
 
-```
+```C
 int table[100];
 table[0] = 0;
 table[0] = 0;
@@ -390,7 +390,7 @@ table[100] = 0;
 
 In this example, you would have a long repetitive list of instructions. If you suddenly want to initialize the array with the value `2` instead of `0`, you would have to change 100 lines. Furthermore, what if you don't know the size of the array and this depends on the user input? You wouldn't be able to predict the size of the array and write the correct amount of line. Instead, you could use the `for`, the `while` or the `do-while` loop. Both loops take one or more conditions (like `if/else`). The condition dictates whether the loop should reiterate or not.
 
-```
+```C
 int table[100];
 int i = 0;
 
@@ -405,7 +405,7 @@ In line 1, we declare an array of 100 integers. In line two, we declare the inte
 
 The structure of a `for` loop allows you to condense a little bit the code that manages the loop variable (in this case, the variable `i`):
 
-```
+```C
 int table[100];
 
 for( int i = 0; i < 100; i = i + 1)
@@ -422,7 +422,7 @@ As you can see, the condition of the `for` loop is split into 3 parts (separated
 
 There is still one last loop variant, i.e. the `do while`. Basically, it works like the `while` loop except that the content of the loop is executed at least once, no matter if the condition is met or not.
 
-```
+```C
 int i = 0;
 
 do
@@ -438,7 +438,7 @@ Functions
 
 Whenever you have a set of instructions that is used multiple times, you might want to avoid re-writing them over and over again. Usually, programmers group sets of instructions that are used for a specific purpose into functions. Let say for instance you have the following block of code used multiple times in your program:
 
-```
+```C
 int january_temperature[] = { -5, -6, -4, -7, -8, -4, -2, 2, 0, -1, 3, 6, 4, 3, 6, 5, 7, 2, 0, 4, 2, 1, 3, -2, -6, -3, -1, 0, 1, 2, 3 };
 int february_temperature[] = { 2, 1, 4, 5, 4, 7, 1, 3, 6, 7, 12, 5, 7, 6, 3, 7, 7, 9, 5, 7, 9, 11, 9, 8, 5, 3, 3, 7 };
 // ...
@@ -497,7 +497,7 @@ In this example, we have a set of instructions that are meant to find the highes
 
 A function typically takes 0, one or more inputs, process data, then returns 0 or one output. A function is defined by its header, which contains the type of the returned value, the name of the function, then the list of expected arguments:
 
-```
+```C
 void get_highest_and_lowest_temperature( int month[], int size_of_array )
 {
     // Body
@@ -506,7 +506,7 @@ void get_highest_and_lowest_temperature( int month[], int size_of_array )
 
 Here, we can see our new function `get_highest_and_lowest_temperature` has been defined. The function doesn't return any output and takes two arguments: one array of integer called `month` and one integer called `days_in_month`. Now that the function is defined, we can add the body, which contains the operations done by the function.
 
-```
+```C
 void get_highest_and_lowest_temperature( int month[], int days_in_month )
 {
     int highest = month[0];
@@ -528,7 +528,7 @@ void get_highest_and_lowest_temperature( int month[], int days_in_month )
 
 Now, our function is ready to be used. We can call it as follow:
 
-```
+```C
 #include <stdio.h>
 
 void get_highest_and_lowest_temperature( int month[], int days_in_month )
@@ -576,7 +576,7 @@ Lowest temperature: 1
 
 As mentioned earlier, functions can also return one variable. Let's consider the following example:
 
-```
+```C
 int add( int a, int b )
 {
     int c;
@@ -589,7 +589,7 @@ int add( int a, int b )
 
 We created the function `add` that takes two arguments (`a` and `b`), add both numbers and returns the result. Here is how we can call that function and save the returned value:
 
-```
+```C
 #include <stdio.h>
 
 int add( int a, int b )
@@ -617,7 +617,7 @@ Once compiled and executed, the program will simply print `Result: 12`.
 
 Functions can take 0, one or multiple arguments. These are meant to send data from the callee (the function calling another function) to the called function. Unless explicitly declared outside all functions, a variable can be used only in the function where it has been declared. So this means the following won't work:
 
-```
+```C
 #include <stdio.h>
 
 int add()
@@ -642,7 +642,7 @@ void main ()
 
 However, this would work:
 
-```
+```C
 #include <stdio.h>
 
 int A = 5;
@@ -669,7 +669,7 @@ void main ()
 
 Another interesting – and maybe counterintuitive behavior – is that whenever you send a variable as an argument, you actually send a copy of its content rather than the variable itself. This means if a function modifies the value of an argument, the change will take place only within that function:
 
-```
+```C
 #include <stdio.h>
 
 int add( int a, int b )
@@ -709,7 +709,7 @@ If you remember well, we mentioned at the beginning of this chapter that the inc
 
 Function prototypes are also used whenever a call to a function happen before (in the code) the function is declared. In this case, the prototype of the function can be placed at the beginning of the source code:
 
-```
+```C
 #include <stdio.h>
 
 int add( int a, int b ); // Function prototype for add
@@ -744,7 +744,7 @@ Sometimes the program can take arguments, like for instance the Linux command `c
 
 Here is the actual declaration of `main`:
 
-```
+```C
 int main(int argc, char *argv[]);
 ```
 
@@ -757,7 +757,7 @@ We've seen earlier in chapter [CPU](/appsec101/cpu/), strings are actually an ar
 
 Here is an example to print all program arguments:
 
-```
+```C
 #include <stdio.h>
 
 int main (int argc, char *argv[])
@@ -793,7 +793,7 @@ We've already used this function earlier in some examples. We know it is meant t
 
 Unlike most functions, `printf` can take an _unlimited_ amount of argument. It expects at least one argument, the _format string_. The _format string_ is basically what `printf` will _print_ in the terminal. 
 
-```
+```C
 printf("Hello World!"); // Hello World!
 ```
 
@@ -827,7 +827,7 @@ The `specifier` is the most important part of the _format specifier_ as it the w
 
 Here are some examples:
 
-```
+```C
 int n = 42;
 printf("Variable n (int): %d \n", n);       // Variable n (int): 42
 printf("Variable n (hex): %X \n", n);       // Variable n (hex): 2A
@@ -847,7 +847,7 @@ printf("Pointer to variable c: %p \n", &c); //Pointer to variable c: 0x--------
 
 So far we've printed only one variable, but `printf` can, of course, print more than one. For this, you simply need to add the variable in the argument of the function and add the appropriate _specifier_ in the _format string_. The first _format specifier_ will correspond to the second argument, the second _format specifier_ will correspond to the third one, ...
 
-```
+```C
 int x = 42;
 int y = 1337;
 int res;
@@ -859,7 +859,7 @@ printf("%d + %d = %d \n", x, y, res); // 42 + 1337 = 1379
 
 Among all _specifier_, there is one particular: `n`. Unlike the other _specifier_, `n` is not meant to print something in the terminal but instead, it writes the number of characters written so far at a given address.
 
-```
+```C
 int i;
 
 printf("Hello%n World! \n", &i);      // Hello World!
@@ -893,7 +893,7 @@ For this workshop, we are only interested in the _width_ sub-specifier. If you w
 
 By default, printf will print the minimum amount of character required to display the variable. For instance, the integer `1234`, although it's stored in a 32-bit variable, if we want to print it as hexadecimal, we won't have `000004D2`, but only `4D2`:
 
-```
+```C
 int n = 1234;
 
 printf("%d in hex: %X\n", n, n); // 1234 in hex: 4D2
@@ -901,7 +901,7 @@ printf("%d in hex: %X\n", n, n); // 1234 in hex: 4D2
 
 If you want the variable to be printed to actually be printed with minimum 8 character, you can use the _width_ sub-specifier:
 
-```
+```C
 int n = 1234;
 
 printf("%d in hex: %8X\n", n, n); // 1234 in hex:      4D2
@@ -909,7 +909,7 @@ printf("%d in hex: %8X\n", n, n); // 1234 in hex:      4D2
 
 By default, the padding is a space (` `). So here, in this case, the variable `1234` was printed with 5 x space and 3 x hexadecimal values. If you want to pad it with `0`'s, you can use the _flag_ sub-specifier `0`:
 
-```
+```C
 int n = 1234;
 
 printf("%d in hex: %08X\n", n, n); // 1234 in hex: 000004D2
@@ -917,7 +917,7 @@ printf("%d in hex: %08X\n", n, n); // 1234 in hex: 000004D2
 
 In our last example, we printed the same variable multiple times. Therefore, we send the same variable multiple times as argument. In order to avoid that, we can use the _position specifier_:
 
-```
+```C
 int n = 1234;
 
 printf("%d in hex: %X\n", n, n); // 1234 in hex: 4D2
@@ -927,7 +927,7 @@ printf("%1$d in hex: %1$X\n", n); // 1234 in hex: 4D2
 
 The `1$` correspond to the second argument, `2$` correspond to the third argument, etc. Here is a final example:
 
-```
+```C
 char e = 'E';
 char h = 'H';
 char l = 'L';
@@ -950,7 +950,7 @@ For this workshop, we will only use the _format specifier_ without options, i.e.
 | s | String of characters | Any number of non-whitespace characters, stopping at the first whitespace character found. A terminating null character is automatically added at the end of the stored sequence. |
 | p | Pointer address | A sequence of characters representing a pointer. The particular format used depends on the system and library implementation, but it is the same as the one used to format %p in `printf`. |
 
-```
+```C
 #include <stdio.h>
 
 void main()
@@ -979,7 +979,7 @@ That's all we need to know about `scanf` for this workshop. If you want more inf
 
 Now that we know how to read and print strings, let's see how to manipulate them. The function `strcpy` is meant to copy a string from one address to another. The function takes two arguments, the _destination_ (first) and the _source_ (second). Both are pointers to a string (i.e. array of `char`). `strcpy` copies one by one all character from _source_ to _destination_ until it reaches the `NULL` (`0x00`) character that terminates the _source_ string.
 
-```
+```C
 #include <stdio.h>
 #include <string.h>
 
@@ -1010,7 +1010,7 @@ There is not much more to say about that function. If you have to read a bit mor
 
 We've already talked about `malloc` and the reasons why we need it in chapter [Memory](/appsec101/memory/) - [Heap](/appsec101/memory/#heap). Basically, `malloc` is used to dynamically allocate memory to store data. The function takes only one argument, the _size_ of the new block you want to allocated (in byte) and it returns a pointer to that allocated memory block.
 
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1059,7 +1059,7 @@ Here again, that's pretty much it. If you want further information, you can read
 
 The function `free` was also covered in chapter [Memory](/appsec101/memory/) - [Heap](/appsec101/memory/#heap). `free` is used whenever we no longer need the dynamically allocated memory block. It _releases_ so that it can be re-used for another dynamically allocated memory. The function takes as argument a pointer to a dynamically allocated memory block and returns nothing.
 
-```
+```C
 #include <stdio.h>
 #include <stdlib.h>
 
