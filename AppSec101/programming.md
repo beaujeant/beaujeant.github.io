@@ -29,7 +29,7 @@ void main ()
 
 Let's try it! First, we create a new file `hello.c` with the code above, then execute the following two commands:
 
-```shell
+```
 gcc hello.c -o hello
 ./hello
 ```
