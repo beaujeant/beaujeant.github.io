@@ -31,7 +31,7 @@ void main ()
 Let's try it! First, we create a new file `hello.c` with the code above, then execute the following two commands:
 
 ```
-gcc hello.c -o hello
+$ gcc hello.c -o hello
 ./hello
 ```
 
@@ -566,8 +566,8 @@ void main ()
 When compiled and executed, we have the following output:
 
 ```
-gcc func.c -o func
-./func
+$ gcc func.c -o func
+$ ./func
 Highest temperature: 7
 Lowest temperature: -8
 Highest temperature: 12
@@ -739,10 +739,16 @@ Program arguments
 Now that we have discussed the pointer and function prototype, we can talk about the program arguments. Whenever you want to run a program, you typically execute the following command:
 
 ```
-./program-name
+$ ./program-name
 ```
 
-Sometimes the program can take arguments, like for instance the Linux command `cp` (copy) which accepts two arguments, the first one being the path to the file we want to copy and the second arguments being the path where we want to copy the file. Whenever you send arguments to a program, it will be available through an array of pointer.
+Sometimes the program can take arguments, like for instance the Linux command `cp` (copy) which accepts two arguments, the first one being the path to the file we want to copy and the second arguments being the path where we want to copy the file. 
+
+```
+$ cp /path/to/source-file /path/to/destination-file
+```
+
+Whenever you send arguments to a program, it will be available through an array of pointer.
 
 Here is the actual declaration of `main`:
 

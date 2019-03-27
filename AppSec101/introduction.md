@@ -55,7 +55,11 @@ This course is licensed under the Apache Licence, Version 2.0.
 About the author
 ----------------
 
-My name is Antonin Beaujeant ([@beaujeant](https://twitter.com/beaujeant)), I'm a security professional doing mostly penetration tests. I don't have extensive knowledge of binary security. Most of my experience in that area is coming from CTF and security challenges. There is already tons of information available for free on the internet, but I decided to create my own course nonetheless. The topic can be complex and overwhelming, so I wanted to create a course the way I wish I would have learned it. Everybody has its own preference for learning, e.g. reading, listening, visualizing, etc. This means the structure of this course might be odd and the way I explain things might not make sense to you. This is why I tried to add references as much as possible when suited so that you can get more information or read the same content with a different approach and style.
+My name is Antonin Beaujeant ([@beaujeant](https://twitter.com/beaujeant)), I'm a security professional doing mostly penetration tests. I don't have extensive knowledge of binary security. Most of my experience in that area is coming from CTF and security challenges. 
+
+There is already tons of information available for free on the internet, but I decided to create my own course nonetheless. The topic can be complex and overwhelming, so I wanted to create a course the way I wish I would have learned it. 
+
+Everybody has its own preference for learning, e.g. reading, listening, visualizing, etc. This means the structure of this course might be odd and the way I explain things might not make sense to you. This is why I tried to add references as much as possible when suited so that you can get more information or read the same content with a different approach and style.
 
 
 How to contribute
