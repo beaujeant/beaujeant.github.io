@@ -7,22 +7,35 @@ p {
     text-align: justify;
 }
 
-.right {
-    float: right;
-}
+
 
 blockquote {
     background: rgb(233, 233, 233);
     padding: 1em 1em .1em 1em;
     border-radius: .3em;
+    margin-bottom: 2em;
+}
+
+img {
+    margin: 2em 0;
 }
 
 table {
     width: auto;
+    margin: 2em 0;
+}
+
+.long-table {
+    display: block;
+    overflow:auto;
 }
 
 .limit-size {
     max-height:750px;
+}
+
+.right {
+    float: right;
 }
 
 

@@ -272,6 +272,7 @@ A string is an array of char that is terminated with the ASCII `NULL` character 
 | :---: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 |  Hex  | `0x48` | `0x65` | `0x6c` | `0x6c` | `0x6f` | `0x20` | `0x57` | `0x6f` | `0x72` | `0x6c` | `0x64` | `0x00` |
 | ASCII |  `H`   |  `e`   |  `l`   |  `l`   |  `o`   |  ` `   |  `W`   |  `o`   |  `r`   |  `l`   |  `d`   | `NULL` |
+{: .long-table }
 
 > __Note__: When calculating the length of a string, the `NULL` character is counted. So the string "Hello World" is 12 characters long.
 
@@ -281,6 +282,7 @@ When you want to write a mutli-line text, you can use the ASCII `\n` character (
 | :---: | :----: | :----: | :----: | :----: | :----: | :-----: | :----: | :----: | :----: | :----: | :----: | :----: |
 |  Hex  | `0x48` | `0x65` | `0x6c` | `0x6c` | `0x6f` | `0x0a`  | `0x57` | `0x6f` | `0x72` | `0x6c` | `0x64` | `0x00` |
 | ASCII |  `H`   |  `e`   |  `l`   |  `l`   |  `o`   |  `\n`   |  `W`   |  `o`   |  `r`   |  `l`   |  `d`   | `NULL` |
+{: .long-table }
 
 ... will print the following text on a Unix system:
 
