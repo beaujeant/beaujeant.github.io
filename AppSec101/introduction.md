@@ -5,7 +5,7 @@ parent: Application Security 101
 nav_order: 1
 ---
 
-[Central Processing Unit >>](/appsec101/cpu/){: .btn .btn-outline }
+[Central Processing Unit >>](/appsec101/cpu/){: .btn .btn-outline .right }
 
 Introduction
 ============
@@ -77,4 +77,4 @@ I'd be more than happy to hear your feedback for improvement in both _substance_
 * [pull requests](https://github.com/beaujeant/beaujeant.github.io/pulls) https://github.com/beaujeant/beaujeant.github.io/pulls
 
 
-[Central Processing Unit >>](/appsec101/cpu/){: .btn .btn-outline }
+[Central Processing Unit >>](/appsec101/cpu/){: .btn .btn-outline .right }

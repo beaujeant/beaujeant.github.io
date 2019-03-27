@@ -6,7 +6,7 @@ nav_order: 5
 ---
 
 [<< Lab environment](/appsec101/lab/){: .btn .btn-outline }
-[Assembly >>](/appsec101/assembly/){: .btn .btn-outline }
+[Assembly >>](/appsec101/assembly/){: .btn .btn-outline .right }
 
 Programming
 ===========
@@ -1106,4 +1106,4 @@ That's it for this big chapter about C programming. In the [next chapter](/appse
 
 
 [<< Lab environment](/appsec101/lab/){: .btn .btn-outline }
-[Assembly >>](/appsec101/assembly/){: .btn .btn-outline }
+[Assembly >>](/appsec101/assembly/){: .btn .btn-outline .right }

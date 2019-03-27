@@ -6,7 +6,7 @@ nav_order: 3
 ---
 
 [<< Central Processing Unit](/appsec101/cpu/){: .btn .btn-outline }
-[Lab setup >>](/appsec101/lab/){: .btn .btn-outline }
+[Lab setup >>](/appsec101/lab/){: .btn .btn-outline .right }
 
 Memory
 ======
@@ -434,4 +434,4 @@ Remember the _ALU_ in chapter [CPU](/appsec101/cpu/)? Well, _CF_, _PF_, _ZF_, _S
 
 
 [<< Central Processing Unit](/appsec101/cpu/){: .btn .btn-outline }
-[Lab setup >>](/appsec101/lab/){: .btn .btn-outline }
+[Lab setup >>](/appsec101/lab/){: .btn .btn-outline .right }

@@ -6,7 +6,7 @@ nav_order: 2
 ---
 
 [<< Introduction](/appsec101/introduction/){: .btn .btn-outline }
-[Memory >>](/appsec101/memory/){: .btn .btn-outline }
+[Memory >>](/appsec101/memory/){: .btn .btn-outline .right }
 
 Central Processing Unit
 =======================
@@ -445,4 +445,4 @@ This was the last logic operation for this course and the last section for this 
 
 
 [<< Introduction](/appsec101/introduction/){: .btn .btn-outline }
-[Memory >>](/appsec101/memory/){: .btn .btn-outline }
+[Memory >>](/appsec101/memory/){: .btn .btn-outline .right }

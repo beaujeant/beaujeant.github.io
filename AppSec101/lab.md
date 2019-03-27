@@ -6,7 +6,7 @@ nav_order: 4
 ---
 
 [<< Memory](/appsec101/memory/){: .btn .btn-outline }
-[Programming >>](/appsec101/programming/){: .btn .btn-outline }
+[Programming >>](/appsec101/programming/){: .btn .btn-outline .right }
 
 Lab environment
 ===============
@@ -463,4 +463,4 @@ In the next exercises, we will go a bit deeper with the usage of `GDB`.
 
 
 [<< Memory](/appsec101/memory/){: .btn .btn-outline }
-[Programming >>](/appsec101/programming/){: .btn .btn-outline }
+[Programming >>](/appsec101/programming/){: .btn .btn-outline .right }

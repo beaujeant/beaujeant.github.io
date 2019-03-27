@@ -6,7 +6,7 @@ nav_order: 6
 ---
 
 [<< Lab setup](/appsec101/programming/){: .btn .btn-outline }
-[Programming >>](/appsec101/bof/){: .btn .btn-outline }
+[Programming >>](/appsec101/bof/){: .btn .btn-outline .right }
 
 Assembly
 ===========
@@ -44,4 +44,4 @@ Functions
 
 
 [<< Lab setup](/appsec101/programming/){: .btn .btn-outline }
-[Programming >>](/appsec101/bof/){: .btn .btn-outline }
+[Programming >>](/appsec101/bof/){: .btn .btn-outline .right }
